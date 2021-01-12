@@ -60,7 +60,7 @@ IncrementalTriangulator::IncrementalTriangulator(
 
 size_t IncrementalTriangulator::TriangulateImage(const Options& options,
                                                  const image_t image_id) {
-  CHECK(options.Check());
+  //CHECK(options.Check());
 
   size_t num_tris = 0;
 

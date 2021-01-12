@@ -62,7 +62,9 @@ void AdjustGlobalBundle(const IncrementalMapperOptions& options,
   }
 
   //PrintHeading1("Global bundle adjustment");
-  if (options.ba_global_use_pba && !options.fix_existing_images &&
+  mapper->AdjustGlobalBundle(options.Mapper(), custom_ba_options);
+
+  /*if (options.ba_global_use_pba && !options.fix_existing_images &&
       num_reg_images >= kMinNumRegImagesForFastBA &&
       ParallelBundleAdjuster::IsSupported(custom_ba_options,
                                           mapper->GetReconstruction())) {
@@ -70,7 +72,7 @@ void AdjustGlobalBundle(const IncrementalMapperOptions& options,
         custom_ba_options, options.ParallelGlobalBundleAdjustment());
   } else {
     mapper->AdjustGlobalBundle(options.Mapper(), custom_ba_options);
-  }
+  }*/
 }
 
 void IterativeLocalRefinement(const IncrementalMapperOptions& options,

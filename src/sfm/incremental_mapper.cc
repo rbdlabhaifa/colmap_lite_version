@@ -561,8 +561,8 @@ IncrementalMapper::AdjustLocalBundle(
     const Options& options, const BundleAdjustmentOptions& ba_options,
     const IncrementalTriangulator::Options& tri_options, const image_t image_id,
     const std::unordered_set<point3D_t>& point3D_ids) {
-  CHECK_NOTNULL(reconstruction_);
-  CHECK(options.Check());
+  //CHECK_NOTNULL(reconstruction_);
+  //CHECK(options.Check());
 
   LocalBundleAdjustmentReport report;
 
