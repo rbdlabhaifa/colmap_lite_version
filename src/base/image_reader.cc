@@ -31,25 +31,24 @@
 
 #include "base/image_reader.h"
 
-#include "base/camera_models.h"
+//#include "base/camera_models.h"
 #include "util/misc.h"
 
 namespace colmap {
 
 bool ImageReaderOptions::Check() const {
-  CHECK_OPTION_GT(default_focal_length_factor, 0.0);
-  CHECK_OPTION(ExistsCameraModelWithName(camera_model));
-  const int model_id = CameraModelNameToId(camera_model);
-  if (!camera_params.empty()) {
-    CHECK_OPTION(
-        CameraModelVerifyParams(model_id, CSVToVector<double>(camera_params)));
-  }
+  //CHECK_OPTION_GT(default_focal_length_factor, 0.0);
+  //CHECK_OPTION(ExistsCameraModelWithName(camera_model));
+  //const int model_id = CameraModelNameToId(camera_model);
+  /*if (!camera_params.empty()) {
+    //CHECK_OPTION(CameraModelVerifyParams(model_id, CSVToVector<double>(camera_params)));
+  }*/
   return true;
 }
 
 ImageReader::ImageReader(const ImageReaderOptions& options, Database* database)
     : options_(options), database_(database), image_index_(0) {
-  CHECK(options_.Check());
+  //CHECK(options_.Check());
 
   // Ensure trailing slash, so that we can build the correct image name.
   options_.image_path =
@@ -70,14 +69,14 @@ ImageReader::ImageReader(const ImageReaderOptions& options, Database* database)
   }
 
   if (static_cast<camera_t>(options_.existing_camera_id) != kInvalidCameraId) {
-    CHECK(database->ExistsCamera(options_.existing_camera_id));
+    //CHECK(database->ExistsCamera(options_.existing_camera_id));
     prev_camera_ = database->ReadCamera(options_.existing_camera_id);
   } else {
     // Set the manually specified camera parameters.
     prev_camera_.SetCameraId(kInvalidCameraId);
     prev_camera_.SetModelIdFromName(options_.camera_model);
     if (!options_.camera_params.empty()) {
-      CHECK(prev_camera_.SetParamsFromString(options_.camera_params));
+      //CHECK(prev_camera_.SetParamsFromString(options_.camera_params));
       prev_camera_.SetPriorFocalLength(true);
     }
   }
@@ -85,12 +84,12 @@ ImageReader::ImageReader(const ImageReaderOptions& options, Database* database)
 
 ImageReader::Status ImageReader::Next(Camera* camera, Image* image,
                                       Bitmap* bitmap, Bitmap* mask) {
-  CHECK_NOTNULL(camera);
-  CHECK_NOTNULL(image);
-  CHECK_NOTNULL(bitmap);
+  //CHECK_NOTNULL(camera);
+  //CHECK_NOTNULL(image);
+  //CHECK_NOTNULL(bitmap);
 
   image_index_ += 1;
-  CHECK_LE(image_index_, options_.image_list.size());
+  //CHECK_LE(image_index_, options_.image_list.size());
 
   const std::string image_path = options_.image_list.at(image_index_ - 1);
 

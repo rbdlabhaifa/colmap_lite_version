@@ -60,7 +60,7 @@ using namespace colmap;
 
 int RunAutomaticReconstructor(int argc, char** argv) {
   AutomaticReconstructionController::Options reconstruction_options;
-  std::string data_type = "individual";
+  std::string data_type = "video";
   std::string quality = "high";
   std::string mesher = "poisson";
 
@@ -171,33 +171,6 @@ int RunBundleAdjuster(int argc, char** argv) {
   return EXIT_SUCCESS;
 }
 
-int RunColorExtractor(int argc, char** argv) {
-  std::string input_path;
-  std::string output_path;
-
-  OptionManager options;
-  options.AddImageOptions();
-  options.AddDefaultOption("input_path", &input_path);
-  options.AddRequiredOption("output_path", &output_path);
-  options.Parse(argc, argv);
-
-  Reconstruction reconstruction;
-  reconstruction.Read(input_path);
-  reconstruction.ExtractColorsForAllImages(*options.image_path);
-  reconstruction.Write(output_path);
-
-  return EXIT_SUCCESS;
-}
-
-int RunDatabaseCreator(int argc, char** argv) {
-  OptionManager options;
-  options.AddDatabaseOptions();
-  options.Parse(argc, argv);
-
-  Database database(*options.database_path);
-
-  return EXIT_SUCCESS;
-}
 
 int RunExhaustiveMatcher(int argc, char** argv) {
   OptionManager options;
@@ -292,13 +265,13 @@ std::vector<std::pair<image_t, image_t>> ReadStereoImagePairs(
 
   for (const auto& line : stereo_pair_lines) {
     const std::vector<std::string> names = StringSplit(line, " ");
-    CHECK_EQ(names.size(), 2);
+    //CHECK_EQ(names.size(), 2);
 
     const Image* image1 = reconstruction.FindImageWithName(names[0]);
     const Image* image2 = reconstruction.FindImageWithName(names[1]);
 
-    CHECK_NOTNULL(image1);
-    CHECK_NOTNULL(image2);
+    //CHECK_NOTNULL(image1);
+    //CHECK_NOTNULL(image2);
 
     stereo_pairs.emplace_back(image1->ImageId(), image2->ImageId());
   }
@@ -360,7 +333,7 @@ int RunMapper(int argc, char** argv) {
                 reconstruction_manager.Get(prev_num_reconstructions);
             CreateDirIfNotExists(reconstruction_path);
             reconstruction.Write(reconstruction_path);
-            options.Write(JoinPaths(reconstruction_path, "project.ini"));
+            //options.Write(JoinPaths(reconstruction_path, "project.ini"));
             prev_num_reconstructions = reconstruction_manager.Size();
           }
         });
@@ -374,7 +347,7 @@ int RunMapper(int argc, char** argv) {
   if (input_path != "" && reconstruction_manager.Size() > 0) {
     reconstruction_manager.Get(0).Write(output_path);
   }
-
+  //std::cout << "success" << std::endl;
   return EXIT_SUCCESS;
 }
 int RunSequentialMatcher(int argc, char** argv) {
@@ -387,7 +360,6 @@ int RunSequentialMatcher(int argc, char** argv) {
   SequentialFeatureMatcher feature_matcher(*options.sequential_matching,
                                            *options.sift_matching,
                                            *options.database_path);
-
     feature_matcher.Start();
     feature_matcher.Wait();
   

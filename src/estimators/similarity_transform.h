@@ -100,7 +100,7 @@ template <int kDim, bool kEstimateScale>
 std::vector<typename SimilarityTransformEstimator<kDim, kEstimateScale>::M_t>
 SimilarityTransformEstimator<kDim, kEstimateScale>::Estimate(
     const std::vector<X_t>& src, const std::vector<Y_t>& dst) {
-  CHECK_EQ(src.size(), dst.size());
+  //CHECK_EQ(src.size(), dst.size());
 
   Eigen::Matrix<double, kDim, Eigen::Dynamic> src_mat(kDim, src.size());
   Eigen::Matrix<double, kDim, Eigen::Dynamic> dst_mat(kDim, dst.size());
@@ -123,7 +123,7 @@ template <int kDim, bool kEstimateScale>
 void SimilarityTransformEstimator<kDim, kEstimateScale>::Residuals(
     const std::vector<X_t>& src, const std::vector<Y_t>& dst, const M_t& matrix,
     std::vector<double>* residuals) {
-  CHECK_EQ(src.size(), dst.size());
+  //CHECK_EQ(src.size(), dst.size());
 
   residuals->resize(src.size());
 

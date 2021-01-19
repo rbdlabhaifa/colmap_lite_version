@@ -32,7 +32,7 @@
 #include "feature/matching.h"
 
 #include <fstream>
-#include <numeric>
+//#include <numeric>
 
 // #include "SiftGPU/SiftGPU.h"
 #include "base/gps.h"
@@ -141,8 +141,8 @@ void MatchNearestNeighborsInVisualIndex(
     Timer timer;
     timer.Start();
 
-    std::cout << StringPrintf("Matching image [%d/%d]", i + 1, image_ids.size())
-              << std::flush;
+    /*std::cout << StringPrintf("Matching image [%d/%d]", i + 1, image_ids.size())
+              << std::flush;*/
 
     // Push the next image to the retrieval queue.
     if (image_idx < image_ids.size()) {
@@ -200,13 +200,13 @@ bool SpatialMatchingOptions::Check() const {
 }
 
 bool TransitiveMatchingOptions::Check() const {
-  CHECK_OPTION_GT(batch_size, 0);
-  CHECK_OPTION_GT(num_iterations, 0);
+  //CHECK_OPTION_GT(batch_size, 0);
+  //CHECK_OPTION_GT(num_iterations, 0);
   return true;
 }
 
 bool ImagePairsMatchingOptions::Check() const {
-  CHECK_OPTION_GT(block_size, 0);
+  //CHECK_OPTION_GT(block_size, 0);
   return true;
 }
 
@@ -382,9 +382,8 @@ void SiftCPUFeatureMatcher::Run() {
   }
 }
 
-/*SiftGPUFeatureMatcher::SiftGPUFeatureMatcher(const SiftMatchingOptions& options,
-                                             FeatureMatcherCache* cache,
-                                             JobQueue<Input>* input_queue,
+/*SiftGPUFeatureMatcher::SiftGPUFeatureMatcher(const SiftMatchingOptions&
+options, FeatureMatcherCache* cache, JobQueue<Input>* input_queue,
                                              JobQueue<Output>* output_queue)
     : FeatureMatcherThread(options, cache),
       input_queue_(input_queue),
@@ -653,7 +652,6 @@ SiftFeatureMatcher::SiftFeatureMatcher(const SiftMatchingOptions& options,
   std::vector<int> gpu_indices = CSVToVector<int>(options_.gpu_index);
   CHECK_GT(gpu_indices.size(), 0);
 
-
   /*if (options_.use_gpu) {
     auto gpu_options = options_;
     matchers_.reserve(gpu_indices.size());
@@ -663,11 +661,11 @@ SiftFeatureMatcher::SiftFeatureMatcher(const SiftMatchingOptions& options,
           gpu_options, cache, &matcher_queue_, &verifier_queue_));
     }
   }*/ //else {
-    matchers_.reserve(num_threads);
-    for (int i = 0; i < num_threads; ++i) {
-      matchers_.emplace_back(new SiftCPUFeatureMatcher(
-          options_, cache, &matcher_queue_, &verifier_queue_));
-    }
+  matchers_.reserve(num_threads);
+  for (int i = 0; i < num_threads; ++i) {
+    matchers_.emplace_back(new SiftCPUFeatureMatcher(
+        options_, cache, &matcher_queue_, &verifier_queue_));
+  }
   //}
 
   verifiers_.reserve(num_threads);
@@ -686,11 +684,11 @@ SiftFeatureMatcher::SiftFeatureMatcher(const SiftMatchingOptions& options,
             gpu_options, cache, &guided_matcher_queue_, &output_queue_));
       }
     } else {*/
-      guided_matchers_.reserve(num_threads);
-      for (int i = 0; i < num_threads; ++i) {
-        guided_matchers_.emplace_back(new GuidedSiftCPUFeatureMatcher(
-            options_, cache, &guided_matcher_queue_, &output_queue_));
-      }
+    guided_matchers_.reserve(num_threads);
+    for (int i = 0; i < num_threads; ++i) {
+      guided_matchers_.emplace_back(new GuidedSiftCPUFeatureMatcher(
+          options_, cache, &guided_matcher_queue_, &output_queue_));
+    }
     //}
   } else {
     for (int i = 0; i < num_threads; ++i) {
@@ -774,9 +772,9 @@ bool SiftFeatureMatcher::Setup() {
 
 void SiftFeatureMatcher::Match(
     const std::vector<std::pair<image_t, image_t>>& image_pairs) {
-  CHECK_NOTNULL(database_);
-  CHECK_NOTNULL(cache_);
-  CHECK(is_setup_);
+  // CHECK_NOTNULL(database_);
+  // CHECK_NOTNULL(cache_);
+  // CHECK(is_setup_);
 
   if (image_pairs.empty()) {
     return;
@@ -832,9 +830,9 @@ void SiftFeatureMatcher::Match(
     if (exists_matches) {
       data.matches = cache_->GetMatches(image_pair.first, image_pair.second);
       cache_->DeleteMatches(image_pair.first, image_pair.second);
-      CHECK(verifier_queue_.Push(data));
+      verifier_queue_.Push(data);
     } else {
-      CHECK(matcher_queue_.Push(data));
+      matcher_queue_.Push(data);
     }
   }
 
@@ -844,7 +842,7 @@ void SiftFeatureMatcher::Match(
 
   for (size_t i = 0; i < num_outputs; ++i) {
     const auto output_job = output_queue_.Pop();
-    CHECK(output_job.IsValid());
+    //CHECK(output_job.IsValid());
     auto output = output_job.Data();
 
     if (output.matches.size() < static_cast<size_t>(options_.min_num_inliers)) {
@@ -861,7 +859,7 @@ void SiftFeatureMatcher::Match(
                                  output.two_view_geometry);
   }
 
-  CHECK_EQ(output_queue_.Size(), 0);
+  //CHECK_EQ(output_queue_.Size(), 0);
 }
 
 ExhaustiveFeatureMatcher::ExhaustiveFeatureMatcher(
@@ -888,8 +886,8 @@ void ExhaustiveFeatureMatcher::Run() {
   const std::vector<image_t> image_ids = cache_.GetImageIds();
 
   const size_t block_size = static_cast<size_t>(options_.block_size);
-  const size_t num_blocks = static_cast<size_t>(
-      std::ceil(static_cast<double>(image_ids.size()) / block_size));
+  /*const size_t num_blocks = static_cast<size_t>(
+      std::ceil(static_cast<double>(image_ids.size()) / block_size));*/
   const size_t num_pairs_per_block = block_size * (block_size - 1) / 2;
 
   std::vector<std::pair<image_t, image_t>> image_pairs;
@@ -912,10 +910,10 @@ void ExhaustiveFeatureMatcher::Run() {
       Timer timer;
       timer.Start();
 
-      std::cout << StringPrintf("Matching block [%d/%d, %d/%d]",
+      /*std::cout << StringPrintf("Matching block [%d/%d, %d/%d]",
                                 start_idx1 / block_size + 1, num_blocks,
                                 start_idx2 / block_size + 1, num_blocks)
-                << std::flush;
+                << std::flush;*/
 
       image_pairs.clear();
       for (size_t idx1 = start_idx1; idx1 <= end_idx1; ++idx1) {
@@ -950,8 +948,8 @@ SequentialFeatureMatcher::SequentialFeatureMatcher(
                       5 * options_.overlap),
              &database_),
       matcher_(match_options, &database_, &cache_) {
-  CHECK(options_.Check());
-  CHECK(match_options_.Check());
+  // CHECK(options_.Check());
+  // CHECK(match_options_.Check());
 }
 
 void SequentialFeatureMatcher::Run() {
@@ -966,9 +964,9 @@ void SequentialFeatureMatcher::Run() {
   const std::vector<image_t> ordered_image_ids = GetOrderedImageIds();
 
   RunSequentialMatching(ordered_image_ids);
-  if (options_.loop_detection) {
+  /*if (options_.loop_detection) {
     RunLoopDetection(ordered_image_ids);
-  }
+  }*/
 
   GetTimer().PrintMinutes();
 }
@@ -1008,12 +1006,12 @@ void SequentialFeatureMatcher::RunSequentialMatching(
 
     const auto image_id1 = image_ids.at(image_idx1);
 
-    Timer timer;
-    timer.Start();
+    //Timer timer;
+    //timer.Start();
 
-    std::cout << StringPrintf("Matching image [%d/%d]", image_idx1 + 1,
+    /*std::cout << StringPrintf("Matching image [%d/%d]", image_idx1 + 1,
                               image_ids.size())
-              << std::flush;
+              << std::flush;*/
 
     image_pairs.clear();
     for (int i = 0; i < options_.overlap; ++i) {
@@ -1035,7 +1033,7 @@ void SequentialFeatureMatcher::RunSequentialMatching(
     DatabaseTransaction database_transaction(&database_);
     matcher_.Match(image_pairs);
 
-    PrintElapsedTime(timer);
+    //PrintElapsedTime(timer);
   }
 }
 
@@ -1301,8 +1299,8 @@ void SpatialFeatureMatcher::Run() {
 
     timer.Restart();
 
-    std::cout << StringPrintf("Matching image [%d/%d]", i + 1, num_locations)
-              << std::flush;
+    /*std::cout << StringPrintf("Matching image [%d/%d]", i + 1, num_locations)
+              << std::flush;*/
 
     image_pairs.clear();
 

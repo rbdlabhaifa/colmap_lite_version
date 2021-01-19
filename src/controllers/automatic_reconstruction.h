@@ -60,13 +60,13 @@ class AutomaticReconstructionController : public Thread {
     std::string vocab_tree_path;
 
     // The type of input data used to choose optimal mapper settings.
-    DataType data_type = DataType::INDIVIDUAL;
+    DataType data_type = DataType::VIDEO;
 
     // Whether to perform low- or high-quality reconstruction.
     Quality quality = Quality::HIGH;
 
     // Whether to use shared intrinsics or not.
-    bool single_camera = false;
+    bool single_camera = true;
 
     // Which camera model to use for images.
     std::string camera_model = "SIMPLE_RADIAL";

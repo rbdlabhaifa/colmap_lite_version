@@ -253,6 +253,7 @@ src/CMakeFiles/colmap.dir/base/camera.cc.o: /usr/local/include/ceres/internal/ho
 src/CMakeFiles/colmap.dir/base/camera.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/base/camera.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/base/camera.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/base/camera.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/base/camera.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/base/camera.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/base/camera.cc.o: /usr/local/include/ceres/internal/port.h
@@ -521,6 +522,7 @@ src/CMakeFiles/colmap.dir/base/camera_models.cc.o: /usr/local/include/ceres/inte
 src/CMakeFiles/colmap.dir/base/camera_models.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/base/camera_models.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/base/camera_models.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/base/camera_models.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/base/camera_models.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/base/camera_models.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/base/camera_models.cc.o: /usr/local/include/ceres/internal/port.h
@@ -758,6 +760,11 @@ src/CMakeFiles/colmap.dir/base/camera_rig.cc.o: /usr/include/eigen3/Eigen/src/pl
 src/CMakeFiles/colmap.dir/base/camera_rig.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/camera_rig.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/camera_rig.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/camera_rig.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/camera_rig.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/camera_rig.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/camera_rig.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/camera_rig.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: ../lib/SQLite/sqlite3.h
 src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: ../src/base/camera.h
@@ -973,6 +980,11 @@ src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: /usr/include/eigen3/Ei
 src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/correspondence_graph.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/database.cc.o: ../lib/SQLite/sqlite3.h
 src/CMakeFiles/colmap.dir/base/database.cc.o: ../src/base/camera.h
@@ -1190,6 +1202,11 @@ src/CMakeFiles/colmap.dir/base/database.cc.o: /usr/include/eigen3/Eigen/src/plug
 src/CMakeFiles/colmap.dir/base/database.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/database.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/database.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/database.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/database.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/database.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/database.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/database.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/database_cache.cc.o: ../lib/SQLite/sqlite3.h
 src/CMakeFiles/colmap.dir/base/database_cache.cc.o: ../src/base/camera.h
@@ -1457,6 +1474,7 @@ src/CMakeFiles/colmap.dir/base/database_cache.cc.o: /usr/local/include/ceres/int
 src/CMakeFiles/colmap.dir/base/database_cache.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/base/database_cache.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/base/database_cache.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/base/database_cache.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/base/database_cache.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/base/database_cache.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/base/database_cache.cc.o: /usr/local/include/ceres/internal/port.h
@@ -1735,6 +1753,7 @@ src/CMakeFiles/colmap.dir/base/essential_matrix.cc.o: /usr/local/include/ceres/i
 src/CMakeFiles/colmap.dir/base/essential_matrix.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/base/essential_matrix.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/base/essential_matrix.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/base/essential_matrix.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/base/essential_matrix.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/base/essential_matrix.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/base/essential_matrix.cc.o: /usr/local/include/ceres/internal/port.h
@@ -1954,6 +1973,11 @@ src/CMakeFiles/colmap.dir/base/gps.cc.o: /usr/include/eigen3/Eigen/src/plugins/C
 src/CMakeFiles/colmap.dir/base/gps.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/gps.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/gps.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/gps.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/gps.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/gps.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/gps.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/gps.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: ../lib/Graclus/metisLib/defs.h
 src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: ../lib/Graclus/metisLib/macros.h
@@ -1964,6 +1988,11 @@ src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: ../src/base/graph_cut.h
 src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: ../src/util/logging.h
 src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: ../src/base/graph_cut.cc
+src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/graph_cut.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: ../src/base/homography_matrix.h
 src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: ../src/base/pose.h
@@ -2188,6 +2217,11 @@ src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: /usr/include/eigen3/Eigen
 src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/homography_matrix.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/image.cc.o: ../src/base/camera.h
 src/CMakeFiles/colmap.dir/base/image.cc.o: ../src/base/image.h
@@ -2395,10 +2429,14 @@ src/CMakeFiles/colmap.dir/base/image.cc.o: /usr/include/eigen3/Eigen/src/plugins
 src/CMakeFiles/colmap.dir/base/image.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/image.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/image.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/image.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/image.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/image.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/image.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/image.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: ../lib/SQLite/sqlite3.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: ../src/base/camera.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: ../src/base/camera_models.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: ../src/base/database.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: ../src/base/image.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: ../src/base/image_reader.h
@@ -2423,8 +2461,6 @@ src/CMakeFiles/colmap.dir/base/image_reader.cc.o: ../src/util/types.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: ../src/base/image_reader.cc
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/Cholesky
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/Core
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/Dense
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/Eigenvalues
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/Geometry
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/Householder
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/Jacobi
@@ -2566,25 +2602,6 @@ src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Core/util/StaticAssert.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Core/util/XprHelper.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./ComplexSchur.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./HessenbergDecomposition.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./RealQZ.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./RealSchur.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./Tridiagonalization.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/ComplexEigenSolver.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur_LAPACKE.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/EigenSolver.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/HessenbergDecomposition.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/RealQZ.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/RealSchur.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/RealSchur_LAPACKE.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/SelfAdjointEigenSolver_LAPACKE.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Eigenvalues/Tridiagonalization.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Geometry/AlignedBox.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Geometry/AngleAxis.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/Geometry/EulerAngles.h
@@ -2636,51 +2653,11 @@ src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/autodiff_cost_function.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/autodiff_local_parameterization.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/ceres.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/conditioned_cost_function.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/context.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/cost_function.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/cost_function_to_functor.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/covariance.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/crs_matrix.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/dynamic_autodiff_cost_function.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/dynamic_cost_function.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/dynamic_cost_function_to_functor.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/dynamic_numeric_diff_cost_function.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/evaluation_callback.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/first_order_function.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/gradient_checker.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/gradient_problem.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/gradient_problem_solver.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/array_selector.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/autodiff.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/config.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/eigen.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/fixed_array.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/householder_vector.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/memory.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
+src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/port.h
 src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/internal/variadic_evaluate.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/iteration_callback.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/jet.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/local_parameterization.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/loss_function.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/numeric_diff_cost_function.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/numeric_diff_options.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/ordered_groups.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/problem.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/sized_cost_function.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/solver.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/types.h
-src/CMakeFiles/colmap.dir/base/image_reader.cc.o: /usr/local/include/ceres/version.h
 
 src/CMakeFiles/colmap.dir/base/line.cc.o: ../lib/LSD/lsd.h
 src/CMakeFiles/colmap.dir/base/line.cc.o: ../src/base/line.h
@@ -2883,6 +2860,11 @@ src/CMakeFiles/colmap.dir/base/line.cc.o: /usr/include/eigen3/Eigen/src/plugins/
 src/CMakeFiles/colmap.dir/base/line.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/line.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/line.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/line.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/line.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/line.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/line.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/line.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/point2d.cc.o: ../src/base/point2d.h
 src/CMakeFiles/colmap.dir/base/point2d.cc.o: ../src/util/alignment.h
@@ -3284,6 +3266,11 @@ src/CMakeFiles/colmap.dir/base/point3d.cc.o: /usr/include/eigen3/Eigen/src/plugi
 src/CMakeFiles/colmap.dir/base/point3d.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/point3d.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/point3d.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/point3d.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/point3d.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/point3d.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/point3d.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/point3d.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/polynomial.cc.o: ../src/base/polynomial.h
 src/CMakeFiles/colmap.dir/base/polynomial.cc.o: ../src/util/logging.h
@@ -3500,6 +3487,11 @@ src/CMakeFiles/colmap.dir/base/polynomial.cc.o: /usr/include/eigen3/Eigen/src/pl
 src/CMakeFiles/colmap.dir/base/polynomial.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/polynomial.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/polynomial.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/polynomial.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/polynomial.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/polynomial.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/polynomial.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/polynomial.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/pose.cc.o: ../src/base/camera.h
 src/CMakeFiles/colmap.dir/base/pose.cc.o: ../src/base/pose.h
@@ -3725,6 +3717,11 @@ src/CMakeFiles/colmap.dir/base/pose.cc.o: /usr/include/eigen3/Eigen/src/plugins/
 src/CMakeFiles/colmap.dir/base/pose.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/pose.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/pose.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/pose.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/pose.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/pose.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/pose.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/pose.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/projection.cc.o: ../src/base/camera.h
 src/CMakeFiles/colmap.dir/base/projection.cc.o: ../src/base/pose.h
@@ -4226,6 +4223,7 @@ src/CMakeFiles/colmap.dir/base/reconstruction.cc.o: /usr/local/include/ceres/int
 src/CMakeFiles/colmap.dir/base/reconstruction.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/base/reconstruction.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/base/reconstruction.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/base/reconstruction.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/base/reconstruction.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/base/reconstruction.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/base/reconstruction.cc.o: /usr/local/include/ceres/internal/port.h
@@ -4463,6 +4461,11 @@ src/CMakeFiles/colmap.dir/base/reconstruction_manager.cc.o: /usr/include/eigen3/
 src/CMakeFiles/colmap.dir/base/reconstruction_manager.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/reconstruction_manager.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/reconstruction_manager.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/reconstruction_manager.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/reconstruction_manager.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/reconstruction_manager.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/reconstruction_manager.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/reconstruction_manager.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: ../lib/SQLite/sqlite3.h
 src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: ../src/base/camera.h
@@ -4681,6 +4684,11 @@ src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: /usr/include/eigen3/Eigen/
 src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/scene_clustering.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: ../lib/SQLite/sqlite3.h
 src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: ../src/base/camera.h
@@ -4902,6 +4910,11 @@ src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: /usr/include/eigen3/Ei
 src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/similarity_transform.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/track.cc.o: ../src/base/track.h
 src/CMakeFiles/colmap.dir/base/track.cc.o: ../src/util/alignment.h
@@ -5103,6 +5116,11 @@ src/CMakeFiles/colmap.dir/base/track.cc.o: /usr/include/eigen3/Eigen/src/plugins
 src/CMakeFiles/colmap.dir/base/track.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/track.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/track.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/track.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/track.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/track.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/track.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/track.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/triangulation.cc.o: ../src/base/camera.h
 src/CMakeFiles/colmap.dir/base/triangulation.cc.o: ../src/base/essential_matrix.h
@@ -5357,6 +5375,7 @@ src/CMakeFiles/colmap.dir/base/triangulation.cc.o: /usr/local/include/ceres/inte
 src/CMakeFiles/colmap.dir/base/triangulation.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/base/triangulation.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/base/triangulation.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/base/triangulation.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/base/triangulation.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/base/triangulation.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/base/triangulation.cc.o: /usr/local/include/ceres/internal/port.h
@@ -5648,6 +5667,7 @@ src/CMakeFiles/colmap.dir/base/undistortion.cc.o: /usr/local/include/ceres/inter
 src/CMakeFiles/colmap.dir/base/undistortion.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/base/undistortion.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/base/undistortion.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/base/undistortion.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/base/undistortion.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/base/undistortion.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/base/undistortion.cc.o: /usr/local/include/ceres/internal/port.h
@@ -5866,6 +5886,11 @@ src/CMakeFiles/colmap.dir/base/visibility_pyramid.cc.o: /usr/include/eigen3/Eige
 src/CMakeFiles/colmap.dir/base/visibility_pyramid.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/visibility_pyramid.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/visibility_pyramid.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/visibility_pyramid.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/visibility_pyramid.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/visibility_pyramid.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/visibility_pyramid.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/visibility_pyramid.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/base/warp.cc.o: ../lib/VLFeat/generic.h
 src/CMakeFiles/colmap.dir/base/warp.cc.o: ../lib/VLFeat/host.h
@@ -6073,6 +6098,11 @@ src/CMakeFiles/colmap.dir/base/warp.cc.o: /usr/include/eigen3/Eigen/src/plugins/
 src/CMakeFiles/colmap.dir/base/warp.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/base/warp.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/base/warp.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/base/warp.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/base/warp.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/base/warp.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/base/warp.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/base/warp.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/controllers/automatic_reconstruction.cc.o: ../lib/PBA/ConfigBA.h
 src/CMakeFiles/colmap.dir/controllers/automatic_reconstruction.cc.o: ../lib/PBA/DataInterface.h
@@ -6375,6 +6405,7 @@ src/CMakeFiles/colmap.dir/controllers/automatic_reconstruction.cc.o: /usr/local/
 src/CMakeFiles/colmap.dir/controllers/automatic_reconstruction.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/controllers/automatic_reconstruction.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/controllers/automatic_reconstruction.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/controllers/automatic_reconstruction.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/controllers/automatic_reconstruction.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/controllers/automatic_reconstruction.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/controllers/automatic_reconstruction.cc.o: /usr/local/include/ceres/internal/port.h
@@ -6669,6 +6700,7 @@ src/CMakeFiles/colmap.dir/controllers/bundle_adjustment.cc.o: /usr/local/include
 src/CMakeFiles/colmap.dir/controllers/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/controllers/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/controllers/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/controllers/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/controllers/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/controllers/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/controllers/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/port.h
@@ -6970,6 +7002,7 @@ src/CMakeFiles/colmap.dir/controllers/hierarchical_mapper.cc.o: /usr/local/inclu
 src/CMakeFiles/colmap.dir/controllers/hierarchical_mapper.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/controllers/hierarchical_mapper.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/controllers/hierarchical_mapper.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/controllers/hierarchical_mapper.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/controllers/hierarchical_mapper.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/controllers/hierarchical_mapper.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/controllers/hierarchical_mapper.cc.o: /usr/local/include/ceres/internal/port.h
@@ -7269,6 +7302,7 @@ src/CMakeFiles/colmap.dir/controllers/incremental_mapper.cc.o: /usr/local/includ
 src/CMakeFiles/colmap.dir/controllers/incremental_mapper.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/controllers/incremental_mapper.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/controllers/incremental_mapper.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/controllers/incremental_mapper.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/controllers/incremental_mapper.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/controllers/incremental_mapper.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/controllers/incremental_mapper.cc.o: /usr/local/include/ceres/internal/port.h
@@ -7489,6 +7523,11 @@ src/CMakeFiles/colmap.dir/estimators/absolute_pose.cc.o: /usr/include/eigen3/Eig
 src/CMakeFiles/colmap.dir/estimators/absolute_pose.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/estimators/absolute_pose.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/estimators/absolute_pose.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/estimators/absolute_pose.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/estimators/absolute_pose.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/estimators/absolute_pose.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/estimators/absolute_pose.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/estimators/absolute_pose.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: ../src/estimators/affine_transform.h
 src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: ../src/util/alignment.h
@@ -7690,6 +7729,11 @@ src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: /usr/include/eigen3/
 src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/estimators/affine_transform.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: ../lib/SQLite/sqlite3.h
 src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: ../src/base/camera.h
@@ -7916,6 +7960,11 @@ src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: /usr/include/eigen3/
 src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/estimators/coordinate_frame.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/estimators/essential_matrix.cc.o: ../src/base/polynomial.h
 src/CMakeFiles/colmap.dir/estimators/essential_matrix.cc.o: ../src/estimators/essential_matrix.h
@@ -8171,6 +8220,7 @@ src/CMakeFiles/colmap.dir/estimators/essential_matrix.cc.o: /usr/local/include/c
 src/CMakeFiles/colmap.dir/estimators/essential_matrix.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/estimators/essential_matrix.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/estimators/essential_matrix.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/estimators/essential_matrix.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/estimators/essential_matrix.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/estimators/essential_matrix.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/estimators/essential_matrix.cc.o: /usr/local/include/ceres/internal/port.h
@@ -8392,6 +8442,11 @@ src/CMakeFiles/colmap.dir/estimators/fundamental_matrix.cc.o: /usr/include/eigen
 src/CMakeFiles/colmap.dir/estimators/fundamental_matrix.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/estimators/fundamental_matrix.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/estimators/fundamental_matrix.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/estimators/fundamental_matrix.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/estimators/fundamental_matrix.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/estimators/fundamental_matrix.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/estimators/fundamental_matrix.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/estimators/fundamental_matrix.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: ../src/base/camera.h
 src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: ../src/base/polynomial.h
@@ -8597,6 +8652,11 @@ src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: /usr/includ
 src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose_coeffs.cc.o: ../src/estimators/generalized_absolute_pose_coeffs.h
 src/CMakeFiles/colmap.dir/estimators/generalized_absolute_pose_coeffs.cc.o: ../src/estimators/generalized_absolute_pose_coeffs.cc
@@ -8999,6 +9059,7 @@ src/CMakeFiles/colmap.dir/estimators/generalized_relative_pose.cc.o: /usr/local/
 src/CMakeFiles/colmap.dir/estimators/generalized_relative_pose.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/estimators/generalized_relative_pose.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/estimators/generalized_relative_pose.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/estimators/generalized_relative_pose.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/estimators/generalized_relative_pose.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/estimators/generalized_relative_pose.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/estimators/generalized_relative_pose.cc.o: /usr/local/include/ceres/internal/port.h
@@ -9220,6 +9281,11 @@ src/CMakeFiles/colmap.dir/estimators/homography_matrix.cc.o: /usr/include/eigen3
 src/CMakeFiles/colmap.dir/estimators/homography_matrix.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/estimators/homography_matrix.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/estimators/homography_matrix.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/estimators/homography_matrix.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/estimators/homography_matrix.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/estimators/homography_matrix.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/estimators/homography_matrix.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/estimators/homography_matrix.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/estimators/pose.cc.o: ../lib/PBA/ConfigBA.h
 src/CMakeFiles/colmap.dir/estimators/pose.cc.o: ../lib/PBA/DataInterface.h
@@ -9503,6 +9569,7 @@ src/CMakeFiles/colmap.dir/estimators/pose.cc.o: /usr/local/include/ceres/interna
 src/CMakeFiles/colmap.dir/estimators/pose.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/estimators/pose.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/estimators/pose.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/estimators/pose.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/estimators/pose.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/estimators/pose.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/estimators/pose.cc.o: /usr/local/include/ceres/internal/port.h
@@ -9782,6 +9849,7 @@ src/CMakeFiles/colmap.dir/estimators/triangulation.cc.o: /usr/local/include/cere
 src/CMakeFiles/colmap.dir/estimators/triangulation.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/estimators/triangulation.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/estimators/triangulation.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/estimators/triangulation.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/estimators/triangulation.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/estimators/triangulation.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/estimators/triangulation.cc.o: /usr/local/include/ceres/internal/port.h
@@ -10069,6 +10137,7 @@ src/CMakeFiles/colmap.dir/estimators/two_view_geometry.cc.o: /usr/local/include/
 src/CMakeFiles/colmap.dir/estimators/two_view_geometry.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/estimators/two_view_geometry.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/estimators/two_view_geometry.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/estimators/two_view_geometry.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/estimators/two_view_geometry.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/estimators/two_view_geometry.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/estimators/two_view_geometry.cc.o: /usr/local/include/ceres/internal/port.h
@@ -10287,6 +10356,11 @@ src/CMakeFiles/colmap.dir/estimators/utils.cc.o: /usr/include/eigen3/Eigen/src/p
 src/CMakeFiles/colmap.dir/estimators/utils.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/estimators/utils.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/estimators/utils.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/estimators/utils.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/estimators/utils.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/estimators/utils.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/estimators/utils.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/estimators/utils.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/feature/extraction.cc.o: ../lib/SQLite/sqlite3.h
 src/CMakeFiles/colmap.dir/feature/extraction.cc.o: ../src/base/camera.h
@@ -10509,6 +10583,11 @@ src/CMakeFiles/colmap.dir/feature/extraction.cc.o: /usr/include/eigen3/Eigen/src
 src/CMakeFiles/colmap.dir/feature/extraction.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/feature/extraction.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/feature/extraction.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/feature/extraction.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/feature/extraction.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/feature/extraction.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/feature/extraction.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/feature/extraction.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/feature/matching.cc.o: ../lib/FLANN/algorithms/all_indices.h
 src/CMakeFiles/colmap.dir/feature/matching.cc.o: ../lib/FLANN/algorithms/autotuned_index.h
@@ -10797,6 +10876,11 @@ src/CMakeFiles/colmap.dir/feature/matching.cc.o: /usr/include/eigen3/Eigen/src/p
 src/CMakeFiles/colmap.dir/feature/matching.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/feature/matching.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/feature/matching.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/feature/matching.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/feature/matching.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/feature/matching.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/feature/matching.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/feature/matching.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/feature/sift.cc.o: ../lib/FLANN/algorithms/all_indices.h
 src/CMakeFiles/colmap.dir/feature/sift.cc.o: ../lib/FLANN/algorithms/autotuned_index.h
@@ -11055,6 +11139,11 @@ src/CMakeFiles/colmap.dir/feature/sift.cc.o: /usr/include/eigen3/Eigen/src/plugi
 src/CMakeFiles/colmap.dir/feature/sift.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/feature/sift.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/feature/sift.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/feature/sift.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/feature/sift.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/feature/sift.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/feature/sift.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/feature/sift.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/feature/types.cc.o: ../src/feature/types.h
 src/CMakeFiles/colmap.dir/feature/types.cc.o: ../src/util/alignment.h
@@ -11256,6 +11345,11 @@ src/CMakeFiles/colmap.dir/feature/types.cc.o: /usr/include/eigen3/Eigen/src/plug
 src/CMakeFiles/colmap.dir/feature/types.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/feature/types.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/feature/types.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/feature/types.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/feature/types.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/feature/types.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/feature/types.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/feature/types.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/feature/utils.cc.o: ../src/feature/types.h
 src/CMakeFiles/colmap.dir/feature/utils.cc.o: ../src/feature/utils.h
@@ -11459,6 +11553,11 @@ src/CMakeFiles/colmap.dir/feature/utils.cc.o: /usr/include/eigen3/Eigen/src/plug
 src/CMakeFiles/colmap.dir/feature/utils.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/feature/utils.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/feature/utils.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/feature/utils.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/feature/utils.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/feature/utils.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/feature/utils.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/feature/utils.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: ../src/mvs/consistency_graph.h
 src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: ../src/util/alignment.h
@@ -11662,6 +11761,11 @@ src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: /usr/include/eigen3/Eigen/
 src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/mvs/consistency_graph.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: ../src/base/camera.h
 src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: ../src/base/warp.h
@@ -11869,6 +11973,11 @@ src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: /usr/include/eigen3/Eigen/src/plug
 src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/mvs/depth_map.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: ../src/mvs/consistency_graph.h
 src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: ../src/mvs/depth_map.h
@@ -12085,6 +12194,11 @@ src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: /usr/include/eigen3/Eigen/src/plugins
 src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/mvs/fusion.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/mvs/image.cc.o: ../src/base/camera.h
 src/CMakeFiles/colmap.dir/mvs/image.cc.o: ../src/base/projection.h
@@ -12289,6 +12403,11 @@ src/CMakeFiles/colmap.dir/mvs/image.cc.o: /usr/include/eigen3/Eigen/src/plugins/
 src/CMakeFiles/colmap.dir/mvs/image.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/mvs/image.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/mvs/image.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/mvs/image.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/mvs/image.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/mvs/image.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/mvs/image.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/mvs/image.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: ../lib/PoissonRecon/PoissonRecon.h
 src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: ../lib/PoissonRecon/SurfaceTrimmer.h
@@ -12516,6 +12635,11 @@ src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: /usr/include/eigen3/Eigen/src/plugin
 src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/mvs/meshing.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/mvs/model.cc.o: ../lib/SQLite/sqlite3.h
 src/CMakeFiles/colmap.dir/mvs/model.cc.o: ../src/base/camera.h
@@ -12793,6 +12917,7 @@ src/CMakeFiles/colmap.dir/mvs/model.cc.o: /usr/local/include/ceres/internal/hous
 src/CMakeFiles/colmap.dir/mvs/model.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/mvs/model.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/mvs/model.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/mvs/model.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/mvs/model.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/mvs/model.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/mvs/model.cc.o: /usr/local/include/ceres/internal/port.h
@@ -13016,6 +13141,11 @@ src/CMakeFiles/colmap.dir/mvs/normal_map.cc.o: /usr/include/eigen3/Eigen/src/plu
 src/CMakeFiles/colmap.dir/mvs/normal_map.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/mvs/normal_map.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/mvs/normal_map.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/mvs/normal_map.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/mvs/normal_map.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/mvs/normal_map.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/mvs/normal_map.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/mvs/normal_map.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: ../src/mvs/consistency_graph.h
 src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: ../src/mvs/depth_map.h
@@ -13227,6 +13357,11 @@ src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: /usr/include/eigen3/Eigen/src/plug
 src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/mvs/workspace.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/optim/bundle_adjustment.cc.o: ../lib/PBA/ConfigBA.h
 src/CMakeFiles/colmap.dir/optim/bundle_adjustment.cc.o: ../lib/PBA/DataInterface.h
@@ -13505,6 +13640,7 @@ src/CMakeFiles/colmap.dir/optim/bundle_adjustment.cc.o: /usr/local/include/ceres
 src/CMakeFiles/colmap.dir/optim/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/optim/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/optim/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/optim/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/optim/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/optim/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/optim/bundle_adjustment.cc.o: /usr/local/include/ceres/internal/port.h
@@ -13533,6 +13669,11 @@ src/CMakeFiles/colmap.dir/optim/combination_sampler.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/optim/combination_sampler.cc.o: ../src/util/threading.h
 src/CMakeFiles/colmap.dir/optim/combination_sampler.cc.o: ../src/util/timer.h
 src/CMakeFiles/colmap.dir/optim/combination_sampler.cc.o: ../src/optim/combination_sampler.cc
+src/CMakeFiles/colmap.dir/optim/combination_sampler.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/optim/combination_sampler.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/optim/combination_sampler.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/optim/combination_sampler.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/optim/combination_sampler.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: ../src/optim/least_absolute_deviations.h
 src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: ../src/util/logging.h
@@ -13716,6 +13857,11 @@ src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: /usr/include/eig
 src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/optim/least_absolute_deviations.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: ../src/optim/progressive_sampler.h
 src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: ../src/optim/sampler.h
@@ -13727,6 +13873,11 @@ src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: ../src/util/threading.h
 src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: ../src/util/timer.h
 src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: ../src/optim/progressive_sampler.cc
+src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/optim/progressive_sampler.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: ../src/optim/random_sampler.h
 src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: ../src/optim/sampler.h
@@ -13736,6 +13887,11 @@ src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: ../src/util/threading.h
 src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: ../src/util/timer.h
 src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: ../src/optim/random_sampler.cc
+src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/optim/random_sampler.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/optim/sprt.cc.o: ../src/optim/sprt.h
 src/CMakeFiles/colmap.dir/optim/sprt.cc.o: ../src/optim/sprt.cc
@@ -14093,6 +14249,11 @@ src/CMakeFiles/colmap.dir/retrieval/vote_and_verify.cc.o: /usr/include/eigen3/Ei
 src/CMakeFiles/colmap.dir/retrieval/vote_and_verify.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/retrieval/vote_and_verify.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/retrieval/vote_and_verify.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/retrieval/vote_and_verify.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/retrieval/vote_and_verify.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/retrieval/vote_and_verify.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/retrieval/vote_and_verify.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/retrieval/vote_and_verify.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/sfm/incremental_mapper.cc.o: ../lib/PBA/ConfigBA.h
 src/CMakeFiles/colmap.dir/sfm/incremental_mapper.cc.o: ../lib/PBA/DataInterface.h
@@ -14378,6 +14539,7 @@ src/CMakeFiles/colmap.dir/sfm/incremental_mapper.cc.o: /usr/local/include/ceres/
 src/CMakeFiles/colmap.dir/sfm/incremental_mapper.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/sfm/incremental_mapper.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/sfm/incremental_mapper.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/sfm/incremental_mapper.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/sfm/incremental_mapper.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/sfm/incremental_mapper.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/sfm/incremental_mapper.cc.o: /usr/local/include/ceres/internal/port.h
@@ -14668,6 +14830,7 @@ src/CMakeFiles/colmap.dir/sfm/incremental_triangulator.cc.o: /usr/local/include/
 src/CMakeFiles/colmap.dir/sfm/incremental_triangulator.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/sfm/incremental_triangulator.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/sfm/incremental_triangulator.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/sfm/incremental_triangulator.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/sfm/incremental_triangulator.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/sfm/incremental_triangulator.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/sfm/incremental_triangulator.cc.o: /usr/local/include/ceres/internal/port.h
@@ -14699,6 +14862,11 @@ src/CMakeFiles/colmap.dir/util/bitmap.cc.o: ../src/util/math.h
 src/CMakeFiles/colmap.dir/util/bitmap.cc.o: ../src/util/misc.h
 src/CMakeFiles/colmap.dir/util/bitmap.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/util/bitmap.cc.o: ../src/util/bitmap.cc
+src/CMakeFiles/colmap.dir/util/bitmap.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/util/bitmap.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/util/bitmap.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/util/bitmap.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/util/bitmap.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/util/camera_specs.cc.o: ../src/util/camera_specs.h
 src/CMakeFiles/colmap.dir/util/camera_specs.cc.o: ../src/util/camera_specs.cc
@@ -14706,17 +14874,32 @@ src/CMakeFiles/colmap.dir/util/camera_specs.cc.o: ../src/util/camera_specs.cc
 src/CMakeFiles/colmap.dir/util/logging.cc.o: ../src/util/logging.h
 src/CMakeFiles/colmap.dir/util/logging.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/util/logging.cc.o: ../src/util/logging.cc
+src/CMakeFiles/colmap.dir/util/logging.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/util/logging.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/util/logging.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/util/logging.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/util/logging.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/util/math.cc.o: ../src/util/logging.h
 src/CMakeFiles/colmap.dir/util/math.cc.o: ../src/util/math.h
 src/CMakeFiles/colmap.dir/util/math.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/util/math.cc.o: ../src/util/math.cc
+src/CMakeFiles/colmap.dir/util/math.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/util/math.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/util/math.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/util/math.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/util/math.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/util/misc.cc.o: ../src/util/endian.h
 src/CMakeFiles/colmap.dir/util/misc.cc.o: ../src/util/logging.h
 src/CMakeFiles/colmap.dir/util/misc.cc.o: ../src/util/misc.h
 src/CMakeFiles/colmap.dir/util/misc.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/util/misc.cc.o: ../src/util/misc.cc
+src/CMakeFiles/colmap.dir/util/misc.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/util/misc.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/util/misc.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/util/misc.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/util/misc.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: ../src/util/logging.h
 src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: ../src/util/opengl_utils.h
@@ -14724,6 +14907,11 @@ src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: ../src/util/threading.h
 src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: ../src/util/timer.h
 src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: ../src/util/opengl_utils.cc
+src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/util/opengl_utils.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/util/option_manager.cc.o: ../lib/PBA/ConfigBA.h
 src/CMakeFiles/colmap.dir/util/option_manager.cc.o: ../lib/PBA/DataInterface.h
@@ -15026,6 +15214,7 @@ src/CMakeFiles/colmap.dir/util/option_manager.cc.o: /usr/local/include/ceres/int
 src/CMakeFiles/colmap.dir/util/option_manager.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/CMakeFiles/colmap.dir/util/option_manager.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/CMakeFiles/colmap.dir/util/option_manager.cc.o: /usr/local/include/ceres/internal/memory.h
+src/CMakeFiles/colmap.dir/util/option_manager.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/CMakeFiles/colmap.dir/util/option_manager.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/CMakeFiles/colmap.dir/util/option_manager.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/CMakeFiles/colmap.dir/util/option_manager.cc.o: /usr/local/include/ceres/internal/port.h
@@ -15246,6 +15435,11 @@ src/CMakeFiles/colmap.dir/util/ply.cc.o: /usr/include/eigen3/Eigen/src/plugins/C
 src/CMakeFiles/colmap.dir/util/ply.cc.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 src/CMakeFiles/colmap.dir/util/ply.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 src/CMakeFiles/colmap.dir/util/ply.cc.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+src/CMakeFiles/colmap.dir/util/ply.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/util/ply.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/util/ply.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/util/ply.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/util/ply.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/util/random.cc.o: ../src/util/logging.h
 src/CMakeFiles/colmap.dir/util/random.cc.o: ../src/util/random.h
@@ -15253,6 +15447,11 @@ src/CMakeFiles/colmap.dir/util/random.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/util/random.cc.o: ../src/util/threading.h
 src/CMakeFiles/colmap.dir/util/random.cc.o: ../src/util/timer.h
 src/CMakeFiles/colmap.dir/util/random.cc.o: ../src/util/random.cc
+src/CMakeFiles/colmap.dir/util/random.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/util/random.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/util/random.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/util/random.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/util/random.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/util/string.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/util/string.cc.o: ../src/util/string.cc
@@ -15262,6 +15461,11 @@ src/CMakeFiles/colmap.dir/util/threading.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/util/threading.cc.o: ../src/util/threading.h
 src/CMakeFiles/colmap.dir/util/threading.cc.o: ../src/util/timer.h
 src/CMakeFiles/colmap.dir/util/threading.cc.o: ../src/util/threading.cc
+src/CMakeFiles/colmap.dir/util/threading.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/util/threading.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/util/threading.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/util/threading.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/util/threading.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/util/timer.cc.o: ../src/util/endian.h
 src/CMakeFiles/colmap.dir/util/timer.cc.o: ../src/util/logging.h
@@ -15269,6 +15473,11 @@ src/CMakeFiles/colmap.dir/util/timer.cc.o: ../src/util/misc.h
 src/CMakeFiles/colmap.dir/util/timer.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/util/timer.cc.o: ../src/util/timer.h
 src/CMakeFiles/colmap.dir/util/timer.cc.o: ../src/util/timer.cc
+src/CMakeFiles/colmap.dir/util/timer.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/util/timer.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/util/timer.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/util/timer.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/util/timer.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 
 src/CMakeFiles/colmap.dir/util/version.cc.o: ../src/util/endian.h
 src/CMakeFiles/colmap.dir/util/version.cc.o: ../src/util/logging.h
@@ -15276,4 +15485,9 @@ src/CMakeFiles/colmap.dir/util/version.cc.o: ../src/util/misc.h
 src/CMakeFiles/colmap.dir/util/version.cc.o: ../src/util/string.h
 src/CMakeFiles/colmap.dir/util/version.cc.o: ../src/util/version.h
 src/CMakeFiles/colmap.dir/util/version.cc.o: ../src/util/version.cc
+src/CMakeFiles/colmap.dir/util/version.cc.o: /usr/local/include/ceres/internal/config.h
+src/CMakeFiles/colmap.dir/util/version.cc.o: /usr/local/include/ceres/internal/disable_warnings.h
+src/CMakeFiles/colmap.dir/util/version.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
+src/CMakeFiles/colmap.dir/util/version.cc.o: /usr/local/include/ceres/internal/port.h
+src/CMakeFiles/colmap.dir/util/version.cc.o: /usr/local/include/ceres/internal/reenable_warnings.h
 

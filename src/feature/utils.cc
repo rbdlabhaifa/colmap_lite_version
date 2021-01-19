@@ -79,8 +79,8 @@ FeatureDescriptors FeatureDescriptorsToUnsignedByte(
 void ExtractTopScaleFeatures(FeatureKeypoints* keypoints,
                              FeatureDescriptors* descriptors,
                              const size_t num_features) {
-  CHECK_EQ(keypoints->size(), descriptors->rows());
-  CHECK_GT(num_features, 0);
+  //CHECK_EQ(keypoints->size(), descriptors->rows());
+  //CHECK_GT(num_features, 0);
 
   if (static_cast<size_t>(descriptors->rows()) <= num_features) {
     return;

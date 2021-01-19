@@ -217,7 +217,7 @@ Eigen::Matrix3d HomographyMatrixFromPose(const Eigen::Matrix3d& K1,
                                          const Eigen::Vector3d& t,
                                          const Eigen::Vector3d& n,
                                          const double d) {
-  CHECK_GT(d, 0);
+  //CHECK_GT(d, 0);
   return K2 * (R - t * n.normalized().transpose() / d) * K1.inverse();
 }
 

@@ -172,7 +172,7 @@ size_t FilterPoints(const IncrementalMapperOptions& options,
 size_t FilterImages(const IncrementalMapperOptions& options,
                     IncrementalMapper* mapper) {
   const size_t num_filtered_images = mapper->FilterImages(options.Mapper());
-  std::cout << "  => Filtered images: " << num_filtered_images << std::endl;
+  //std::cout << "  => Filtered images: " << num_filtered_images << std::endl;
   return num_filtered_images;
 }
 
@@ -422,9 +422,10 @@ void IncrementalMapperController::Reconstruct(
       image_t image_id1 = static_cast<image_t>(options_->init_image_id1);
       image_t image_id2 = static_cast<image_t>(options_->init_image_id2);
 
+
       // Try to find good initial pair.
       if (options_->init_image_id1 == -1 || options_->init_image_id2 == -1) {
-        PrintHeading1("Finding good initial image pair");
+        //PrintHeading1("Finding good initial image pair");
         const bool find_init_success = mapper.FindInitialImagePair(
             init_mapper_options, &image_id1, &image_id2);
         if (!find_init_success) {
@@ -446,8 +447,8 @@ void IncrementalMapperController::Reconstruct(
         }
       }
 
-      PrintHeading1(StringPrintf("Initializing with image pair #%d and #%d",
-                                 image_id1, image_id2));
+      /*PrintHeading1(StringPrintf("Initializing with image pair #%d and #%d",
+                                 image_id1, image_id2));*/
       const bool reg_init_success = mapper.RegisterInitialImagePair(
           init_mapper_options, image_id1, image_id2);
       if (!reg_init_success) {
@@ -560,8 +561,7 @@ void IncrementalMapperController::Reconstruct(
 
           break;
         } else {
-          std::cout << "  => Could not register, trying another image."
-                    << std::endl;
+          //std::cout << "  => Could not register, trying another image."<< std::endl;
 
           // If initial pair fails to continue for some time,
           // abort and try different initial pair.

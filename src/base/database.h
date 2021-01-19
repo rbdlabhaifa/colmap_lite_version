@@ -338,10 +338,10 @@ class DatabaseTransaction {
 
 image_pair_t Database::ImagePairToPairId(const image_t image_id1,
                                          const image_t image_id2) {
-  CHECK_GE(image_id1, 0);
-  CHECK_GE(image_id2, 0);
-  CHECK_LT(image_id1, kMaxNumImages);
-  CHECK_LT(image_id2, kMaxNumImages);
+  //CHECK_GE(image_id1, 0);
+  //CHECK_GE(image_id2, 0);
+  //CHECK_LT(image_id1, kMaxNumImages);
+  //CHECK_LT(image_id2, kMaxNumImages);
   if (SwapImagePair(image_id1, image_id2)) {
     return static_cast<image_pair_t>(kMaxNumImages) * image_id2 + image_id1;
   } else {

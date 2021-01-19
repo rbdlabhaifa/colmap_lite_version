@@ -83,6 +83,7 @@ class Reconstruction {
   inline const ImagePairStat& ImagePair(const image_pair_t pair_id) const;
   inline ImagePairStat& ImagePair(const image_t image_id1,
                                   const image_t image_id2);
+  EIGEN_STL_UMAP(camera_t, class Camera) mainCamera;
 
   // Get mutable objects.
   inline class Camera& Camera(const camera_t camera_id);
@@ -306,6 +307,7 @@ class Reconstruction {
       const double max_reproj_error,
       const std::unordered_set<point3D_t>& point3D_ids);
 
+  void ReadCameraText(const std::string& path);
   void ReadCamerasText(const std::string& path);
   void ReadImagesText(const std::string& path);
   void ReadPoints3DText(const std::string& path);

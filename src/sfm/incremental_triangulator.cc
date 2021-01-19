@@ -38,17 +38,17 @@
 namespace colmap {
 
 bool IncrementalTriangulator::Options::Check() const {
-  CHECK_OPTION_GE(max_transitivity, 0);
-  CHECK_OPTION_GT(create_max_angle_error, 0);
-  CHECK_OPTION_GT(continue_max_angle_error, 0);
-  CHECK_OPTION_GT(merge_max_reproj_error, 0);
-  CHECK_OPTION_GT(complete_max_reproj_error, 0);
-  CHECK_OPTION_GE(complete_max_transitivity, 0);
-  CHECK_OPTION_GT(re_max_angle_error, 0);
-  CHECK_OPTION_GE(re_min_ratio, 0);
-  CHECK_OPTION_LE(re_min_ratio, 1);
-  CHECK_OPTION_GE(re_max_trials, 0);
-  CHECK_OPTION_GT(min_angle, 0);
+  //CHECK_OPTION_GE(max_transitivity, 0);
+  //CHECK_OPTION_GT(create_max_angle_error, 0);
+  //CHECK_OPTION_GT(continue_max_angle_error, 0);
+  //CHECK_OPTION_GT(merge_max_reproj_error, 0);
+  //CHECK_OPTION_GT(complete_max_reproj_error, 0);
+  //CHECK_OPTION_GE(complete_max_transitivity, 0);
+  //CHECK_OPTION_GT(re_max_angle_error, 0);
+  //CHECK_OPTION_GE(re_min_ratio, 0);
+  //CHECK_OPTION_LE(re_min_ratio, 1);
+  //CHECK_OPTION_GE(re_max_trials, 0);
+  //CHECK_OPTION_GT(min_angle, 0);
   return true;
 }
 
@@ -60,7 +60,7 @@ IncrementalTriangulator::IncrementalTriangulator(
 
 size_t IncrementalTriangulator::TriangulateImage(const Options& options,
                                                  const image_t image_id) {
-  //CHECK(options.Check());
+  ////CHECK(options.Check());
 
   size_t num_tris = 0;
 
@@ -72,9 +72,9 @@ size_t IncrementalTriangulator::TriangulateImage(const Options& options,
   }
 
   const Camera& camera = reconstruction_->Camera(image.CameraId());
-  if (HasCameraBogusParams(options, camera)) {
+  /*if (HasCameraBogusParams(options, camera)) {
     return num_tris;
-  }
+  }*/
 
   // Correspondence data for reference observation in given image. We iterate
   // over all observations of the image and each observation once becomes
@@ -118,7 +118,7 @@ size_t IncrementalTriangulator::TriangulateImage(const Options& options,
 
 size_t IncrementalTriangulator::CompleteImage(const Options& options,
                                               const image_t image_id) {
-  CHECK(options.Check());
+  //CHECK(options.Check());
 
   size_t num_tris = 0;
 
@@ -130,9 +130,9 @@ size_t IncrementalTriangulator::CompleteImage(const Options& options,
   }
 
   const Camera& camera = reconstruction_->Camera(image.CameraId());
-  if (HasCameraBogusParams(options, camera)) {
+  /*if (HasCameraBogusParams(options, camera)) {
     return num_tris;
-  }
+  }*/
 
   // Setup estimation options.
   EstimateTriangulationOptions tri_options;
@@ -230,7 +230,7 @@ size_t IncrementalTriangulator::CompleteImage(const Options& options,
 
 size_t IncrementalTriangulator::CompleteTracks(
     const Options& options, const std::unordered_set<point3D_t>& point3D_ids) {
-  CHECK(options.Check());
+  //CHECK(options.Check());
 
   size_t num_completed = 0;
 
@@ -244,7 +244,7 @@ size_t IncrementalTriangulator::CompleteTracks(
 }
 
 size_t IncrementalTriangulator::CompleteAllTracks(const Options& options) {
-  CHECK(options.Check());
+  //CHECK(options.Check());
 
   size_t num_completed = 0;
 
@@ -259,7 +259,7 @@ size_t IncrementalTriangulator::CompleteAllTracks(const Options& options) {
 
 size_t IncrementalTriangulator::MergeTracks(
     const Options& options, const std::unordered_set<point3D_t>& point3D_ids) {
-  CHECK(options.Check());
+  //CHECK(options.Check());
 
   size_t num_merged = 0;
 
@@ -273,7 +273,7 @@ size_t IncrementalTriangulator::MergeTracks(
 }
 
 size_t IncrementalTriangulator::MergeAllTracks(const Options& options) {
-  CHECK(options.Check());
+  //CHECK(options.Check());
 
   size_t num_merged = 0;
 
@@ -287,7 +287,7 @@ size_t IncrementalTriangulator::MergeAllTracks(const Options& options) {
 }
 
 size_t IncrementalTriangulator::Retriangulate(const Options& options) {
-  CHECK(options.Check());
+  //CHECK(options.Check());
 
   size_t num_tris = 0;
 
@@ -331,10 +331,10 @@ size_t IncrementalTriangulator::Retriangulate(const Options& options) {
 
     const Camera& camera1 = reconstruction_->Camera(image1.CameraId());
     const Camera& camera2 = reconstruction_->Camera(image2.CameraId());
-    if (HasCameraBogusParams(options, camera1) ||
+    /*if (HasCameraBogusParams(options, camera1) ||
         HasCameraBogusParams(options, camera2)) {
       continue;
-    }
+    }*/
 
     // Find correspondences and perform retriangulation.
 
@@ -437,9 +437,9 @@ size_t IncrementalTriangulator::Find(const Options& options,
     }
 
     const Camera& corr_camera = reconstruction_->Camera(corr_image.CameraId());
-    if (HasCameraBogusParams(options, corr_camera)) {
+    /*if (HasCameraBogusParams(options, corr_camera)) {
       continue;
-    }
+    }*/
 
     CorrData corr_data;
     corr_data.image_id = corr.image_id;
@@ -716,9 +716,9 @@ size_t IncrementalTriangulator::Complete(const Options& options,
         }
 
         const Camera& camera = reconstruction_->Camera(image.CameraId());
-        if (HasCameraBogusParams(options, camera)) {
+        /*if (HasCameraBogusParams(options, camera)) {
           continue;
-        }
+        }*/
 
         if (CalculateSquaredReprojectionError(
                 point2D.XY(), point3D.XYZ(), image.Qvec(), image.Tvec(),
@@ -746,7 +746,7 @@ size_t IncrementalTriangulator::Complete(const Options& options,
 
 bool IncrementalTriangulator::HasCameraBogusParams(const Options& options,
                                                    const Camera& camera) {
-  const auto it = camera_has_bogus_params_.find(camera.CameraId());
+  /*const auto it = camera_has_bogus_params_.find(camera.CameraId());
   if (it == camera_has_bogus_params_.end()) {
     const bool has_bogus_params = camera.HasBogusParams(
         options.min_focal_length_ratio, options.max_focal_length_ratio,
@@ -755,7 +755,8 @@ bool IncrementalTriangulator::HasCameraBogusParams(const Options& options,
     return has_bogus_params;
   } else {
     return it->second;
-  }
+  }*/
+  return false;
 }
 
 }  // namespace colmap

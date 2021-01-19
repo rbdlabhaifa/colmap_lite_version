@@ -11,7 +11,6 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "CGAL_ENABLED"
-  "GFLAGS_IS_A_DLL=0"
   "OPENGL_ENABLED"
   "OPENMP_ENABLED"
   )
@@ -22,6 +21,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "/usr/include/eigen3"
   "/usr/include/x86_64-linux-gnu"
+  "/usr/local/include/ceres/internal/miniglog"
   "/usr/local/include"
   )
 

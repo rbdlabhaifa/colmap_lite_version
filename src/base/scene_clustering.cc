@@ -40,20 +40,20 @@
 namespace colmap {
 
 bool SceneClustering::Options::Check() const {
-  CHECK_OPTION_GT(branching, 0);
-  CHECK_OPTION_GE(image_overlap, 0);
+  //CHECK_OPTION_GT(branching, 0);
+  //CHECK_OPTION_GE(image_overlap, 0);
   return true;
 }
 
 SceneClustering::SceneClustering(const Options& options) : options_(options) {
-  CHECK(options_.Check());
+  //CHECK(options_.Check());
 }
 
 void SceneClustering::Partition(
     const std::vector<std::pair<image_t, image_t>>& image_pairs,
     const std::vector<int>& num_inliers) {
-  CHECK(!root_cluster_);
-  CHECK_EQ(image_pairs.size(), num_inliers.size());
+  //CHECK(!root_cluster_);
+  //CHECK_EQ(image_pairs.size(), num_inliers.size());
 
   std::set<image_t> image_ids;
   std::vector<std::pair<int, int>> edges;
@@ -73,7 +73,7 @@ void SceneClustering::Partition(
 void SceneClustering::PartitionCluster(
     const std::vector<std::pair<int, int>>& edges,
     const std::vector<int>& weights, Cluster* cluster) {
-  CHECK_EQ(edges.size(), weights.size());
+  //CHECK_EQ(edges.size(), weights.size());
 
   // If the cluster is small enough, we return from the recursive clustering.
   if (edges.size() == 0 ||
@@ -164,7 +164,7 @@ const SceneClustering::Cluster* SceneClustering::GetRootCluster() const {
 
 std::vector<const SceneClustering::Cluster*> SceneClustering::GetLeafClusters()
     const {
-  CHECK(root_cluster_);
+  //CHECK(root_cluster_);
 
   std::vector<const Cluster*> leaf_clusters;
 

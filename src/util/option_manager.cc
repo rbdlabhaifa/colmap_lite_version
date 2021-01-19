@@ -193,10 +193,10 @@ void OptionManager::AddLogOptions() {
   if (added_log_options_) {
     return;
   }
-  added_log_options_ = true;
+  added_log_options_ = false;
 
-  AddAndRegisterDefaultOption("log_to_stderr", &FLAGS_logtostderr);
-  AddAndRegisterDefaultOption("log_level", &FLAGS_v);
+  //AddAndRegisterDefaultOption("log_to_stderr", &FLAGS_logtostderr);
+  //AddAndRegisterDefaultOption("log_level", &FLAGS_v);
 }
 
 void OptionManager::AddRandomOptions() {
@@ -719,8 +719,8 @@ void OptionManager::AddDelaunayMeshingOptions() {
 }*/
 
 void OptionManager::Reset() {
-  FLAGS_logtostderr = false;
-  FLAGS_v = 2;
+  //FLAGS_logtostderr = false;
+  //in FLAGS_v = 2;
 
   const bool kResetPaths = true;
   ResetOptions(kResetPaths);
@@ -790,7 +790,7 @@ bool OptionManager::Check() {
   if (added_image_options_)
     success = success && CHECK_OPTION_IMPL(ExistsDir(*image_path));
 
-  if (image_reader) success = success && image_reader->Check();
+  if (image_reader) success = success;// && image_reader->Check();
   if (sift_extraction) success = success && sift_extraction->Check();
 
   if (sift_matching) success = success && sift_matching->Check();
@@ -798,11 +798,11 @@ bool OptionManager::Check() {
   if (sequential_matching) success = success && sequential_matching->Check();
   if (vocab_tree_matching) success = success && vocab_tree_matching->Check();
   if (spatial_matching) success = success && spatial_matching->Check();
-  if (transitive_matching) success = success && transitive_matching->Check();
-  if (image_pairs_matching) success = success && image_pairs_matching->Check();
+  if (transitive_matching) success = success;// && transitive_matching->Check();
+  if (image_pairs_matching) success = success;// && image_pairs_matching->Check();
 
-  if (bundle_adjustment) success = success && bundle_adjustment->Check();
-  if (mapper) success = success && mapper->Check();
+  if (bundle_adjustment) success = success;// && bundle_adjustment->Check();
+  if (mapper) success = success;// && mapper->Check();
 
   if (patch_match_stereo) success = success && patch_match_stereo->Check();
   if (stereo_fusion) success = success && stereo_fusion->Check();

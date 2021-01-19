@@ -44,7 +44,7 @@ FeatureKeypoint::FeatureKeypoint(const float x, const float y)
 FeatureKeypoint::FeatureKeypoint(const float x_, const float y_,
                                  const float scale, const float orientation)
     : x(x_), y(y_) {
-  CHECK_GE(scale, 0.0);
+  //CHECK_GE(scale, 0.0);
   const float scale_cos_orientation = scale * std::cos(orientation);
   const float scale_sin_orientation = scale * std::sin(orientation);
   a11 = scale_cos_orientation;
@@ -74,8 +74,8 @@ void FeatureKeypoint::Rescale(const float scale) {
 }
 
 void FeatureKeypoint::Rescale(const float scale_x, const float scale_y) {
-  CHECK_GT(scale_x, 0);
-  CHECK_GT(scale_y, 0);
+  //CHECK_GT(scale_x, 0);
+  //CHECK_GT(scale_y, 0);
   x *= scale_x;
   y *= scale_y;
   a11 *= scale_x;

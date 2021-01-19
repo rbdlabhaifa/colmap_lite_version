@@ -172,10 +172,10 @@ Eigen::MatrixXi ComputeSiftDistanceMatrix(
     const FeatureDescriptors& descriptors2,
     const std::function<bool(float, float, float, float)>& guided_filter) {
   if (guided_filter != nullptr) {
-    CHECK_NOTNULL(keypoints1);
-    CHECK_NOTNULL(keypoints2);
-    CHECK_EQ(keypoints1->size(), descriptors1.rows());
-    CHECK_EQ(keypoints2->size(), descriptors2.rows());
+    //CHECK_NOTNULL(keypoints1);
+    //CHECK_NOTNULL(keypoints2);
+    //CHECK_EQ(keypoints1->size(), descriptors1.rows());
+    //CHECK_EQ(keypoints2->size(), descriptors2.rows());
   }
 
   const Eigen::Matrix<int, Eigen::Dynamic, 128> descriptors1_int =
@@ -369,47 +369,47 @@ void WarnDarknessAdaptivityNotAvailable() {
 
 bool SiftExtractionOptions::Check() const {
   if (use_gpu) {
-    CHECK_OPTION_GT(CSVToVector<int>(gpu_index).size(), 0);
+    //CHECK_OPTION_GT(CSVToVector<int>(gpu_index).size(), 0);
   }
-  CHECK_OPTION_GT(max_image_size, 0);
-  CHECK_OPTION_GT(max_num_features, 0);
-  CHECK_OPTION_GT(octave_resolution, 0);
-  CHECK_OPTION_GT(peak_threshold, 0.0);
-  CHECK_OPTION_GT(edge_threshold, 0.0);
-  CHECK_OPTION_GT(max_num_orientations, 0);
+  //CHECK_OPTION_GT(max_image_size, 0);
+  //CHECK_OPTION_GT(max_num_features, 0);
+  //CHECK_OPTION_GT(octave_resolution, 0);
+  //CHECK_OPTION_GT(peak_threshold, 0.0);
+  //CHECK_OPTION_GT(edge_threshold, 0.0);
+  //CHECK_OPTION_GT(max_num_orientations, 0);
   if (domain_size_pooling) {
-    CHECK_OPTION_GT(dsp_min_scale, 0);
-    CHECK_OPTION_GE(dsp_max_scale, dsp_min_scale);
-    CHECK_OPTION_GT(dsp_num_scales, 0);
+    //CHECK_OPTION_GT(dsp_min_scale, 0);
+    //CHECK_OPTION_GE(dsp_max_scale, dsp_min_scale);
+    //CHECK_OPTION_GT(dsp_num_scales, 0);
   }
   return true;
 }
 
 bool SiftMatchingOptions::Check() const {
   if (use_gpu) {
-    CHECK_OPTION_GT(CSVToVector<int>(gpu_index).size(), 0);
+    //CHECK_OPTION_GT(CSVToVector<int>(gpu_index).size(), 0);
   }
-  CHECK_OPTION_GT(max_ratio, 0.0);
-  CHECK_OPTION_GT(max_distance, 0.0);
-  CHECK_OPTION_GT(max_error, 0.0);
-  CHECK_OPTION_GE(min_num_trials, 0);
-  CHECK_OPTION_GT(max_num_trials, 0);
-  CHECK_OPTION_LE(min_num_trials, max_num_trials);
-  CHECK_OPTION_GE(min_inlier_ratio, 0);
-  CHECK_OPTION_LE(min_inlier_ratio, 1);
-  CHECK_OPTION_GE(min_num_inliers, 0);
+  //CHECK_OPTION_GT(max_ratio, 0.0);
+  //CHECK_OPTION_GT(max_distance, 0.0);
+  //CHECK_OPTION_GT(max_error, 0.0);
+  //CHECK_OPTION_GE(min_num_trials, 0);
+  //CHECK_OPTION_GT(max_num_trials, 0);
+  //CHECK_OPTION_LE(min_num_trials, max_num_trials);
+  //CHECK_OPTION_GE(min_inlier_ratio, 0);
+  //CHECK_OPTION_LE(min_inlier_ratio, 1);
+  //CHECK_OPTION_GE(min_num_inliers, 0);
   return true;
 }
 
 bool ExtractSiftFeaturesCPU(const SiftExtractionOptions& options,
                             const Bitmap& bitmap, FeatureKeypoints* keypoints,
                             FeatureDescriptors* descriptors) {
-  CHECK(options.Check());
-  CHECK(bitmap.IsGrey());
-  CHECK_NOTNULL(keypoints);
+  ////CHECK(options.Check());
+  ////CHECK(bitmap.IsGrey());
+  ////CHECK_NOTNULL(keypoints);
 
-  CHECK(!options.estimate_affine_shape);
-  CHECK(!options.domain_size_pooling);
+  ////CHECK(!options.estimate_affine_shape);
+  ////CHECK(!options.domain_size_pooling);
 
   if (options.darkness_adaptivity) {
     WarnDarknessAdaptivityNotAvailable();
@@ -581,9 +581,9 @@ bool ExtractCovariantSiftFeaturesCPU(const SiftExtractionOptions& options,
                                      const Bitmap& bitmap,
                                      FeatureKeypoints* keypoints,
                                      FeatureDescriptors* descriptors) {
-  CHECK(options.Check());
-  CHECK(bitmap.IsGrey());
-  CHECK_NOTNULL(keypoints);
+  //CHECK(options.Check());
+  //CHECK(bitmap.IsGrey());
+  //CHECK_NOTNULL(keypoints);
 
   if (options.darkness_adaptivity) {
     WarnDarknessAdaptivityNotAvailable();
@@ -597,7 +597,7 @@ bool ExtractCovariantSiftFeaturesCPU(const SiftExtractionOptions& options,
   }
 
   const int kMaxOctaveResolution = 1000;
-  CHECK_LE(options.octave_resolution, kMaxOctaveResolution);
+  //CHECK_LE(options.octave_resolution, kMaxOctaveResolution);
 
   vl_covdet_set_first_octave(covdet.get(), options.first_octave);
   vl_covdet_set_octave_resolution(covdet.get(), options.octave_resolution);
@@ -654,7 +654,7 @@ bool ExtractCovariantSiftFeaturesCPU(const SiftExtractionOptions& options,
 
     const int octave_scale_idx =
         features[i].o * kMaxOctaveResolution + features[i].s;
-    CHECK_LE(octave_scale_idx, prev_octave_scale_idx);
+    //CHECK_LE(octave_scale_idx, prev_octave_scale_idx);
 
     if (octave_scale_idx != prev_octave_scale_idx &&
         keypoints->size() >= max_num_features) {
@@ -751,8 +751,8 @@ bool ExtractCovariantSiftFeaturesCPU(const SiftExtractionOptions& options,
 
 /*bool CreateSiftGPUExtractor(const SiftExtractionOptions& options,
                             SiftGPU* sift_gpu) {
-  CHECK(options.Check());
-  CHECK_NOTNULL(sift_gpu);
+  //CHECK(options.Check());
+  //CHECK_NOTNULL(sift_gpu);
 
   // SiftGPU uses many global static state variables and the initialization must
   // be thread-safe in order to work correctly. This is enforced here.
@@ -760,7 +760,7 @@ bool ExtractCovariantSiftFeaturesCPU(const SiftExtractionOptions& options,
   std::unique_lock<std::mutex> lock(mutex);
 
   std::vector<int> gpu_indices = CSVToVector<int>(options.gpu_index);
-  CHECK_EQ(gpu_indices.size(), 1) << "SiftGPU can only run on one GPU";
+  //CHECK_EQ(gpu_indices.size(), 1) << "SiftGPU can only run on one GPU";
 
   std::vector<std::string> sift_gpu_args;
 
@@ -838,14 +838,14 @@ bool ExtractSiftFeaturesGPU(const SiftExtractionOptions& options,
                             const Bitmap& bitmap, SiftGPU* sift_gpu,
                             FeatureKeypoints* keypoints,
                             FeatureDescriptors* descriptors) {
-  CHECK(options.Check());
-  CHECK(bitmap.IsGrey());
-  CHECK_NOTNULL(keypoints);
-  CHECK_NOTNULL(descriptors);
-  CHECK_EQ(options.max_image_size, sift_gpu->GetMaxDimension());
+  //CHECK(options.Check());
+  //CHECK(bitmap.IsGrey());
+  //CHECK_NOTNULL(keypoints);
+  //CHECK_NOTNULL(descriptors);
+  //CHECK_EQ(options.max_image_size, sift_gpu->GetMaxDimension());
 
-  CHECK(!options.estimate_affine_shape);
-  CHECK(!options.domain_size_pooling);
+  //CHECK(!options.estimate_affine_shape);
+  //CHECK(!options.domain_size_pooling);
 
   std::unique_lock<std::mutex> lock(
       *sift_extraction_mutexes[sift_gpu->gpu_index]);
@@ -897,11 +897,11 @@ bool ExtractSiftFeaturesGPU(const SiftExtractionOptions& options,
 void LoadSiftFeaturesFromTextFile(const std::string& path,
                                   FeatureKeypoints* keypoints,
                                   FeatureDescriptors* descriptors) {
-  CHECK_NOTNULL(keypoints);
-  CHECK_NOTNULL(descriptors);
+  //CHECK_NOTNULL(keypoints);
+  //CHECK_NOTNULL(descriptors);
 
   std::ifstream file(path.c_str());
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   std::string line;
   std::string item;
@@ -915,7 +915,7 @@ void LoadSiftFeaturesFromTextFile(const std::string& path,
   std::getline(header_line_stream >> std::ws, item, ' ');
   const size_t dim = std::stoul(item);
 
-  CHECK_EQ(dim, 128) << "SIFT features must have 128 dimensions";
+  //CHECK_EQ(dim, 128) << "SIFT features must have 128 dimensions";
 
   keypoints->resize(num_features);
   descriptors->resize(num_features, dim);
@@ -942,8 +942,8 @@ void LoadSiftFeaturesFromTextFile(const std::string& path,
     for (size_t j = 0; j < dim; ++j) {
       std::getline(feature_line_stream >> std::ws, item, ' ');
       const float value = std::stod(item);
-      CHECK_GE(value, 0);
-      CHECK_LE(value, 255);
+      //CHECK_GE(value, 0);
+      //CHECK_LE(value, 255);
       (*descriptors)(i, j) = TruncateCast<float, uint8_t>(value);
     }
   }
@@ -953,8 +953,8 @@ void MatchSiftFeaturesCPUBruteForce(const SiftMatchingOptions& match_options,
                                     const FeatureDescriptors& descriptors1,
                                     const FeatureDescriptors& descriptors2,
                                     FeatureMatches* matches) {
-  CHECK(match_options.Check());
-  CHECK_NOTNULL(matches);
+  //CHECK(match_options.Check());
+  //CHECK_NOTNULL(matches);
 
   const Eigen::MatrixXi distances = ComputeSiftDistanceMatrix(
       nullptr, nullptr, descriptors1, descriptors2, nullptr);
@@ -968,8 +968,8 @@ void MatchSiftFeaturesCPUFLANN(const SiftMatchingOptions& match_options,
                                const FeatureDescriptors& descriptors1,
                                const FeatureDescriptors& descriptors2,
                                FeatureMatches* matches) {
-  CHECK(match_options.Check());
-  CHECK_NOTNULL(matches);
+  //CHECK(match_options.Check());
+  //CHECK_NOTNULL(matches);
 
   Eigen::Matrix<int, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>
       indices_1to2;
@@ -1006,8 +1006,8 @@ void MatchGuidedSiftFeaturesCPU(const SiftMatchingOptions& match_options,
                                 const FeatureDescriptors& descriptors1,
                                 const FeatureDescriptors& descriptors2,
                                 TwoViewGeometry* two_view_geometry) {
-  CHECK(match_options.Check());
-  CHECK_NOTNULL(two_view_geometry);
+  //CHECK(match_options.Check());
+  //CHECK_NOTNULL(two_view_geometry);
 
   const float max_residual = match_options.max_error * match_options.max_error;
 
@@ -1043,7 +1043,7 @@ void MatchGuidedSiftFeaturesCPU(const SiftMatchingOptions& match_options,
     return;
   }
 
-  CHECK(guided_filter);
+  //CHECK(guided_filter);
 
   const Eigen::MatrixXi dists = ComputeSiftDistanceMatrix(
       &keypoints1, &keypoints2, descriptors1, descriptors2, guided_filter);
@@ -1074,8 +1074,8 @@ void MatchGuidedSiftFeaturesCPU(const SiftMatchingOptions& match_options,
 
 /*bool CreateSiftGPUMatcher(const SiftMatchingOptions& match_options,
                           SiftMatchGPU* sift_match_gpu) {
-  CHECK(match_options.Check());
-  CHECK_NOTNULL(sift_match_gpu);
+  //CHECK(match_options.Check());
+  //CHECK_NOTNULL(sift_match_gpu);
 
   // SiftGPU uses many global static state variables and the initialization must
   // be thread-safe in order to work correctly. This is enforced here.
@@ -1084,7 +1084,7 @@ void MatchGuidedSiftFeaturesCPU(const SiftMatchingOptions& match_options,
 
   const std::vector<int> gpu_indices =
       CSVToVector<int>(match_options.gpu_index);
-  CHECK_EQ(gpu_indices.size(), 1) << "SiftGPU can only run on one GPU";
+  //CHECK_EQ(gpu_indices.size(), 1) << "SiftGPU can only run on one GPU";
 
   SiftGPU sift_gpu;
   sift_gpu.SetVerbose(0);
@@ -1122,22 +1122,22 @@ void MatchSiftFeaturesGPU(const SiftMatchingOptions& match_options,
                           const FeatureDescriptors* descriptors2,
                           SiftMatchGPU* sift_match_gpu,
                           FeatureMatches* matches) {
-  CHECK(match_options.Check());
-  CHECK_NOTNULL(sift_match_gpu);
-  CHECK_NOTNULL(matches);
+  //CHECK(match_options.Check());
+  //CHECK_NOTNULL(sift_match_gpu);
+  //CHECK_NOTNULL(matches);
 
   std::unique_lock<std::mutex> lock(
       *sift_matching_mutexes[sift_match_gpu->gpu_index]);
 
   if (descriptors1 != nullptr) {
-    CHECK_EQ(descriptors1->cols(), 128);
+    //CHECK_EQ(descriptors1->cols(), 128);
     WarnIfMaxNumMatchesReachedGPU(*sift_match_gpu, *descriptors1);
     sift_match_gpu->SetDescriptors(0, descriptors1->rows(),
                                    descriptors1->data());
   }
 
   if (descriptors2 != nullptr) {
-    CHECK_EQ(descriptors2->cols(), 128);
+    //CHECK_EQ(descriptors2->cols(), 128);
     WarnIfMaxNumMatchesReachedGPU(*sift_match_gpu, *descriptors2);
     sift_match_gpu->SetDescriptors(1, descriptors2->rows(),
                                    descriptors2->data());
@@ -1158,7 +1158,7 @@ void MatchSiftFeaturesGPU(const SiftMatchingOptions& match_options,
               << std::endl;
     matches->clear();
   } else {
-    CHECK_LE(num_matches, matches->size());
+    //CHECK_LE(num_matches, matches->size());
     matches->resize(num_matches);
   }
 }
@@ -1177,9 +1177,9 @@ void MatchGuidedSiftFeaturesGPU(const SiftMatchingOptions& match_options,
   static_assert(sizeof(FeatureKeypoint) == 6 * sizeof(float),
                 "Invalid keypoint format");
 
-  CHECK(match_options.Check());
-  CHECK_NOTNULL(sift_match_gpu);
-  CHECK_NOTNULL(two_view_geometry);
+  //CHECK(match_options.Check());
+  //CHECK_NOTNULL(sift_match_gpu);
+  //CHECK_NOTNULL(two_view_geometry);
 
   std::unique_lock<std::mutex> lock(
       *sift_matching_mutexes[sift_match_gpu->gpu_index]);
@@ -1187,9 +1187,9 @@ void MatchGuidedSiftFeaturesGPU(const SiftMatchingOptions& match_options,
   const size_t kFeatureShapeNumElems = 4;
 
   if (descriptors1 != nullptr) {
-    CHECK_NOTNULL(keypoints1);
-    CHECK_EQ(descriptors1->rows(), keypoints1->size());
-    CHECK_EQ(descriptors1->cols(), 128);
+    //CHECK_NOTNULL(keypoints1);
+    //CHECK_EQ(descriptors1->rows(), keypoints1->size());
+    //CHECK_EQ(descriptors1->cols(), 128);
     WarnIfMaxNumMatchesReachedGPU(*sift_match_gpu, *descriptors1);
     const size_t kIndex = 0;
     sift_match_gpu->SetDescriptors(kIndex, descriptors1->rows(),
@@ -1200,9 +1200,9 @@ void MatchGuidedSiftFeaturesGPU(const SiftMatchingOptions& match_options,
   }
 
   if (descriptors2 != nullptr) {
-    CHECK_NOTNULL(keypoints2);
-    CHECK_EQ(descriptors2->rows(), keypoints2->size());
-    CHECK_EQ(descriptors2->cols(), 128);
+    //CHECK_NOTNULL(keypoints2);
+    //CHECK_EQ(descriptors2->rows(), keypoints2->size());
+    //CHECK_EQ(descriptors2->cols(), 128);
     WarnIfMaxNumMatchesReachedGPU(*sift_match_gpu, *descriptors2);
     const size_t kIndex = 1;
     sift_match_gpu->SetDescriptors(kIndex, descriptors2->rows(),
@@ -1230,7 +1230,7 @@ void MatchGuidedSiftFeaturesGPU(const SiftMatchingOptions& match_options,
     return;
   }
 
-  CHECK(F_ptr != nullptr || H_ptr != nullptr);
+  //CHECK(F_ptr != nullptr || H_ptr != nullptr);
 
   two_view_geometry->inlier_matches.resize(
       static_cast<size_t>(match_options.max_num_matches));
@@ -1252,7 +1252,7 @@ void MatchGuidedSiftFeaturesGPU(const SiftMatchingOptions& match_options,
               << std::endl;
     two_view_geometry->inlier_matches.clear();
   } else {
-    CHECK_LE(num_matches, two_view_geometry->inlier_matches.size());
+    //CHECK_LE(num_matches, two_view_geometry->inlier_matches.size());
     two_view_geometry->inlier_matches.resize(num_matches);
   }
 }

@@ -39,8 +39,8 @@ namespace colmap {
 
 std::vector<AffineTransformEstimator::M_t> AffineTransformEstimator::Estimate(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2) {
-  CHECK_EQ(points1.size(), points2.size());
-  CHECK_GE(points1.size(), 3);
+  //CHECK_EQ(points1.size(), points2.size());
+  //CHECK_GE(points1.size(), 3);
 
   // Sets up the linear system that we solve to obtain a least squared solution
   // for the affine transformation.
@@ -76,7 +76,7 @@ void AffineTransformEstimator::Residuals(const std::vector<X_t>& points1,
                                          const std::vector<Y_t>& points2,
                                          const M_t& A,
                                          std::vector<double>* residuals) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   residuals->resize(points1.size());
 

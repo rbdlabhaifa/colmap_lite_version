@@ -49,8 +49,8 @@ std::string EnsureTrailingSlash(const std::string& str) {
 }
 
 bool HasFileExtension(const std::string& file_name, const std::string& ext) {
-  CHECK(!ext.empty());
-  CHECK_EQ(ext.at(0), '.');
+  //CHECK(!ext.empty());
+  //CHECK_EQ(ext.at(0), '.');
   std::string ext_lower = ext;
   StringToLower(&ext_lower);
   if (file_name.size() >= ext_lower.size() &&
@@ -64,7 +64,7 @@ bool HasFileExtension(const std::string& file_name, const std::string& ext) {
 void SplitFileExtension(const std::string& path, std::string* root,
                         std::string* ext) {
   const auto parts = StringSplit(path, ".");
-  CHECK_GT(parts.size(), 0);
+  //CHECK_GT(parts.size(), 0);
   if (parts.size() == 1) {
     *root = parts[0];
     *ext = "";
@@ -96,7 +96,7 @@ bool ExistsPath(const std::string& path) {
 
 void CreateDirIfNotExists(const std::string& path) {
   if (!ExistsDir(path)) {
-    CHECK(boost::filesystem::create_directory(path));
+    boost::filesystem::create_directory(path);
   }
 }
 
@@ -203,7 +203,7 @@ std::vector<std::string> GetRecursiveDirList(const std::string& path) {
 
 size_t GetFileSize(const std::string& path) {
   std::ifstream file(path, std::ifstream::ate | std::ifstream::binary);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
   return file.tellg();
 }
 
@@ -292,7 +292,7 @@ std::vector<double> CSVToVector(const std::string& csv) {
 
 std::vector<std::string> ReadTextFileLines(const std::string& path) {
   std::ifstream file(path);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   std::string line;
   std::vector<std::string> lines;

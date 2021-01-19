@@ -347,6 +347,7 @@ src/exe/CMakeFiles/colmap_exe.dir/colmap.cc.o: /usr/local/include/ceres/internal
 src/exe/CMakeFiles/colmap_exe.dir/colmap.cc.o: /usr/local/include/ceres/internal/integer_sequence_algorithm.h
 src/exe/CMakeFiles/colmap_exe.dir/colmap.cc.o: /usr/local/include/ceres/internal/line_parameterization.h
 src/exe/CMakeFiles/colmap_exe.dir/colmap.cc.o: /usr/local/include/ceres/internal/memory.h
+src/exe/CMakeFiles/colmap_exe.dir/colmap.cc.o: /usr/local/include/ceres/internal/miniglog/glog/logging.h
 src/exe/CMakeFiles/colmap_exe.dir/colmap.cc.o: /usr/local/include/ceres/internal/numeric_diff.h
 src/exe/CMakeFiles/colmap_exe.dir/colmap.cc.o: /usr/local/include/ceres/internal/parameter_dims.h
 src/exe/CMakeFiles/colmap_exe.dir/colmap.cc.o: /usr/local/include/ceres/internal/port.h

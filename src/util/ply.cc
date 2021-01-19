@@ -42,7 +42,7 @@ namespace colmap {
 
 std::vector<PlyPoint> ReadPly(const std::string& path) {
   std::ifstream file(path, std::ios::binary);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   std::vector<PlyPoint> points;
 
@@ -119,9 +119,9 @@ std::vector<PlyPoint> ReadPly(const std::string& path) {
     // Show diffuse, ambient, specular colors as regular colors.
 
     if (line_elems.size() >= 3 && line_elems[0] == "property") {
-      CHECK(line_elems[1] == "float" || line_elems[1] == "float32" ||
+      /*CHECK(line_elems[1] == "float" || line_elems[1] == "float32" ||
             line_elems[1] == "uchar")
-          << "PLY import only supports the float and uchar data types";
+          << "PLY import only supports the float and uchar data types";*/
 
       if (line == "property float x" || line == "property float32 x") {
         X_index = index;
@@ -177,8 +177,7 @@ std::vector<PlyPoint> ReadPly(const std::string& path) {
   const bool is_rgb_missing =
       (R_index == -1) || (G_index == -1) || (B_index == -1);
 
-  CHECK(X_index != -1 && Y_index != -1 && Z_index)
-      << "Invalid PLY file format: x, y, z properties missing";
+  //CHECK(X_index != -1 && Y_index != -1 && Z_index) << "Invalid PLY file format: x, y, z properties missing";
 
   points.reserve(num_vertices);
 
@@ -285,7 +284,7 @@ void WriteTextPlyPoints(const std::string& path,
                         const std::vector<PlyPoint>& points,
                         const bool write_normal, const bool write_rgb) {
   std::ofstream file(path);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   file << "ply" << std::endl;
   file << "format ascii 1.0" << std::endl;
@@ -331,7 +330,7 @@ void WriteBinaryPlyPoints(const std::string& path,
                           const std::vector<PlyPoint>& points,
                           const bool write_normal, const bool write_rgb) {
   std::fstream text_file(path, std::ios::out);
-  CHECK(text_file.is_open()) << path;
+  //CHECK(text_file.is_open()) << path;
 
   text_file << "ply" << std::endl;
   text_file << "format binary_little_endian 1.0" << std::endl;
@@ -358,7 +357,7 @@ void WriteBinaryPlyPoints(const std::string& path,
 
   std::fstream binary_file(path,
                            std::ios::out | std::ios::binary | std::ios::app);
-  CHECK(binary_file.is_open()) << path;
+  //CHECK(binary_file.is_open()) << path;
 
   for (const auto& point : points) {
     WriteBinaryLittleEndian<float>(&binary_file, point.x);
@@ -383,7 +382,7 @@ void WriteBinaryPlyPoints(const std::string& path,
 
 void WriteTextPlyMesh(const std::string& path, const PlyMesh& mesh) {
   std::fstream file(path, std::ios::out);
-  CHECK(file.is_open());
+  //CHECK(file.is_open());
 
   file << "ply" << std::endl;
   file << "format ascii 1.0" << std::endl;
@@ -408,7 +407,7 @@ void WriteTextPlyMesh(const std::string& path, const PlyMesh& mesh) {
 
 void WriteBinaryPlyMesh(const std::string& path, const PlyMesh& mesh) {
   std::fstream text_file(path, std::ios::out);
-  CHECK(text_file.is_open());
+  //CHECK(text_file.is_open());
 
   text_file << "ply" << std::endl;
   text_file << "format binary_little_endian 1.0" << std::endl;
@@ -423,7 +422,7 @@ void WriteBinaryPlyMesh(const std::string& path, const PlyMesh& mesh) {
 
   std::fstream binary_file(path,
                            std::ios::out | std::ios::binary | std::ios::app);
-  CHECK(binary_file.is_open()) << path;
+  //CHECK(binary_file.is_open()) << path;
 
   for (const auto& vertex : mesh.vertices) {
     WriteBinaryLittleEndian<float>(&binary_file, vertex.x);
@@ -432,9 +431,9 @@ void WriteBinaryPlyMesh(const std::string& path, const PlyMesh& mesh) {
   }
 
   for (const auto& face : mesh.faces) {
-    CHECK_LT(face.vertex_idx1, mesh.vertices.size());
-    CHECK_LT(face.vertex_idx2, mesh.vertices.size());
-    CHECK_LT(face.vertex_idx3, mesh.vertices.size());
+    //CHECK_LT(face.vertex_idx1, mesh.vertices.size());
+    //CHECK_LT(face.vertex_idx2, mesh.vertices.size());
+    //CHECK_LT(face.vertex_idx3, mesh.vertices.size());
     const uint8_t kNumVertices = 3;
     WriteBinaryLittleEndian<uint8_t>(&binary_file, kNumVertices);
     WriteBinaryLittleEndian<int>(&binary_file, face.vertex_idx1);

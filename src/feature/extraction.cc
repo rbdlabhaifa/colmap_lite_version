@@ -88,8 +88,8 @@ SiftFeatureExtractor::SiftFeatureExtractor(
       sift_options_(sift_options),
       database_(reader_options_.database_path),
       image_reader_(reader_options_, &database_) {
-  CHECK(reader_options_.Check());
-  CHECK(sift_options_.Check());
+  // CHECK(reader_options_.Check());
+  // CHECK(sift_options_.Check());
 
   std::shared_ptr<Bitmap> camera_mask;
   if (!reader_options_.camera_mask_path.empty()) {
@@ -104,7 +104,7 @@ SiftFeatureExtractor::SiftFeatureExtractor(
   }
 
   const int num_threads = GetEffectiveNumThreads(sift_options_.num_threads);
-  CHECK_GT(num_threads, 0);
+  // CHECK_GT(num_threads, 0);
 
   // Make sure that we only have limited number of objects in the queue to avoid
   // excess in memory usage since images and features take lots of memory.
@@ -124,8 +124,7 @@ SiftFeatureExtractor::SiftFeatureExtractor(
   if (!sift_options_.domain_size_pooling &&
       !sift_options_.estimate_affine_shape && sift_options_.use_gpu) {
     std::vector<int> gpu_indices = CSVToVector<int>(sift_options_.gpu_index);
-    CHECK_GT(gpu_indices.size(), 0);
-
+    // CHECK_GT(gpu_indices.size(), 0);
 
     auto sift_gpu_options = sift_options_;
     for (const auto& gpu_index : gpu_indices) {
@@ -340,9 +339,7 @@ SiftFeatureExtractorThread::SiftFeatureExtractorThread(
       camera_mask_(camera_mask),
       input_queue_(input_queue),
       output_queue_(output_queue) {
-  CHECK(sift_options_.Check());
-
-
+  // CHECK(sift_options_.Check());
 }
 
 void SiftFeatureExtractorThread::Run() {
@@ -380,7 +377,8 @@ void SiftFeatureExtractorThread::Run() {
           success = ExtractSiftFeaturesGPU(
               sift_options_, image_data.bitmap, sift_gpu.get(),
               &image_data.keypoints, &image_data.descriptors);
-        } */else {
+        } */
+        else {
           success = ExtractSiftFeaturesCPU(sift_options_, image_data.bitmap,
                                            &image_data.keypoints,
                                            &image_data.descriptors);

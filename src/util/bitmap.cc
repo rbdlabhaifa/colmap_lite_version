@@ -194,8 +194,8 @@ bool Bitmap::SetPixel(const int x, const int y,
 }
 
 const uint8_t* Bitmap::GetScanline(const int y) const {
-  CHECK_GE(y, 0);
-  CHECK_LT(y, height_);
+  //CHECK_GE(y, 0);
+  //CHECK_LT(y, height_);
   return FreeImage_GetScanLine(data_.get(), height_ - 1 - y);
 }
 
@@ -524,8 +524,8 @@ Bitmap Bitmap::CloneAsRGB() const {
 }
 
 void Bitmap::CloneMetadata(Bitmap* target) const {
-  CHECK_NOTNULL(target);
-  CHECK_NOTNULL(target->Data());
+  //CHECK_NOTNULL(target);
+  //CHECK_NOTNULL(target->Data());
   FreeImage_CloneMetadata(data_.get(), target->Data());
 }
 

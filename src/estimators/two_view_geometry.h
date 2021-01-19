@@ -108,15 +108,15 @@ struct TwoViewGeometry {
     RANSACOptions ransac_options;
 
     void Check() const {
-      CHECK_GE(min_num_inliers, 0);
-      CHECK_GE(min_E_F_inlier_ratio, 0);
-      CHECK_LE(min_E_F_inlier_ratio, 1);
-      CHECK_GE(max_H_inlier_ratio, 0);
-      CHECK_LE(max_H_inlier_ratio, 1);
-      CHECK_GE(watermark_min_inlier_ratio, 0);
-      CHECK_LE(watermark_min_inlier_ratio, 1);
-      CHECK_GE(watermark_border_size, 0);
-      CHECK_LE(watermark_border_size, 1);
+      //CHECK_GE(min_num_inliers, 0);
+      //CHECK_GE(min_E_F_inlier_ratio, 0);
+      //CHECK_LE(min_E_F_inlier_ratio, 1);
+      //CHECK_GE(max_H_inlier_ratio, 0);
+      //CHECK_LE(max_H_inlier_ratio, 1);
+      //CHECK_GE(watermark_min_inlier_ratio, 0);
+      //CHECK_LE(watermark_min_inlier_ratio, 1);
+      //CHECK_GE(watermark_border_size, 0);
+      //CHECK_LE(watermark_border_size, 1);
       ransac_options.Check();
     }
   };

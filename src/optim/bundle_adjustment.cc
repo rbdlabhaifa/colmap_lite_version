@@ -63,12 +63,12 @@ ceres::LossFunction* BundleAdjustmentOptions::CreateLossFunction() const {
       loss_function = new ceres::CauchyLoss(loss_function_scale);
       break;
   }
-  CHECK_NOTNULL(loss_function);
+  ////CHECK_NOTNULL(loss_function);
   return loss_function;
 }
 
 bool BundleAdjustmentOptions::Check() const {
-  CHECK_OPTION_GE(loss_function_scale, 0);
+  //CHECK_OPTION_GE(loss_function_scale, 0);
   return true;
 }
 
@@ -162,8 +162,8 @@ bool BundleAdjustmentConfig::IsConstantCamera(const camera_t camera_id) const {
 }
 
 void BundleAdjustmentConfig::SetConstantPose(const image_t image_id) {
-  CHECK(HasImage(image_id));
-  CHECK(!HasConstantTvec(image_id));
+  ////CHECK(HasImage(image_id));
+  ////CHECK(!HasConstantTvec(image_id));
   constant_poses_.insert(image_id);
 }
 
@@ -177,12 +177,12 @@ bool BundleAdjustmentConfig::HasConstantPose(const image_t image_id) const {
 
 void BundleAdjustmentConfig::SetConstantTvec(const image_t image_id,
                                              const std::vector<int>& idxs) {
-  CHECK_GT(idxs.size(), 0);
-  CHECK_LE(idxs.size(), 3);
-  CHECK(HasImage(image_id));
-  CHECK(!HasConstantPose(image_id));
-  CHECK(!VectorContainsDuplicateValues(idxs))
-      << "Tvec indices must not contain duplicates";
+  /*//CHECK_GT(idxs.size(), 0);
+  //CHECK_LE(idxs.size(), 3);
+  //CHECK(HasImage(image_id));
+  //CHECK(!HasConstantPose(image_id));
+  //CHECK(!VectorContainsDuplicateValues(idxs))
+      << "Tvec indices must not contain duplicates";*/
   constant_tvecs_.emplace(image_id, idxs);
 }
 
@@ -214,12 +214,12 @@ const std::vector<int>& BundleAdjustmentConfig::ConstantTvec(
 }
 
 void BundleAdjustmentConfig::AddVariablePoint(const point3D_t point3D_id) {
-  CHECK(!HasConstantPoint(point3D_id));
+  //CHECK(!HasConstantPoint(point3D_id));
   variable_point3D_ids_.insert(point3D_id);
 }
 
 void BundleAdjustmentConfig::AddConstantPoint(const point3D_t point3D_id) {
-  CHECK(!HasVariablePoint(point3D_id));
+  //CHECK(!HasVariablePoint(point3D_id));
   constant_point3D_ids_.insert(point3D_id);
 }
 
@@ -252,12 +252,12 @@ void BundleAdjustmentConfig::RemoveConstantPoint(const point3D_t point3D_id) {
 BundleAdjuster::BundleAdjuster(const BundleAdjustmentOptions& options,
                                const BundleAdjustmentConfig& config)
     : options_(options), config_(config) {
-  CHECK(options_.Check());
+  ////CHECK(options_.Check());
 }
 
 bool BundleAdjuster::Solve(Reconstruction* reconstruction) {
-  CHECK_NOTNULL(reconstruction);
-  CHECK(!problem_) << "Cannot use the same BundleAdjuster multiple times";
+  ////CHECK_NOTNULL(reconstruction);
+  ////CHECK(!problem_) << "Cannot use the same BundleAdjuster multiple times";
 
   problem_.reset(new ceres::Problem());
 
@@ -271,7 +271,7 @@ bool BundleAdjuster::Solve(Reconstruction* reconstruction) {
   ceres::Solver::Options solver_options = options_.solver_options;
 
   // Empirical choice.
-  const size_t kMaxNumImagesDirectDenseSolver = 50;
+  //const size_t kMaxNumImagesDirectDenseSolver = 50;
   const size_t kMaxNumImagesDirectSparseSolver = 1000;
   const size_t num_images = config_.NumImages();
   /*if (num_images <= kMaxNumImagesDirectDenseSolver) {
@@ -299,7 +299,7 @@ bool BundleAdjuster::Solve(Reconstruction* reconstruction) {
   }
 
   std::string solver_error;
-  CHECK(solver_options.IsValid(&solver_error)) << solver_error;
+  ////CHECK(solver_options.IsValid(&solver_error)) << solver_error;
 
   ceres::Solve(solver_options, problem_.get(), &summary_);
 
@@ -312,7 +312,7 @@ bool BundleAdjuster::Solve(Reconstruction* reconstruction) {
     PrintSolverSummary(summary_);
   }
 
-  TearDown(reconstruction);
+  //TearDown(reconstruction);
 
   return true;
 }
@@ -538,7 +538,7 @@ void BundleAdjuster::ParameterizePoints(Reconstruction* reconstruction) {
 ////////////////////////////////////////////////////////////////////////////////
 
 bool ParallelBundleAdjuster::Options::Check() const {
-  CHECK_OPTION_GE(max_num_iterations, 0);
+  //CHECK_OPTION_GE(max_num_iterations, 0);
   return true;
 }
 
@@ -549,24 +549,19 @@ ParallelBundleAdjuster::ParallelBundleAdjuster(
       ba_options_(ba_options),
       config_(config),
       num_measurements_(0) {
-  CHECK(options_.Check());
-  CHECK(ba_options_.Check());
-  CHECK_EQ(config_.NumConstantCameras(), 0)
-      << "PBA does not allow to set individual cameras constant";
-  CHECK_EQ(config_.NumConstantPoses(), 0)
-      << "PBA does not allow to set individual translational elements constant";
-  CHECK_EQ(config_.NumConstantTvecs(), 0)
-      << "PBA does not allow to set individual translational elements constant";
-  CHECK(config_.NumVariablePoints() == 0 && config_.NumConstantPoints() == 0)
-      << "PBA does not allow to parameterize individual 3D points";
+  //CHECK(options_.Check());
+  //CHECK(ba_options_.Check());
+  //CHECK_EQ(config_.NumConstantCameras(), 0) << "PBA does not allow to set individual cameras constant";
+  //CHECK_EQ(config_.NumConstantPoses(), 0) << "PBA does not allow to set individual translational elements constant";
+  //CHECK_EQ(config_.NumConstantTvecs(), 0) << "PBA does not allow to set individual translational elements constant";
+  //CHECK(config_.NumVariablePoints() == 0 && config_.NumConstantPoints() == 0) << "PBA does not allow to parameterize individual 3D points";
 }
 
 bool ParallelBundleAdjuster::Solve(Reconstruction* reconstruction) {
-  CHECK_NOTNULL(reconstruction);
-  CHECK_EQ(num_measurements_, 0)
-      << "Cannot use the same ParallelBundleAdjuster multiple times";
-  CHECK(!ba_options_.refine_principal_point);
-  CHECK_EQ(ba_options_.refine_focal_length, ba_options_.refine_extra_params);
+  //CHECK_NOTNULL(reconstruction);
+  //CHECK_EQ(num_measurements_, 0)<< "Cannot use the same ParallelBundleAdjuster multiple times";
+  //CHECK(!ba_options_.refine_principal_point);
+  //CHECK_EQ(ba_options_.refine_focal_length, ba_options_.refine_extra_params);
 
   SetUp(reconstruction);
 
@@ -705,12 +700,10 @@ void ParallelBundleAdjuster::AddImagesToProblem(
     Reconstruction* reconstruction) {
   for (const image_t image_id : config_.Images()) {
     const Image& image = reconstruction->Image(image_id);
-    CHECK_EQ(camera_ids_.count(image.CameraId()), 0)
-        << "PBA does not support shared intrinsics";
+    //CHECK_EQ(camera_ids_.count(image.CameraId()), 0) << "PBA does not support shared intrinsics";
 
     const Camera& camera = reconstruction->Camera(image.CameraId());
-    CHECK_EQ(camera.ModelId(), SimpleRadialCameraModel::model_id)
-        << "PBA only supports the SIMPLE_RADIAL camera model";
+    //CHECK_EQ(camera.ModelId(), SimpleRadialCameraModel::model_id)<< "PBA only supports the SIMPLE_RADIAL camera model";
 
     // Note: Do not use PBA's quaternion methods as they seem to lead to
     // numerical instability or other issues.
@@ -723,11 +716,9 @@ void ParallelBundleAdjuster::AddImagesToProblem(
     pba_camera.SetMatrixRotation(rotation_matrix.data());
     pba_camera.SetTranslation(image.Tvec().data());
 
-    CHECK(!config_.HasConstantTvec(image_id))
-        << "PBA cannot fix partial extrinsics";
+    //CHECK(!config_.HasConstantTvec(image_id))<< "PBA cannot fix partial extrinsics";
     if (!ba_options_.refine_extrinsics || config_.HasConstantPose(image_id)) {
-      CHECK(config_.IsConstantCamera(image.CameraId()))
-          << "PBA cannot fix extrinsics only";
+      //CHECK(config_.IsConstantCamera(image.CameraId()))<< "PBA cannot fix extrinsics only";
       pba_camera.SetConstantCamera();
     } else if (config_.IsConstantCamera(image.CameraId())) {
       pba_camera.SetFixedIntrinsic();
@@ -782,8 +773,8 @@ void ParallelBundleAdjuster::AddPointsToProblem(
     point3D_idx += 1;
   }
 
-  CHECK_EQ(point3D_idx, points3D_.size());
-  CHECK_EQ(measurement_idx, measurements_.size());
+  //CHECK_EQ(point3D_idx, points3D_.size());
+  //CHECK_EQ(measurement_idx, measurements_.size());
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -797,24 +788,22 @@ RigBundleAdjuster::RigBundleAdjuster(const BundleAdjustmentOptions& options,
 
 bool RigBundleAdjuster::Solve(Reconstruction* reconstruction,
                               std::vector<CameraRig>* camera_rigs) {
-  CHECK_NOTNULL(reconstruction);
-  CHECK_NOTNULL(camera_rigs);
-  CHECK(!problem_) << "Cannot use the same BundleAdjuster multiple times";
+  //CHECK_NOTNULL(reconstruction);
+  //CHECK_NOTNULL(camera_rigs);
+  //CHECK(!problem_) << "Cannot use the same BundleAdjuster multiple times";
 
   // Check the validity of the provided camera rigs.
   std::unordered_set<camera_t> rig_camera_ids;
   for (auto& camera_rig : *camera_rigs) {
     camera_rig.Check(*reconstruction);
     for (const auto& camera_id : camera_rig.GetCameraIds()) {
-      CHECK_EQ(rig_camera_ids.count(camera_id), 0)
-          << "Camera must not be part of multiple camera rigs";
+      //CHECK_EQ(rig_camera_ids.count(camera_id), 0)<< "Camera must not be part of multiple camera rigs";
       rig_camera_ids.insert(camera_id);
     }
 
     for (const auto& snapshot : camera_rig.Snapshots()) {
       for (const auto& image_id : snapshot) {
-        CHECK_EQ(image_id_to_camera_rig_.count(image_id), 0)
-            << "Image must not be part of multiple camera rigs";
+        //CHECK_EQ(image_id_to_camera_rig_.count(image_id), 0)<< "Image must not be part of multiple camera rigs";
         image_id_to_camera_rig_.emplace(image_id, &camera_rig);
       }
     }
@@ -832,7 +821,7 @@ bool RigBundleAdjuster::Solve(Reconstruction* reconstruction,
   ceres::Solver::Options solver_options = options_.solver_options;
 
   // Empirical choice.
-  const size_t kMaxNumImagesDirectDenseSolver = 50;
+  //const size_t kMaxNumImagesDirectDenseSolver = 50;
   const size_t kMaxNumImagesDirectSparseSolver = 1000;
   const size_t num_images = config_.NumImages();
   /*if (num_images <= kMaxNumImagesDirectDenseSolver) {
@@ -852,7 +841,7 @@ bool RigBundleAdjuster::Solve(Reconstruction* reconstruction,
 #endif  // CERES_VERSION_MAJOR
 
   std::string solver_error;
-  CHECK(solver_options.IsValid(&solver_error)) << solver_error;
+  //CHECK(solver_options.IsValid(&solver_error)) << solver_error;
 
   ceres::Solve(solver_options, problem_.get(), &summary_);
 
@@ -926,10 +915,8 @@ void RigBundleAdjuster::AddImageToProblem(const image_t image_id,
   Eigen::Matrix3x4d rig_proj_matrix = Eigen::Matrix3x4d::Zero();
 
   if (image_id_to_camera_rig_.count(image_id) > 0) {
-    CHECK(!constant_pose)
-        << "Images contained in a camera rig must not have constant pose";
-    CHECK(!constant_tvec)
-        << "Images contained in a camera rig must not have constant tvec";
+    //CHECK(!constant_pose) << "Images contained in a camera rig must not have constant pose";
+    //CHECK(!constant_tvec)<< "Images contained in a camera rig must not have constant tvec";
     camera_rig = image_id_to_camera_rig_.at(image_id);
     rig_qvec_data = image_id_to_rig_qvec_.at(image_id)->data();
     rig_tvec_data = image_id_to_rig_tvec_.at(image_id)->data();
@@ -954,7 +941,7 @@ void RigBundleAdjuster::AddImageToProblem(const image_t image_id,
   }
 
   // Collect cameras for final parameterization.
-  CHECK(image.HasCamera());
+  //CHECK(image.HasCamera());
   camera_ids_.insert(image.CameraId());
 
   // The number of added observations for the current image.

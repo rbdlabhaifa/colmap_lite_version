@@ -103,10 +103,9 @@ src/exe/colmap: lib/VLFeat/libvlfeat.a
 src/exe/colmap: /usr/lib/x86_64-linux-gnu/libboost_filesystem.a
 src/exe/colmap: /usr/lib/x86_64-linux-gnu/libboost_program_options.a
 src/exe/colmap: /usr/lib/x86_64-linux-gnu/libboost_system.a
+src/exe/colmap: /usr/lib/x86_64-linux-gnu/libglog.so
 src/exe/colmap: /usr/lib/x86_64-linux-gnu/libfreeimage.so
 src/exe/colmap: /usr/local/lib/libceres.a
-src/exe/colmap: /usr/lib/x86_64-linux-gnu/libglog.so
-src/exe/colmap: /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.1
 src/exe/colmap: /usr/lib/x86_64-linux-gnu/libspqr.so
 src/exe/colmap: /usr/lib/x86_64-linux-gnu/libtbb.so
 src/exe/colmap: /usr/lib/x86_64-linux-gnu/libcholmod.so

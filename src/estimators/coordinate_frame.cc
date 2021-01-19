@@ -56,8 +56,8 @@ struct VanishingPointEstimator {
   // Estimate the vanishing point from at least two line segments.
   static std::vector<M_t> Estimate(const std::vector<X_t>& line_segments,
                                    const std::vector<Y_t>& lines) {
-    CHECK_EQ(line_segments.size(), 2);
-    CHECK_EQ(lines.size(), 2);
+    //CHECK_EQ(line_segments.size(), 2);
+    //CHECK_EQ(lines.size(), 2);
     return {lines[0].cross(lines[1])};
   }
 
@@ -170,7 +170,7 @@ Eigen::Matrix3d EstimateManhattanWorldFrame(
     std::cout << "Reading image..." << std::endl;
 
     colmap::Bitmap bitmap;
-    CHECK(bitmap.Read(colmap::JoinPaths(image_path, image.Name())));
+    //CHECK(bitmap.Read(colmap::JoinPaths(image_path, image.Name())));
 
     std::cout << "Undistorting image..." << std::endl;
 

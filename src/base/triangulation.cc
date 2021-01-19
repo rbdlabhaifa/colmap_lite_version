@@ -57,7 +57,7 @@ std::vector<Eigen::Vector3d> TriangulatePoints(
     const Eigen::Matrix3x4d& proj_matrix2,
     const std::vector<Eigen::Vector2d>& points1,
     const std::vector<Eigen::Vector2d>& points2) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   std::vector<Eigen::Vector3d> points3D(points1.size());
 
@@ -72,7 +72,7 @@ std::vector<Eigen::Vector3d> TriangulatePoints(
 Eigen::Vector3d TriangulateMultiViewPoint(
     const std::vector<Eigen::Matrix3x4d>& proj_matrices,
     const std::vector<Eigen::Vector2d>& points) {
-  CHECK_EQ(proj_matrices.size(), points.size());
+  //CHECK_EQ(proj_matrices.size(), points.size());
 
   Eigen::Matrix4d A = Eigen::Matrix4d::Zero();
 

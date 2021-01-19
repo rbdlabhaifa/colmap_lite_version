@@ -43,7 +43,7 @@ namespace colmap {
 
 std::vector<HomographyMatrixEstimator::M_t> HomographyMatrixEstimator::Estimate(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   const size_t N = points1.size();
 
@@ -95,7 +95,7 @@ void HomographyMatrixEstimator::Residuals(const std::vector<X_t>& points1,
                                           const std::vector<Y_t>& points2,
                                           const M_t& H,
                                           std::vector<double>* residuals) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   residuals->resize(points1.size());
 

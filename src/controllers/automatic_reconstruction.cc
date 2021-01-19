@@ -48,9 +48,9 @@ AutomaticReconstructionController::AutomaticReconstructionController(
     : options_(options),
       reconstruction_manager_(reconstruction_manager),
       active_thread_(nullptr) {
-  CHECK(ExistsDir(options_.workspace_path));
-  CHECK(ExistsDir(options_.image_path));
-  CHECK_NOTNULL(reconstruction_manager_);
+  //CHECK(ExistsDir(options_.workspace_path));
+  //CHECK(ExistsDir(options_.image_path));
+  //CHECK_NOTNULL(reconstruction_manager_);
 
   option_manager_.AddAllOptions();
 
@@ -68,7 +68,7 @@ AutomaticReconstructionController::AutomaticReconstructionController(
     LOG(FATAL) << "Data type not supported";
   }
 
-  CHECK(ExistsCameraModelWithName(options_.camera_model));
+  //CHECK(ExistsCameraModelWithName(options_.camera_model));
 
   if (options_.quality == Quality::LOW) {
     option_manager_.ModifyForLowQuality();
@@ -184,7 +184,7 @@ void AutomaticReconstructionController::RunFeatureMatching() {
     }
   }
 
-  CHECK(matcher);
+  //CHECK(matcher);
   active_thread_ = matcher;
   matcher->Start();
   matcher->Wait();

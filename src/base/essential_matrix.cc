@@ -161,8 +161,8 @@ bool RefineEssentialMatrix(const ceres::Solver::Options& options,
                            const std::vector<Eigen::Vector2d>& points2,
                            const std::vector<char>& inlier_mask,
                            Eigen::Matrix3d* E) {
-  CHECK_EQ(points1.size(), points2.size());
-  CHECK_EQ(points1.size(), inlier_mask.size());
+  //CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), inlier_mask.size());
 
   // Extract inlier points for decomposing the essential matrix into
   // rotation and translation components.

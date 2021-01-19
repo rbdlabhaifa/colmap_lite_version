@@ -44,7 +44,7 @@
 namespace colmap {
 
 void TriangulationEstimator::SetMinTriAngle(const double min_tri_angle) {
-  CHECK_GE(min_tri_angle, 0);
+  //CHECK_GE(min_tri_angle, 0);
   min_tri_angle_ = min_tri_angle;
 }
 
@@ -55,8 +55,8 @@ void TriangulationEstimator::SetResidualType(const ResidualType residual_type) {
 std::vector<TriangulationEstimator::M_t> TriangulationEstimator::Estimate(
     const std::vector<X_t>& point_data,
     const std::vector<Y_t>& pose_data) const {
-  CHECK_GE(point_data.size(), 2);
-  CHECK_EQ(point_data.size(), pose_data.size());
+  //CHECK_GE(point_data.size(), 2);
+  //CHECK_EQ(point_data.size(), pose_data.size());
 
   if (point_data.size() == 2) {
     // Two-view triangulation.
@@ -112,7 +112,7 @@ void TriangulationEstimator::Residuals(const std::vector<X_t>& point_data,
                                        const std::vector<Y_t>& pose_data,
                                        const M_t& xyz,
                                        std::vector<double>* residuals) const {
-  CHECK_EQ(point_data.size(), pose_data.size());
+  //CHECK_EQ(point_data.size(), pose_data.size());
 
   residuals->resize(point_data.size());
 
@@ -134,10 +134,10 @@ bool EstimateTriangulation(
     const std::vector<TriangulationEstimator::PointData>& point_data,
     const std::vector<TriangulationEstimator::PoseData>& pose_data,
     std::vector<char>* inlier_mask, Eigen::Vector3d* xyz) {
-  CHECK_NOTNULL(inlier_mask);
-  CHECK_NOTNULL(xyz);
-  CHECK_GE(point_data.size(), 2);
-  CHECK_EQ(point_data.size(), pose_data.size());
+  //CHECK_NOTNULL(inlier_mask);
+  //CHECK_NOTNULL(xyz);
+  //CHECK_GE(point_data.size(), 2);
+  //CHECK_EQ(point_data.size(), pose_data.size());
   options.Check();
 
   // Robustly estimate track using LORANSAC.

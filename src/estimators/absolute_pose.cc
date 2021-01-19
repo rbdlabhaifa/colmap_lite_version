@@ -46,8 +46,8 @@ Eigen::Vector3d LiftImagePoint(const Eigen::Vector2d& point) {
 
 std::vector<P3PEstimator::M_t> P3PEstimator::Estimate(
     const std::vector<X_t>& points2D, const std::vector<Y_t>& points3D) {
-  CHECK_EQ(points2D.size(), 3);
-  CHECK_EQ(points3D.size(), 3);
+  //CHECK_EQ(points2D.size(), 3);
+  //CHECK_EQ(points3D.size(), 3);
 
   Eigen::Matrix3d points3D_world;
   points3D_world.col(0) = points3D[0];
@@ -182,8 +182,8 @@ void P3PEstimator::Residuals(const std::vector<X_t>& points2D,
 
 std::vector<EPNPEstimator::M_t> EPNPEstimator::Estimate(
     const std::vector<X_t>& points2D, const std::vector<Y_t>& points3D) {
-  CHECK_GE(points2D.size(), 4);
-  CHECK_EQ(points2D.size(), points3D.size());
+  //CHECK_GE(points2D.size(), 4);
+  //CHECK_EQ(points2D.size(), points3D.size());
 
   EPNPEstimator epnp;
   M_t proj_matrix;
@@ -256,14 +256,15 @@ bool EPNPEstimator::ComputePose(const std::vector<Eigen::Vector2d>& points2D,
 
 void EPNPEstimator::ChooseControlPoints() {
   // Take C0 as the reference points centroid:
+  unsigned int points3DSize = points3D_->size();
   cws_[0].setZero();
-  for (size_t i = 0; i < points3D_->size(); ++i) {
+  for (size_t i = 0; i < points3DSize; ++i) {
     cws_[0] += (*points3D_)[i];
   }
-  cws_[0] /= points3D_->size();
+  cws_[0] /= points3DSize;
 
   Eigen::Matrix<double, Eigen::Dynamic, 3> PW0(points3D_->size(), 3);
-  for (size_t i = 0; i < points3D_->size(); ++i) {
+  for (size_t i = 0; i < points3DSize; ++i) {
     PW0.row(i) = (*points3D_)[i] - cws_[0];
   }
 
@@ -274,7 +275,7 @@ void EPNPEstimator::ChooseControlPoints() {
   const Eigen::Matrix3d Ut = svd.matrixU().transpose();
 
   for (int i = 1; i < 4; ++i) {
-    const double k = std::sqrt(D(i - 1) / points3D_->size());
+    const double k = std::sqrt(D(i - 1) / points3DSize);
     cws_[i] = cws_[0] + k * Ut.row(i - 1).transpose();
   }
 }
@@ -330,9 +331,11 @@ Eigen::Matrix<double, 6, 10> EPNPEstimator::ComputeL6x10(
   for (int i = 0; i < 4; ++i) {
     int a = 0, b = 1;
     for (int j = 0; j < 6; ++j) {
-      dv[i][j][0] = Ut(11 - i, 3 * a) - Ut(11 - i, 3 * b);
-      dv[i][j][1] = Ut(11 - i, 3 * a + 1) - Ut(11 - i, 3 * b + 1);
-      dv[i][j][2] = Ut(11 - i, 3 * a + 2) - Ut(11 - i, 3 * b + 2);
+      int aMulti = 3*a;
+      int bMulti = 3*b;
+      dv[i][j][0] = Ut(11 - i, aMulti) - Ut(11 - i, bMulti);
+      dv[i][j][1] = Ut(11 - i, aMulti + 1) - Ut(11 - i, bMulti + 1);
+      dv[i][j][2] = Ut(11 - i, aMulti + 2) - Ut(11 - i, bMulti + 2);
 
       b += 1;
       if (b > 3) {
@@ -343,15 +346,18 @@ Eigen::Matrix<double, 6, 10> EPNPEstimator::ComputeL6x10(
   }
 
   for (int i = 0; i < 6; ++i) {
-    L6x10(i, 0) = dv[0][i].transpose() * dv[0][i];
-    L6x10(i, 1) = 2.0 * dv[0][i].transpose() * dv[1][i];
-    L6x10(i, 2) = dv[1][i].transpose() * dv[1][i];
-    L6x10(i, 3) = 2.0 * dv[0][i].transpose() * dv[2][i];
-    L6x10(i, 4) = 2.0 * dv[1][i].transpose() * dv[2][i];
-    L6x10(i, 5) = dv[2][i].transpose() * dv[2][i];
-    L6x10(i, 6) = 2.0 * dv[0][i].transpose() * dv[3][i];
-    L6x10(i, 7) = 2.0 * dv[1][i].transpose() * dv[3][i];
-    L6x10(i, 8) = 2.0 * dv[2][i].transpose() * dv[3][i];
+    auto dv0T = dv[0][i].transpose();
+    auto dv1T = dv[1][i].transpose();
+    auto dv2T = dv[2][i].transpose();
+    L6x10(i, 0) = dv0T * dv[0][i];
+    L6x10(i, 1) = 2.0 * dv0T * dv[1][i];
+    L6x10(i, 2) = dv1T * dv[1][i];
+    L6x10(i, 3) = 2.0 * dv0T * dv[2][i];
+    L6x10(i, 4) = 2.0 * dv1T * dv[2][i];
+    L6x10(i, 5) = dv2T * dv[2][i];
+    L6x10(i, 6) = 2.0 * dv0T * dv[3][i];
+    L6x10(i, 7) = 2.0 * dv1T * dv[3][i];
+    L6x10(i, 8) = 2.0 * dv2T * dv[3][i];
     L6x10(i, 9) = dv[3][i].transpose() * dv[3][i];
   }
 
@@ -549,20 +555,21 @@ void EPNPEstimator::SolveForSign() {
 void EPNPEstimator::EstimateRT(Eigen::Matrix3d* R, Eigen::Vector3d* t) {
   Eigen::Vector3d pc0 = Eigen::Vector3d::Zero();
   Eigen::Vector3d pw0 = Eigen::Vector3d::Zero();
-
-  for (size_t i = 0; i < points3D_->size(); ++i) {
+  unsigned int point3DSize = points3D_->size();
+  for (size_t i = 0; i < point3DSize; ++i) {
     pc0 += pcs_[i];
     pw0 += (*points3D_)[i];
   }
-  pc0 /= points3D_->size();
-  pw0 /= points3D_->size();
+  pc0 /= point3DSize;
+  pw0 /= point3DSize;
 
   Eigen::Matrix3d abt = Eigen::Matrix3d::Zero();
-  for (size_t i = 0; i < points3D_->size(); ++i) {
+  for (size_t i = 0; i < point3DSize; ++i) {
     for (int j = 0; j < 3; ++j) {
-      abt(j, 0) += (pcs_[i][j] - pc0[j]) * ((*points3D_)[i][0] - pw0[0]);
-      abt(j, 1) += (pcs_[i][j] - pc0[j]) * ((*points3D_)[i][1] - pw0[1]);
-      abt(j, 2) += (pcs_[i][j] - pc0[j]) * ((*points3D_)[i][2] - pw0[2]);
+      int pcsMinusPc0 = pcs_[i][j] - pc0[j];
+      abt(j, 0) += (pcsMinusPc0) * ((*points3D_)[i][0] - pw0[0]);
+      abt(j, 1) += (pcsMinusPc0) * ((*points3D_)[i][1] - pw0[1]);
+      abt(j, 2) += (pcsMinusPc0) * ((*points3D_)[i][2] - pw0[2]);
     }
   }
 
@@ -595,7 +602,6 @@ double EPNPEstimator::ComputeTotalReprojectionError(const Eigen::Matrix3d& R,
   Eigen::Matrix3x4d proj_matrix;
   proj_matrix.leftCols<3>() = R;
   proj_matrix.rightCols<1>() = t;
-
   std::vector<double> residuals;
   ComputeSquaredReprojectionError(*points2D_, *points3D_, proj_matrix,
                                   &residuals);

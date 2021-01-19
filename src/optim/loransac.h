@@ -92,7 +92,7 @@ typename LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Report
 LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
     const std::vector<typename Estimator::X_t>& X,
     const std::vector<typename Estimator::Y_t>& Y) {
-  CHECK_EQ(X.size(), Y.size());
+  //CHECK_EQ(X.size(), Y.size());
 
   const size_t num_samples = X.size();
 
@@ -143,7 +143,7 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
     // Iterate through all estimated models
     for (const auto& sample_model : sample_models) {
       estimator.Residuals(X, Y, sample_model, &residuals);
-      CHECK_EQ(residuals.size(), num_samples);
+      //CHECK_EQ(residuals.size(), num_samples);
 
       const auto support = support_measurer.Evaluate(residuals, max_residual);
 
@@ -178,7 +178,7 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
 
             for (const auto& local_model : local_models) {
               local_estimator.Residuals(X, Y, local_model, &residuals);
-              CHECK_EQ(residuals.size(), num_samples);
+              //CHECK_EQ(residuals.size(), num_samples);
 
               const auto local_support =
                   support_measurer.Evaluate(residuals, max_residual);
@@ -238,7 +238,7 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
     estimator.Residuals(X, Y, report.model, &residuals);
   }
 
-  CHECK_EQ(residuals.size(), num_samples);
+  //CHECK_EQ(residuals.size(), num_samples);
 
   report.inlier_mask.resize(num_samples);
   for (size_t i = 0; i < residuals.size(); ++i) {

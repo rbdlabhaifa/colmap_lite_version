@@ -58,7 +58,7 @@ Image::Image()
       tvec_prior_(kNaN, kNaN, kNaN) {}
 
 void Image::SetUp(const class Camera& camera) {
-  CHECK_EQ(camera_id_, camera.CameraId());
+  //CHECK_EQ(camera_id_, camera.CameraId());
   point3D_visibility_pyramid_ = VisibilityPyramid(
       kNumPoint3DVisibilityPyramidLevels, camera.Width(), camera.Height());
 }
@@ -68,7 +68,7 @@ void Image::TearDown() {
 }
 
 void Image::SetPoints2D(const std::vector<Eigen::Vector2d>& points) {
-  CHECK(points2D_.empty());
+  //CHECK(points2D_.empty());
   points2D_.resize(points.size());
   num_correspondences_have_point3D_.resize(points.size(), 0);
   for (point2D_t point2D_idx = 0; point2D_idx < points.size(); ++point2D_idx) {
@@ -77,14 +77,14 @@ void Image::SetPoints2D(const std::vector<Eigen::Vector2d>& points) {
 }
 
 void Image::SetPoints2D(const std::vector<class Point2D>& points) {
-  CHECK(points2D_.empty());
+  //CHECK(points2D_.empty());
   points2D_ = points;
   num_correspondences_have_point3D_.resize(points.size(), 0);
 }
 
 void Image::SetPoint3DForPoint2D(const point2D_t point2D_idx,
                                  const point3D_t point3D_id) {
-  CHECK_NE(point3D_id, kInvalidPoint3DId);
+  //CHECK_NE(point3D_id, kInvalidPoint3DId);
   class Point2D& point2D = points2D_.at(point2D_idx);
   if (!point2D.HasPoint3D()) {
     num_points3D_ += 1;

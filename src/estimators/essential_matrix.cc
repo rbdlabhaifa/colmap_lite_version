@@ -47,7 +47,7 @@ namespace colmap {
 std::vector<EssentialMatrixFivePointEstimator::M_t>
 EssentialMatrixFivePointEstimator::Estimate(const std::vector<X_t>& points1,
                                             const std::vector<Y_t>& points2) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   // Step 1: Extraction of the nullspace x, y, z, w.
 
@@ -159,7 +159,7 @@ void EssentialMatrixFivePointEstimator::Residuals(
 std::vector<EssentialMatrixEightPointEstimator::M_t>
 EssentialMatrixEightPointEstimator::Estimate(const std::vector<X_t>& points1,
                                              const std::vector<Y_t>& points2) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   // Center and normalize image points for better numerical stability.
   std::vector<X_t> normed_points1;

@@ -95,8 +95,8 @@ Eigen::Vector3d PointFromPlueckerLineAndDepth(const Eigen::Vector6d& pluecker,
 Eigen::Matrix<double, 3, 6> ComputePolynomialCoefficients(
     const std::vector<Eigen::Vector6d>& plueckers,
     const std::vector<Eigen::Vector3d>& points3D) {
-  CHECK_EQ(plueckers.size(), 3);
-  CHECK_EQ(points3D.size(), 3);
+  //CHECK_EQ(plueckers.size(), 3);
+  //CHECK_EQ(points3D.size(), 3);
 
   Eigen::Matrix<double, 3, 6> K;
   const std::array<int, 3> is = {{0, 0, 1}};
@@ -210,8 +210,8 @@ std::vector<Eigen::Vector3d> ComputeDepthsSylvester(
 
 std::vector<GP3PEstimator::M_t> GP3PEstimator::Estimate(
     const std::vector<X_t>& points2D, const std::vector<Y_t>& points3D) {
-  CHECK_EQ(points2D.size(), 3);
-  CHECK_EQ(points3D.size(), 3);
+  //CHECK_EQ(points2D.size(), 3);
+  //CHECK_EQ(points3D.size(), 3);
 
   if (CheckCollinearPoints(points3D[0], points3D[1], points3D[2])) {
     return std::vector<GP3PEstimator::M_t>({});
@@ -268,7 +268,7 @@ void GP3PEstimator::Residuals(const std::vector<X_t>& points2D,
                               const std::vector<Y_t>& points3D,
                               const M_t& proj_matrix,
                               std::vector<double>* residuals) {
-  CHECK_EQ(points2D.size(), points3D.size());
+  //CHECK_EQ(points2D.size(), points3D.size());
 
   residuals->resize(points2D.size(), 0);
 

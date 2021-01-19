@@ -82,7 +82,7 @@ template <int kDim>
 std::vector<typename TranslationTransformEstimator<kDim>::M_t>
 TranslationTransformEstimator<kDim>::Estimate(const std::vector<X_t>& points1,
                                               const std::vector<Y_t>& points2) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   X_t mean_src = X_t::Zero();
   Y_t mean_dst = Y_t::Zero();
@@ -105,7 +105,7 @@ template <int kDim>
 void TranslationTransformEstimator<kDim>::Residuals(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2,
     const M_t& translation, std::vector<double>* residuals) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   residuals->resize(points1.size());
 

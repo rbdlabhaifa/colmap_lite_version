@@ -35,17 +35,18 @@ namespace colmap {
 
 void InitializeGlog(char** argv) {
 #ifndef _MSC_VER  // Broken in MSVC
-  google::InstallFailureSignalHandler();
+  //google::InstallFailureSignalHandler();
 #endif
   google::InitGoogleLogging(argv[0]);
 }
 
 const char* __GetConstFileBaseName(const char* file) {
-  const char* base = strrchr(file, '/');
+  /*const char* base = strrchr(file, '/');
   if (!base) {
     base = strrchr(file, '\\');
   }
-  return base ? (base + 1) : file;
+  return base ? (base + 1) : file;*/
+  return "";
 }
 
 bool __CheckOptionImpl(const char* file, const int line, const bool result,

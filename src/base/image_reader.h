@@ -64,7 +64,7 @@ struct ImageReaderOptions {
   std::string camera_model = "SIMPLE_RADIAL";
 
   // Whether to use the same camera for all images.
-  bool single_camera = false;
+  bool single_camera = true;
 
   // Whether to use the same camera for all images in the same sub-folder.
   bool single_camera_per_folder = false;

@@ -48,8 +48,8 @@ namespace colmap {
 std::vector<FundamentalMatrixSevenPointEstimator::M_t>
 FundamentalMatrixSevenPointEstimator::Estimate(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2) {
-  CHECK_EQ(points1.size(), 7);
-  CHECK_EQ(points2.size(), 7);
+  //CHECK_EQ(points1.size(), 7);
+  //CHECK_EQ(points2.size(), 7);
 
   // Note that no normalization of the points is necessary here.
 
@@ -151,7 +151,7 @@ void FundamentalMatrixSevenPointEstimator::Residuals(
 std::vector<FundamentalMatrixEightPointEstimator::M_t>
 FundamentalMatrixEightPointEstimator::Estimate(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   // Center and normalize image points for better numerical stability.
   std::vector<X_t> normed_points1;

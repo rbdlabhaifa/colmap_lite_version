@@ -68,7 +68,7 @@ size_t ReconstructionManager::Add() {
 }
 
 void ReconstructionManager::Delete(const size_t idx) {
-  CHECK_LT(idx, reconstructions_.size());
+  //CHECK_LT(idx, reconstructions_.size());
   reconstructions_.erase(reconstructions_.begin() + idx);
 }
 

@@ -130,8 +130,8 @@ void ComputeInliers(const TwoWayTransform& tform,
                     const std::vector<FeatureGeometryMatch>& matches,
                     const float max_transfer_error, const float max_scale_error,
                     std::vector<std::pair<int, int>>* inlier_idxs) {
-  CHECK_GT(max_transfer_error, 0);
-  CHECK_GT(max_scale_error, 0);
+  //CHECK_GT(max_transfer_error, 0);
+  //CHECK_GT(max_scale_error, 0);
 
   inlier_idxs->clear();
   for (size_t i = 0; i < matches.size(); ++i) {
@@ -154,9 +154,9 @@ size_t ComputeEffectiveInlierCount(
     const std::vector<FeatureGeometryMatch>& matches,
     const float max_transfer_error, const float max_scale_error,
     const int num_bins) {
-  CHECK_GT(max_transfer_error, 0);
-  CHECK_GT(max_scale_error, 0);
-  CHECK_GT(num_bins, 0);
+  //CHECK_GT(max_transfer_error, 0);
+  //CHECK_GT(max_scale_error, 0);
+  //CHECK_GT(num_bins, 0);
 
   std::vector<std::pair<float, float>> inlier_coords;
   inlier_coords.reserve(matches.size());
@@ -207,17 +207,17 @@ size_t ComputeEffectiveInlierCount(
 
 int VoteAndVerify(const VoteAndVerifyOptions& options,
                   const std::vector<FeatureGeometryMatch>& matches) {
-  CHECK_GT(options.num_transformations, 0);
-  CHECK_GT(options.num_trans_bins, 0);
-  CHECK_EQ(options.num_trans_bins % 2, 0);
-  CHECK_GT(options.num_scale_bins, 0);
-  CHECK_EQ(options.num_scale_bins % 2, 0);
-  CHECK_GT(options.num_angle_bins, 0);
-  CHECK_EQ(options.num_angle_bins % 2, 0);
-  CHECK_GT(options.max_image_size, 0);
-  CHECK_GT(options.min_num_votes, 0);
-  CHECK_GE(options.confidence, 0);
-  CHECK_LE(options.confidence, 1);
+  //CHECK_GT(options.num_transformations, 0);
+  //CHECK_GT(options.num_trans_bins, 0);
+  //CHECK_EQ(options.num_trans_bins % 2, 0);
+  //CHECK_GT(options.num_scale_bins, 0);
+  //CHECK_EQ(options.num_scale_bins % 2, 0);
+  //CHECK_GT(options.num_angle_bins, 0);
+  //CHECK_EQ(options.num_angle_bins % 2, 0);
+  //CHECK_GT(options.max_image_size, 0);
+  //CHECK_GT(options.min_num_votes, 0);
+  //CHECK_GE(options.confidence, 0);
+  //CHECK_LE(options.confidence, 1);
 
   if (matches.size() < AffineTransformEstimator::kMinNumSamples) {
     return 0;

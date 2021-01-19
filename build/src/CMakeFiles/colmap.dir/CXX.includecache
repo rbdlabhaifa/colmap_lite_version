@@ -1915,8 +1915,6 @@ base/projection.h
 /home/rbdstudent/colmap/src/base/image_reader.cc
 base/image_reader.h
 /home/rbdstudent/colmap/src/base/base/image_reader.h
-base/camera_models.h
-/home/rbdstudent/colmap/src/base/base/camera_models.h
 util/misc.h
 /home/rbdstudent/colmap/src/base/util/misc.h
 
@@ -2340,8 +2338,6 @@ util/misc.h
 feature/matching.h
 /home/rbdstudent/colmap/src/feature/feature/matching.h
 fstream
--
-numeric
 -
 base/gps.h
 /home/rbdstudent/colmap/src/feature/base/gps.h
@@ -4333,6 +4329,32 @@ householder_vector.h
 /usr/local/include/ceres/internal/memory.h
 memory
 -
+
+/usr/local/include/ceres/internal/miniglog/glog/logging.h
+android/log.h
+-
+algorithm
+-
+ctime
+-
+fstream
+-
+iostream
+-
+set
+-
+sstream
+-
+string
+-
+vector
+-
+ceres/internal/port.h
+/usr/local/include/ceres/internal/miniglog/glog/ceres/internal/port.h
+ceres/internal/disable_warnings.h
+/usr/local/include/ceres/internal/miniglog/glog/ceres/internal/disable_warnings.h
+ceres/internal/reenable_warnings.h
+/usr/local/include/ceres/internal/miniglog/glog/ceres/internal/reenable_warnings.h
 
 /usr/local/include/ceres/internal/numeric_diff.h
 cstring

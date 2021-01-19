@@ -116,7 +116,7 @@ Eigen::Vector3d RotationMatrixToCaley(const Eigen::Matrix3d& R) {
 Eigen::Vector3d ComputeRotationBetweenPoints(
     const std::vector<Eigen::Vector6d>& plueckers1,
     const std::vector<Eigen::Vector6d>& plueckers2) {
-  CHECK_EQ(plueckers1.size(), plueckers2.size());
+  //CHECK_EQ(plueckers1.size(), plueckers2.size());
 
   // Compute the center of all observed points.
   Eigen::Vector3d points_center1 = Eigen::Vector3d::Zero();
@@ -348,8 +348,8 @@ double ComputeCost(const Eigen::Matrix3d& xxF, const Eigen::Matrix3d& yyF,
                    const Eigen::Matrix<double, 9, 9>& m12P,
                    const Eigen::Matrix<double, 9, 9>& m22P,
                    const Eigen::Vector3d& rotation, const int step) {
-  CHECK_GE(step, 0);
-  CHECK_LE(step, 1);
+  //CHECK_GE(step, 0);
+  //CHECK_LE(step, 1);
 
   const Eigen::Vector4d roots =
       ComputeEigenValue(xxF, yyF, zzF, xyF, yzF, zxF, x1P, y1P, z1P, x2P, y2P,
@@ -395,8 +395,8 @@ Eigen::Vector3d ComputeJacobian(
 
 std::vector<GR6PEstimator::M_t> GR6PEstimator::Estimate(
     const std::vector<X_t>& points1, const std::vector<Y_t>& points2) {
-  CHECK_GE(points1.size(), 6);
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_GE(points1.size(), 6);
+  //CHECK_EQ(points1.size(), points2.size());
 
   std::vector<Eigen::Vector3d> proj_centers1(points1.size());
   std::vector<Eigen::Vector3d> proj_centers2(points1.size());
@@ -589,7 +589,7 @@ void GR6PEstimator::Residuals(const std::vector<X_t>& points1,
                               const std::vector<Y_t>& points2,
                               const M_t& proj_matrix,
                               std::vector<double>* residuals) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   residuals->resize(points1.size(), 0);
 

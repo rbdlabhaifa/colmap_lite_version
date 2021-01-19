@@ -78,12 +78,12 @@ void Reconstruction::Load(const DatabaseCache& database_cache) {
   for (const auto& image : database_cache.Images()) {
     if (ExistsImage(image.second.ImageId())) {
       class Image& existing_image = Image(image.second.ImageId());
-      CHECK_EQ(existing_image.Name(), image.second.Name());
+      ////CHECK_EQ(existing_image.Name(), image.second.Name());
       if (existing_image.NumPoints2D() == 0) {
         existing_image.SetPoints2D(image.second.Points2D());
-      } else {
-        CHECK_EQ(image.second.NumPoints2D(), existing_image.NumPoints2D());
-      }
+      }/* else {
+        //CHECK_EQ(image.second.NumPoints2D(), existing_image.NumPoints2D());
+      }*/
       existing_image.SetNumObservations(image.second.NumObservations());
       existing_image.SetNumCorrespondences(image.second.NumCorrespondences());
     } else {
@@ -101,7 +101,7 @@ void Reconstruction::Load(const DatabaseCache& database_cache) {
 }
 
 void Reconstruction::SetUp(const CorrespondenceGraph* correspondence_graph) {
-  CHECK_NOTNULL(correspondence_graph);
+  ////CHECK_NOTNULL(correspondence_graph);
   for (auto& image : images_) {
     image.second.SetUp(Camera(image.second.CameraId()));
   }
@@ -153,13 +153,13 @@ void Reconstruction::TearDown() {
 }
 
 void Reconstruction::AddCamera(const class Camera& camera) {
-  CHECK(!ExistsCamera(camera.CameraId()));
-  CHECK(camera.VerifyParams());
+  ////CHECK(!ExistsCamera(camera.CameraId()));
+  ////CHECK(camera.VerifyParams());
   cameras_.emplace(camera.CameraId(), camera);
 }
 
 void Reconstruction::AddImage(const class Image& image) {
-  CHECK(!ExistsImage(image.ImageId()));
+  ////CHECK(!ExistsImage(image.ImageId()));
   images_[image.ImageId()] = image;
 }
 
@@ -167,7 +167,7 @@ point3D_t Reconstruction::AddPoint3D(const Eigen::Vector3d& xyz,
                                      const Track& track,
                                      const Eigen::Vector3ub& color) {
   const point3D_t point3D_id = ++num_added_points3D_;
-  CHECK(!ExistsPoint3D(point3D_id));
+  ////CHECK(!ExistsPoint3D(point3D_id));
 
   class Point3D& point3D = points3D_[point3D_id];
 
@@ -177,9 +177,9 @@ point3D_t Reconstruction::AddPoint3D(const Eigen::Vector3d& xyz,
 
   for (const auto& track_el : track.Elements()) {
     class Image& image = Image(track_el.image_id);
-    CHECK(!image.Point2D(track_el.point2D_idx).HasPoint3D());
+    ////CHECK(!image.Point2D(track_el.point2D_idx).HasPoint3D());
     image.SetPoint3DForPoint2D(track_el.point2D_idx, point3D_id);
-    CHECK_LE(image.NumPoints3D(), image.NumPoints2D());
+    ////CHECK_LE(image.NumPoints3D(), image.NumPoints2D());
   }
 
   const bool kIsContinuedPoint3D = false;
@@ -195,10 +195,10 @@ point3D_t Reconstruction::AddPoint3D(const Eigen::Vector3d& xyz,
 void Reconstruction::AddObservation(const point3D_t point3D_id,
                                     const TrackElement& track_el) {
   class Image& image = Image(track_el.image_id);
-  CHECK(!image.Point2D(track_el.point2D_idx).HasPoint3D());
+  ////CHECK(!image.Point2D(track_el.point2D_idx).HasPoint3D());
 
   image.SetPoint3DForPoint2D(track_el.point2D_idx, point3D_id);
-  CHECK_LE(image.NumPoints3D(), image.NumPoints2D());
+  ////CHECK_LE(image.NumPoints3D(), image.NumPoints2D());
 
   class Point3D& point3D = Point3D(point3D_id);
   point3D.Track().AddElement(track_el);
@@ -323,12 +323,12 @@ void Reconstruction::DeRegisterImage(const image_t image_id) {
 
 void Reconstruction::Normalize(const double extent, const double p0,
                                const double p1, const bool use_images) {
-  CHECK_GT(extent, 0);
-  CHECK_GE(p0, 0);
-  CHECK_LE(p0, 1);
-  CHECK_GE(p1, 0);
-  CHECK_LE(p1, 1);
-  CHECK_LE(p0, p1);
+  /*//CHECK_GT(extent, 0);
+  //CHECK_GE(p0, 0);
+  //CHECK_LE(p0, 1);
+  //CHECK_GE(p1, 0);
+  //CHECK_LE(p1, 1);
+  //CHECK_LE(p0, p1);*/
 
   if ((use_images && reg_image_ids_.size() < 2) ||
       (!use_images && points3D_.size() < 2)) {
@@ -520,8 +520,8 @@ bool Reconstruction::Merge(const Reconstruction& reconstruction,
 bool Reconstruction::Align(const std::vector<std::string>& image_names,
                            const std::vector<Eigen::Vector3d>& locations,
                            const int min_common_images) {
-  CHECK_GE(min_common_images, 3);
-  CHECK_EQ(image_names.size(), locations.size());
+  ////CHECK_GE(min_common_images, 3);
+  ////CHECK_EQ(image_names.size(), locations.size());
 
   // Find out which images are contained in the reconstruction and get the
   // positions of their camera centers.
@@ -567,8 +567,8 @@ bool Reconstruction::AlignRobust(const std::vector<std::string>& image_names,
                                  const std::vector<Eigen::Vector3d>& locations,
                                  const int min_common_images,
                                  const RANSACOptions& ransac_options) {
-  CHECK_GE(min_common_images, 3);
-  CHECK_EQ(image_names.size(), locations.size());
+  ////CHECK_GE(min_common_images, 3);
+  ////CHECK_EQ(image_names.size(), locations.size());
 
   // Find out which images are contained in the reconstruction and get the
   // positions of their camera centers.
@@ -630,7 +630,7 @@ std::vector<image_t> Reconstruction::FindCommonRegImageIds(
   for (const auto image_id : reg_image_ids_) {
     if (reconstruction.ExistsImage(image_id) &&
         reconstruction.IsImageRegistered(image_id)) {
-      CHECK_EQ(Image(image_id).Name(), reconstruction.Image(image_id).Name());
+      ////CHECK_EQ(Image(image_id).Name(), reconstruction.Image(image_id).Name());
       common_reg_image_ids.push_back(image_id);
     }
   }
@@ -736,13 +736,13 @@ std::vector<image_t> Reconstruction::FilterImages(
   std::vector<image_t> filtered_image_ids;
   for (const image_t image_id : RegImageIds()) {
     const class Image& image = Image(image_id);
-    const class Camera& camera = Camera(image.CameraId());
+    //const class Camera& camera = Camera(image.CameraId());
     if (image.NumPoints3D() == 0) {
       filtered_image_ids.push_back(image_id);
-    } else if (camera.HasBogusParams(min_focal_length_ratio,
+    }/* else if (camera.HasBogusParams(min_focal_length_ratio,
                                      max_focal_length_ratio, max_extra_param)) {
       filtered_image_ids.push_back(image_id);
-    }
+    }*/
   }
 
   // Only de-register after iterating over reg_image_ids_ to avoid
@@ -810,12 +810,13 @@ void Reconstruction::Read(const std::string& path) {
   }
 }
 
-void Reconstruction::Write(const std::string& path) const { WriteText(path); }
+void Reconstruction::Write(const std::string& path) const { WriteText(path); WriteBinary(path);}
 
 void Reconstruction::ReadText(const std::string& path) {
   ReadCamerasText(JoinPaths(path, "cameras.txt"));
   ReadImagesText(JoinPaths(path, "images.txt"));
   ReadPoints3DText(JoinPaths(path, "points3D.txt"));
+  //ReadCameraText(JoinPaths(path, "mainCamera.txt"));
 }
 
 void Reconstruction::ReadBinary(const std::string& path) {
@@ -879,7 +880,7 @@ void Reconstruction::ImportPLY(const std::vector<PlyPoint> &ply_points)
 
 bool Reconstruction::ExportNVM(const std::string& path) const {
   std::ofstream file(path, std::ios::trunc);
-  CHECK(file.is_open()) << path;
+  ////CHECK(file.is_open()) << path;
 
   // White space added for compatibility with Meshlab.
   file << "NVM_V3 " << std::endl << " " << std::endl;
@@ -960,10 +961,10 @@ bool Reconstruction::ExportNVM(const std::string& path) const {
 bool Reconstruction::ExportBundler(const std::string& path,
                                    const std::string& list_path) const {
   std::ofstream file(path, std::ios::trunc);
-  CHECK(file.is_open()) << path;
+  ////CHECK(file.is_open()) << path;
 
   std::ofstream list_file(list_path, std::ios::trunc);
-  CHECK(list_file.is_open()) << list_path;
+  ////CHECK(list_file.is_open()) << list_path;
 
   file << "# Bundle file v0.3" << std::endl;
 
@@ -1069,7 +1070,7 @@ void Reconstruction::ExportVRML(const std::string& images_path,
                                 const double image_scale,
                                 const Eigen::Vector3d& image_rgb) const {
   std::ofstream images_file(images_path, std::ios::trunc);
-  CHECK(images_file.is_open()) << images_path;
+  ////CHECK(images_file.is_open()) << images_path;
 
   const double six = image_scale * 0.15;
   const double siy = image_scale * 0.1;
@@ -1152,7 +1153,7 @@ void Reconstruction::ExportVRML(const std::string& images_path,
   // Write 3D points
 
   std::ofstream points3D_file(points3D_path, std::ios::trunc);
-  CHECK(points3D_file.is_open()) << points3D_path;
+  ////CHECK(points3D_file.is_open()) << points3D_path;
 
   points3D_file << "#VRML V2.0 utf8\n";
   points3D_file << "Background { skyColor [1.0 1.0 1.0] } \n";
@@ -1394,12 +1395,51 @@ size_t Reconstruction::FilterPoints3DWithLargeReprojectionError(
 
   return num_filtered;
 }
+void Reconstruction::ReadCameraText(const std::string& path){
+  mainCamera.clear();
+  std::ifstream file(path);
+  ////CHECK(file.is_open()) << path;
 
+  std::string line;
+  std::string item;
+  std::getline(file, line);
+  StringTrim(&line);
+  std::stringstream line_stream(line);
+
+  class Camera camera;
+
+  // ID
+  std::getline(line_stream, item, ' ');
+  camera.SetCameraId(std::stoul(item));
+
+  // MODEL
+  std::getline(line_stream, item, ' ');
+  camera.SetModelIdFromName(item);
+
+  // WIDTH
+  std::getline(line_stream, item, ' ');
+  camera.SetWidth(std::stoll(item));
+
+  // HEIGHT
+  std::getline(line_stream, item, ' ');
+  camera.SetHeight(std::stoll(item));
+
+  // PARAMS
+  camera.Params().clear();
+  while (!line_stream.eof()) {
+    std::getline(line_stream, item, ' ');
+    camera.Params().push_back(std::stold(item));
+  }
+
+  //CHECK(camera.VerifyParams());
+
+  mainCamera.emplace(camera.CameraId(), camera);
+}
 void Reconstruction::ReadCamerasText(const std::string& path) {
   cameras_.clear();
 
   std::ifstream file(path);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   std::string line;
   std::string item;
@@ -1438,7 +1478,7 @@ void Reconstruction::ReadCamerasText(const std::string& path) {
       camera.Params().push_back(std::stold(item));
     }
 
-    CHECK(camera.VerifyParams());
+    //CHECK(camera.VerifyParams());
 
     cameras_.emplace(camera.CameraId(), camera);
   }
@@ -1448,7 +1488,7 @@ void Reconstruction::ReadImagesText(const std::string& path) {
   images_.clear();
 
   std::ifstream file(path);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   std::string line;
   std::string item;
@@ -1555,7 +1595,7 @@ void Reconstruction::ReadPoints3DText(const std::string& path) {
   points3D_.clear();
 
   std::ifstream file(path);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   std::string line;
   std::string item;
@@ -1628,7 +1668,7 @@ void Reconstruction::ReadPoints3DText(const std::string& path) {
 
 void Reconstruction::ReadCamerasBinary(const std::string& path) {
   std::ifstream file(path, std::ios::binary);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   const size_t num_cameras = ReadBinaryLittleEndian<uint64_t>(&file);
   for (size_t i = 0; i < num_cameras; ++i) {
@@ -1638,14 +1678,14 @@ void Reconstruction::ReadCamerasBinary(const std::string& path) {
     camera.SetWidth(ReadBinaryLittleEndian<uint64_t>(&file));
     camera.SetHeight(ReadBinaryLittleEndian<uint64_t>(&file));
     ReadBinaryLittleEndian<double>(&file, &camera.Params());
-    CHECK(camera.VerifyParams());
+    //CHECK(camera.VerifyParams());
     cameras_.emplace(camera.CameraId(), camera);
   }
 }
 
 void Reconstruction::ReadImagesBinary(const std::string& path) {
   std::ifstream file(path, std::ios::binary);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   const size_t num_reg_images = ReadBinaryLittleEndian<uint64_t>(&file);
   for (size_t i = 0; i < num_reg_images; ++i) {
@@ -1705,7 +1745,7 @@ void Reconstruction::ReadImagesBinary(const std::string& path) {
 
 void Reconstruction::ReadPoints3DBinary(const std::string& path) {
   std::ifstream file(path, std::ios::binary);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   const size_t num_points3D = ReadBinaryLittleEndian<uint64_t>(&file);
   for (size_t i = 0; i < num_points3D; ++i) {
@@ -1736,14 +1776,14 @@ void Reconstruction::ReadPoints3DBinary(const std::string& path) {
 
 void Reconstruction::WriteCamerasText(const std::string& path) const {
   std::ofstream file(path, std::ios::trunc);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   // Ensure that we don't loose any precision by storing in text.
   file.precision(17);
 
-  file << "# Camera list with one line of data per camera:" << std::endl;
+  /*file << "# Camera list with one line of data per camera:" << std::endl;
   file << "#   CAMERA_ID, MODEL, WIDTH, HEIGHT, PARAMS[]" << std::endl;
-  file << "# Number of cameras: " << cameras_.size() << std::endl;
+  file << "# Number of cameras: " << cameras_.size() << std::endl;*/
 
   for (const auto& camera : cameras_) {
     std::ostringstream line;
@@ -1766,19 +1806,19 @@ void Reconstruction::WriteCamerasText(const std::string& path) const {
 
 void Reconstruction::WriteImagesText(const std::string& path) const {
   std::ofstream file(path, std::ios::trunc);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   // Ensure that we don't loose any precision by storing in text.
   file.precision(17);
 
-  file << "# Image list with two lines of data per image:" << std::endl;
+  /*file << "# Image list with two lines of data per image:" << std::endl;
   file << "#   IMAGE_ID, QW, QX, QY, QZ, TX, TY, TZ, CAMERA_ID, "
           "NAME"
        << std::endl;
   file << "#   POINTS2D[] as (X, Y, POINT3D_ID)" << std::endl;
   file << "# Number of images: " << reg_image_ids_.size()
        << ", mean observations per image: "
-       << ComputeMeanObservationsPerRegImage() << std::endl;
+       << ComputeMeanObservationsPerRegImage() << std::endl;*/
 
   for (const auto& image : images_) {
     if (!image.second.IsRegistered()) {
@@ -1829,17 +1869,17 @@ void Reconstruction::WriteImagesText(const std::string& path) const {
 
 void Reconstruction::WritePoints3DText(const std::string& path) const {
   std::ofstream file(path, std::ios::trunc);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   // Ensure that we don't loose any precision by storing in text.
   file.precision(17);
 
-  file << "# 3D point list with one line of data per point:" << std::endl;
+  /*file << "# 3D point list with one line of data per point:" << std::endl;
   file << "#   POINT3D_ID, X, Y, Z, R, G, B, ERROR, "
           "TRACK[] as (IMAGE_ID, POINT2D_IDX)"
        << std::endl;
   file << "# Number of points: " << points3D_.size()
-       << ", mean track length: " << ComputeMeanTrackLength() << std::endl;
+       << ", mean track length: " << ComputeMeanTrackLength() << std::endl;*/
 
   for (const auto& point3D : points3D_) {
     file << point3D.first << " ";
@@ -1867,7 +1907,7 @@ void Reconstruction::WritePoints3DText(const std::string& path) const {
 
 void Reconstruction::WriteCamerasBinary(const std::string& path) const {
   std::ofstream file(path, std::ios::trunc | std::ios::binary);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   WriteBinaryLittleEndian<uint64_t>(&file, cameras_.size());
 
@@ -1884,7 +1924,7 @@ void Reconstruction::WriteCamerasBinary(const std::string& path) const {
 
 void Reconstruction::WriteImagesBinary(const std::string& path) const {
   std::ofstream file(path, std::ios::trunc | std::ios::binary);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   WriteBinaryLittleEndian<uint64_t>(&file, reg_image_ids_.size());
 
@@ -1922,7 +1962,7 @@ void Reconstruction::WriteImagesBinary(const std::string& path) const {
 
 void Reconstruction::WritePoints3DBinary(const std::string& path) const {
   std::ofstream file(path, std::ios::trunc | std::ios::binary);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   WriteBinaryLittleEndian<uint64_t>(&file, points3D_.size());
 
@@ -1956,8 +1996,8 @@ void Reconstruction::SetObservationAsTriangulated(
   const std::vector<CorrespondenceGraph::Correspondence>& corrs =
       correspondence_graph_->FindCorrespondences(image_id, point2D_idx);
 
-  CHECK(image.IsRegistered());
-  CHECK(point2D.HasPoint3D());
+  //CHECK(image.IsRegistered());
+  //CHECK(point2D.HasPoint3D());
 
   for (const auto& corr : corrs) {
     class Image& corr_image = Image(corr.image_id);
@@ -1970,10 +2010,10 @@ void Reconstruction::SetObservationAsTriangulated(
       const image_pair_t pair_id =
           Database::ImagePairToPairId(image_id, corr.image_id);
       image_pair_stats_[pair_id].num_tri_corrs += 1;
-      CHECK_LE(image_pair_stats_[pair_id].num_tri_corrs,
+      /*CHECK_LE(image_pair_stats_[pair_id].num_tri_corrs,
                image_pair_stats_[pair_id].num_total_corrs)
           << "The correspondence graph graph must not contain duplicate "
-             "matches";
+             "matches";*/
     }
   }
 }
@@ -1990,8 +2030,8 @@ void Reconstruction::ResetTriObservations(const image_t image_id,
   const std::vector<CorrespondenceGraph::Correspondence>& corrs =
       correspondence_graph_->FindCorrespondences(image_id, point2D_idx);
 
-  CHECK(image.IsRegistered());
-  CHECK(point2D.HasPoint3D());
+  //CHECK(image.IsRegistered());
+  //CHECK(point2D.HasPoint3D());
 
   for (const auto& corr : corrs) {
     class Image& corr_image = Image(corr.image_id);
@@ -2004,8 +2044,8 @@ void Reconstruction::ResetTriObservations(const image_t image_id,
       const image_pair_t pair_id =
           Database::ImagePairToPairId(image_id, corr.image_id);
       image_pair_stats_[pair_id].num_tri_corrs -= 1;
-      CHECK_GE(image_pair_stats_[pair_id].num_tri_corrs, 0)
-          << "The scene graph graph must not contain duplicate matches";
+      /*CHECK_GE(image_pair_stats_[pair_id].num_tri_corrs, 0)
+          << "The scene graph graph must not contain duplicate matches";*/
     }
   }
 }

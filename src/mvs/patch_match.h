@@ -140,30 +140,29 @@ struct PatchMatchOptions {
   void Print() const;
   bool Check() const {
     if (depth_min != -1.0f || depth_max != -1.0f) {
-      CHECK_OPTION_LE(depth_min, depth_max);
-      CHECK_OPTION_GE(depth_min, 0.0f);
+      //CHECK_OPTION_LE(depth_min, depth_max);
+      //CHECK_OPTION_GE(depth_min, 0.0f);
     }
-    CHECK_OPTION_LE(window_radius,
-                    static_cast<int>(kMaxPatchMatchWindowRadius));
-    CHECK_OPTION_GT(sigma_color, 0.0f);
-    CHECK_OPTION_GT(window_radius, 0);
-    CHECK_OPTION_GT(window_step, 0);
-    CHECK_OPTION_LE(window_step, 2);
-    CHECK_OPTION_GT(num_samples, 0);
-    CHECK_OPTION_GT(ncc_sigma, 0.0f);
-    CHECK_OPTION_GE(min_triangulation_angle, 0.0f);
-    CHECK_OPTION_LT(min_triangulation_angle, 180.0f);
-    CHECK_OPTION_GT(incident_angle_sigma, 0.0f);
-    CHECK_OPTION_GT(num_iterations, 0);
-    CHECK_OPTION_GE(geom_consistency_regularizer, 0.0f);
-    CHECK_OPTION_GE(geom_consistency_max_cost, 0.0f);
-    CHECK_OPTION_GE(filter_min_ncc, -1.0f);
-    CHECK_OPTION_LE(filter_min_ncc, 1.0f);
-    CHECK_OPTION_GE(filter_min_triangulation_angle, 0.0f);
-    CHECK_OPTION_LE(filter_min_triangulation_angle, 180.0f);
-    CHECK_OPTION_GE(filter_min_num_consistent, 0);
-    CHECK_OPTION_GE(filter_geom_consistency_max_cost, 0.0f);
-    CHECK_OPTION_GT(cache_size, 0);
+    //CHECK_OPTION_LE(window_radius,static_cast<int>(kMaxPatchMatchWindowRadius));
+    //CHECK_OPTION_GT(sigma_color, 0.0f);
+    //CHECK_OPTION_GT(window_radius, 0);
+    //CHECK_OPTION_GT(window_step, 0);
+    //CHECK_OPTION_LE(window_step, 2);
+    //CHECK_OPTION_GT(num_samples, 0);
+    //CHECK_OPTION_GT(ncc_sigma, 0.0f);
+    //CHECK_OPTION_GE(min_triangulation_angle, 0.0f);
+    //CHECK_OPTION_LT(min_triangulation_angle, 180.0f);
+    //CHECK_OPTION_GT(incident_angle_sigma, 0.0f);
+    //CHECK_OPTION_GT(num_iterations, 0);
+    //CHECK_OPTION_GE(geom_consistency_regularizer, 0.0f);
+    //CHECK_OPTION_GE(geom_consistency_max_cost, 0.0f);
+    //CHECK_OPTION_GE(filter_min_ncc, -1.0f);
+    //CHECK_OPTION_LE(filter_min_ncc, 1.0f);
+    //CHECK_OPTION_GE(filter_min_triangulation_angle, 0.0f);
+    //CHECK_OPTION_LE(filter_min_triangulation_angle, 180.0f);
+    //CHECK_OPTION_GE(filter_min_num_consistent, 0);
+    //CHECK_OPTION_GE(filter_geom_consistency_max_cost, 0.0f);
+    //CHECK_OPTION_GT(cache_size, 0);
     return true;
   }
 };

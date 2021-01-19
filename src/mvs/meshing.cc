@@ -96,34 +96,34 @@ namespace colmap {
 namespace mvs {
 
 bool PoissonMeshingOptions::Check() const {
-  CHECK_OPTION_GE(point_weight, 0);
-  CHECK_OPTION_GT(depth, 0);
-  CHECK_OPTION_GE(color, 0);
-  CHECK_OPTION_GE(trim, 0);
-  CHECK_OPTION_GE(num_threads, -1);
-  CHECK_OPTION_NE(num_threads, 0);
+  //CHECK_OPTION_GE(point_weight, 0);
+  //CHECK_OPTION_GT(depth, 0);
+  //CHECK_OPTION_GE(color, 0);
+  //CHECK_OPTION_GE(trim, 0);
+  //CHECK_OPTION_GE(num_threads, -1);
+  //CHECK_OPTION_NE(num_threads, 0);
   return true;
 }
 
 bool DelaunayMeshingOptions::Check() const {
-  CHECK_OPTION_GE(max_proj_dist, 0);
-  CHECK_OPTION_GE(max_depth_dist, 0);
-  CHECK_OPTION_LE(max_depth_dist, 1);
-  CHECK_OPTION_GT(visibility_sigma, 0);
-  CHECK_OPTION_GT(distance_sigma_factor, 0);
-  CHECK_OPTION_GE(quality_regularization, 0);
-  CHECK_OPTION_GE(max_side_length_factor, 0);
-  CHECK_OPTION_GE(max_side_length_percentile, 0);
-  CHECK_OPTION_LE(max_side_length_percentile, 100);
-  CHECK_OPTION_GE(num_threads, -1);
-  CHECK_OPTION_NE(num_threads, 0);
+  //CHECK_OPTION_GE(max_proj_dist, 0);
+  //CHECK_OPTION_GE(max_depth_dist, 0);
+  //CHECK_OPTION_LE(max_depth_dist, 1);
+  //CHECK_OPTION_GT(visibility_sigma, 0);
+  //CHECK_OPTION_GT(distance_sigma_factor, 0);
+  //CHECK_OPTION_GE(quality_regularization, 0);
+  //CHECK_OPTION_GE(max_side_length_factor, 0);
+  //CHECK_OPTION_GE(max_side_length_percentile, 0);
+  //CHECK_OPTION_LE(max_side_length_percentile, 100);
+  //CHECK_OPTION_GE(num_threads, -1);
+  //CHECK_OPTION_NE(num_threads, 0);
   return true;
 }
 
 bool PoissonMeshing(const PoissonMeshingOptions& options,
                     const std::string& input_path,
                     const std::string& output_path) {
-  CHECK(options.Check());
+  //CHECK(options.Check());
 
   std::vector<std::string> args;
 
@@ -284,10 +284,10 @@ class DelaunayMeshingInput {
 
     const std::string vis_path = JoinPaths(path, "fused.ply.vis");
     std::fstream vis_file(vis_path, std::ios::in | std::ios::binary);
-    CHECK(vis_file.is_open()) << vis_path;
+    //CHECK(vis_file.is_open()) << vis_path;
 
-    const size_t vis_num_points = ReadBinaryLittleEndian<uint64_t>(&vis_file);
-    CHECK_EQ(vis_num_points, ply_points.size());
+    //const size_t vis_num_points = ReadBinaryLittleEndian<uint64_t>(&vis_file);
+    //CHECK_EQ(vis_num_points, ply_points.size());
 
     points.reserve(ply_points.size());
     for (const auto& ply_point : ply_points) {
@@ -317,7 +317,7 @@ class DelaunayMeshingInput {
 
   Delaunay CreateSubSampledDelaunayTriangulation(
       const float max_proj_dist, const float max_depth_dist) const {
-    CHECK_GE(max_proj_dist, 0);
+    //CHECK_GE(max_proj_dist, 0);
 
     if (max_proj_dist == 0) {
       return CreateDelaunayTriangulation();
@@ -634,7 +634,7 @@ double ComputeCosFacetCellAngle(const Delaunay& triangulation,
 void WriteDelaunayTriangulationPly(const std::string& path,
                                    const Delaunay& triangulation) {
   std::fstream file(path, std::ios::out);
-  CHECK(file.is_open());
+  //CHECK(file.is_open());
 
   file << "ply" << std::endl;
   file << "format ascii 1.0" << std::endl;
@@ -696,7 +696,7 @@ struct DelaunayCellData {
 
 PlyMesh DelaunayMeshing(const DelaunayMeshingOptions& options,
                         const DelaunayMeshingInput& input_data) {
-  CHECK(options.Check());
+  //CHECK(options.Check());
 
   // Create a delaunay triangulation of all input points.
   std::cout << "Triangulating points..." << std::endl;
@@ -821,7 +821,7 @@ PlyMesh DelaunayMeshing(const DelaunayMeshingOptions& options,
       }
     }
 
-    CHECK(result_queue.Push(image_cell_graph_data));
+    //CHECK(result_queue.Push(image_cell_graph_data));
   };
 
   // Add first batch of images to the thread job queue.
@@ -850,7 +850,7 @@ PlyMesh DelaunayMeshing(const DelaunayMeshingOptions& options,
 
     // Pop the next results from the queue.
     const auto result = result_queue.Pop();
-    CHECK(result.IsValid());
+    //CHECK(result.IsValid());
 
     // Accumulate the weights of the image into the global graph.
     const auto& image_cell_graph_data = result.Data();

@@ -66,7 +66,7 @@ FeatureMatches ExtractInlierMatches(const FeatureMatches& matches,
 
 FeatureMatches ExtractOutlierMatches(const FeatureMatches& matches,
                                      const FeatureMatches& inlier_matches) {
-  CHECK_GE(matches.size(), inlier_matches.size());
+  //CHECK_GE(matches.size(), inlier_matches.size());
 
   std::unordered_set<std::pair<point2D_t, point2D_t>> inlier_matches_set;
   inlier_matches_set.reserve(inlier_matches.size());

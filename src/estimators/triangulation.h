@@ -132,7 +132,7 @@ struct EstimateTriangulationOptions {
   RANSACOptions ransac_options;
 
   void Check() const {
-    CHECK_GE(min_tri_angle, 0.0);
+    //CHECK_GE(min_tri_angle, 0.0);
     ransac_options.Check();
   }
 };

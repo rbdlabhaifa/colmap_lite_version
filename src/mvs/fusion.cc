@@ -39,7 +39,7 @@ namespace internal {
 
 template <typename T>
 float Median(std::vector<T>* elems) {
-  CHECK(!elems->empty());
+  //CHECK(!elems->empty());
   const size_t mid_idx = elems->size() / 2;
   std::nth_element(elems->begin(), elems->begin() + mid_idx, elems->end());
   if (elems->size() % 2 == 0) {
@@ -59,7 +59,7 @@ int FindNextImage(const std::vector<std::vector<int>>& overlapping_images,
                   const std::vector<char>& used_images,
                   const std::vector<char>& fused_images,
                   const int prev_image_idx) {
-  CHECK_EQ(used_images.size(), fused_images.size());
+  //CHECK_EQ(used_images.size(), fused_images.size());
 
   for (const auto image_idx : overlapping_images.at(prev_image_idx)) {
     if (used_images.at(image_idx) && !fused_images.at(image_idx)) {
@@ -96,14 +96,14 @@ void StereoFusionOptions::Print() const {
 }
 
 bool StereoFusionOptions::Check() const {
-  CHECK_OPTION_GE(min_num_pixels, 0);
-  CHECK_OPTION_LE(min_num_pixels, max_num_pixels);
-  CHECK_OPTION_GT(max_traversal_depth, 0);
-  CHECK_OPTION_GE(max_reproj_error, 0);
-  CHECK_OPTION_GE(max_depth_error, 0);
-  CHECK_OPTION_GE(max_normal_error, 0);
-  CHECK_OPTION_GT(check_num_images, 0);
-  CHECK_OPTION_GT(cache_size, 0);
+  //CHECK_OPTION_GE(min_num_pixels, 0);
+  //CHECK_OPTION_LE(min_num_pixels, max_num_pixels);
+  //CHECK_OPTION_GT(max_traversal_depth, 0);
+  //CHECK_OPTION_GE(max_reproj_error, 0);
+  //CHECK_OPTION_GE(max_depth_error, 0);
+  //CHECK_OPTION_GE(max_normal_error, 0);
+  //CHECK_OPTION_GT(check_num_images, 0);
+  //CHECK_OPTION_GT(cache_size, 0);
   return true;
 }
 
@@ -120,7 +120,7 @@ StereoFusion::StereoFusion(const StereoFusionOptions& options,
       max_squared_reproj_error_(options_.max_reproj_error *
                                 options_.max_reproj_error),
       min_cos_normal_error_(std::cos(DegToRad(options_.max_normal_error))) {
-  CHECK(options_.Check());
+  //CHECK(options_.Check());
 }
 
 const std::vector<PlyPoint>& StereoFusion::GetFusedPoints() const {
@@ -293,7 +293,7 @@ void StereoFusion::Run() {
 }
 
 void StereoFusion::Fuse() {
-  CHECK_EQ(fusion_queue_.size(), 1);
+  //CHECK_EQ(fusion_queue_.size(), 1);
 
   Eigen::Vector4f fused_ref_point = Eigen::Vector4f::Zero();
   Eigen::Vector3f fused_ref_normal = Eigen::Vector3f::Zero();
@@ -476,7 +476,7 @@ void WritePointsVisibility(
     const std::string& path,
     const std::vector<std::vector<int>>& points_visibility) {
   std::fstream file(path, std::ios::out | std::ios::binary);
-  CHECK(file.is_open()) << path;
+  //CHECK(file.is_open()) << path;
 
   WriteBinaryLittleEndian<uint64_t>(&file, points_visibility.size());
 

@@ -118,6 +118,7 @@ const float* Image::GetInvP() const { return inv_P_; }
 
 const float* Image::GetViewingDirection() const { return &R_[6]; }
 
+
 }  // namespace mvs
 }  // namespace colmap
 

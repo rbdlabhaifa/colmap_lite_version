@@ -94,8 +94,8 @@ void MergeClusters(
 }  // namespace
 
 bool HierarchicalMapperController::Options::Check() const {
-  CHECK_OPTION_GT(init_num_trials, -1);
-  CHECK_OPTION_GE(num_workers, -1);
+  //CHECK_OPTION_GT(init_num_trials, -1);
+  //CHECK_OPTION_GE(num_workers, -1);
   return true;
 }
 
@@ -107,10 +107,10 @@ HierarchicalMapperController::HierarchicalMapperController(
       clustering_options_(clustering_options),
       mapper_options_(mapper_options),
       reconstruction_manager_(reconstruction_manager) {
-  CHECK(options_.Check());
-  CHECK(clustering_options_.Check());
-  CHECK(mapper_options_.Check());
-  CHECK_EQ(clustering_options_.branching, 2);
+  //CHECK(options_.Check());
+  //CHECK(clustering_options_.Check());
+  //CHECK(mapper_options_.Check());
+  //CHECK_EQ(clustering_options_.branching, 2);
 }
 
 void HierarchicalMapperController::Run() {
@@ -225,7 +225,7 @@ void HierarchicalMapperController::Run() {
 
   MergeClusters(*scene_clustering.GetRootCluster(), &reconstruction_managers);
 
-  CHECK_EQ(reconstruction_managers.size(), 1);
+  //CHECK_EQ(reconstruction_managers.size(), 1);
   *reconstruction_manager_ = std::move(reconstruction_managers.begin()->second);
 
   std::cout << std::endl;

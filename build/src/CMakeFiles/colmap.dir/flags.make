@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS =  -Wno-maybe-uninitialized -fopenmp -Wall -std=c++14 -O3 -DNDEBUG   -std=gnu++14
 
-CXX_DEFINES = -DCGAL_ENABLED -DGFLAGS_IS_A_DLL=0 -DOPENGL_ENABLED -DOPENMP_ENABLED
+CXX_DEFINES = -DCGAL_ENABLED -DOPENGL_ENABLED -DOPENMP_ENABLED
 
-CXX_INCLUDES = -I/home/rbdstudent/colmap/lib -I/home/rbdstudent/colmap/src -isystem /usr/include/eigen3 -I/usr/include/x86_64-linux-gnu -isystem /usr/local/include 
+CXX_INCLUDES = -I/home/rbdstudent/colmap/lib -I/home/rbdstudent/colmap/src -isystem /usr/include/eigen3 -I/usr/include/x86_64-linux-gnu -isystem /usr/local/include/ceres/internal/miniglog -isystem /usr/local/include 
 

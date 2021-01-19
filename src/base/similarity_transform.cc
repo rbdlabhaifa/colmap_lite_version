@@ -53,8 +53,8 @@ struct ReconstructionAlignmentEstimator {
 
   void SetReconstructions(const Reconstruction* reconstruction1,
                           const Reconstruction* reconstruction2) {
-    CHECK_NOTNULL(reconstruction1);
-    CHECK_NOTNULL(reconstruction2);
+    //CHECK_NOTNULL(reconstruction1);
+    //CHECK_NOTNULL(reconstruction2);
     reconstruction1_ = reconstruction1;
     reconstruction2_ = reconstruction2;
   }
@@ -62,14 +62,14 @@ struct ReconstructionAlignmentEstimator {
   // Estimate 3D similarity transform from corresponding projection centers.
   std::vector<M_t> Estimate(const std::vector<X_t>& images1,
                             const std::vector<Y_t>& images2) const {
-    CHECK_GE(images1.size(), 3);
-    CHECK_GE(images2.size(), 3);
-    CHECK_EQ(images1.size(), images2.size());
+    //CHECK_GE(images1.size(), 3);
+    //CHECK_GE(images2.size(), 3);
+    //CHECK_EQ(images1.size(), images2.size());
 
     std::vector<Eigen::Vector3d> proj_centers1(images1.size());
     std::vector<Eigen::Vector3d> proj_centers2(images2.size());
     for (size_t i = 0; i < images1.size(); ++i) {
-      CHECK_EQ(images1[i]->ImageId(), images2[i]->ImageId());
+      //CHECK_EQ(images1[i]->ImageId(), images2[i]->ImageId());
       proj_centers1[i] = images1[i]->ProjectionCenter();
       proj_centers2[i] = images2[i]->ProjectionCenter();
     }
@@ -88,9 +88,9 @@ struct ReconstructionAlignmentEstimator {
   void Residuals(const std::vector<X_t>& images1,
                  const std::vector<Y_t>& images2, const M_t& alignment12,
                  std::vector<double>* residuals) const {
-    CHECK_EQ(images1.size(), images2.size());
-    CHECK_NOTNULL(reconstruction1_);
-    CHECK_NOTNULL(reconstruction2_);
+    //CHECK_EQ(images1.size(), images2.size());
+    //CHECK_NOTNULL(reconstruction1_);
+    //CHECK_NOTNULL(reconstruction2_);
 
     const Eigen::Matrix3x4d alignment21 =
         SimilarityTransform3(alignment12).Inverse().Matrix().topRows<3>();
@@ -101,8 +101,8 @@ struct ReconstructionAlignmentEstimator {
       const auto& image1 = *images1[i];
       const auto& image2 = *images2[i];
 
-      CHECK_EQ(image1.ImageId(), image2.ImageId());
-      CHECK_EQ(image1.CameraId(), image2.CameraId());
+      //CHECK_EQ(image1.ImageId(), image2.ImageId());
+      //CHECK_EQ(image1.CameraId(), image2.CameraId());
 
       const auto& camera1 = reconstruction1_->Camera(image1.CameraId());
       const auto& camera2 = reconstruction2_->Camera(image2.CameraId());
@@ -110,7 +110,7 @@ struct ReconstructionAlignmentEstimator {
       const Eigen::Matrix3x4d proj_matrix1 = image1.ProjectionMatrix();
       const Eigen::Matrix3x4d proj_matrix2 = image2.ProjectionMatrix();
 
-      CHECK_EQ(image1.NumPoints2D(), image2.NumPoints2D());
+      //CHECK_EQ(image1.NumPoints2D(), image2.NumPoints2D());
 
       size_t num_inliers = 0;
       size_t num_common_points = 0;
@@ -201,7 +201,7 @@ bool SimilarityTransform3::Estimate(const std::vector<Eigen::Vector3d>& src,
     return false;
   }
 
-  CHECK_EQ(results.size(), 1);
+  //CHECK_EQ(results.size(), 1);
   transform_.matrix().topLeftCorner<3, 4>() = results[0];
 
   return true;
@@ -262,8 +262,8 @@ bool ComputeAlignmentBetweenReconstructions(
     const Reconstruction& ref_reconstruction,
     const double min_inlier_observations, const double max_reproj_error,
     Eigen::Matrix3x4d* alignment) {
-  CHECK_GE(min_inlier_observations, 0.0);
-  CHECK_LE(min_inlier_observations, 1.0);
+  //CHECK_GE(min_inlier_observations, 0.0);
+  //CHECK_LE(min_inlier_observations, 1.0);
 
   RANSACOptions ransac_options;
   ransac_options.max_error = 1.0 - min_inlier_observations;

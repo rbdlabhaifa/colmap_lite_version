@@ -55,10 +55,10 @@ void EstimateAbsolutePoseKernel(const Camera& camera,
                                 AbsolutePoseRANSAC::Report* report) {
   // Scale the focal length by the given factor.
   Camera scaled_camera = camera;
-  const std::vector<size_t>& focal_length_idxs = camera.FocalLengthIdxs();
+  /*const std::vector<size_t>& focal_length_idxs = camera.FocalLengthIdxs();
   for (const size_t idx : focal_length_idxs) {
     scaled_camera.Params(idx) *= focal_length_factor;
-  }
+  }*/
 
   // Normalize image coordinates with current camera hypothesis.
   std::vector<Eigen::Vector2d> points2D_N(points2D.size());
@@ -82,10 +82,10 @@ bool EstimateAbsolutePose(const AbsolutePoseEstimationOptions& options,
                           Eigen::Vector4d* qvec, Eigen::Vector3d* tvec,
                           Camera* camera, size_t* num_inliers,
                           std::vector<char>* inlier_mask) {
-  options.Check();
+  //options.Check();
 
   std::vector<double> focal_length_factors;
-  if (options.estimate_focal_length) {
+  /*if (options.estimate_focal_length) {
     // Generate focal length factors using a quadratic function,
     // such that more samples are drawn for small focal lengths
     focal_length_factors.reserve(options.num_focal_length_samples + 1);
@@ -96,10 +96,10 @@ bool EstimateAbsolutePose(const AbsolutePoseEstimationOptions& options,
       focal_length_factors.push_back(options.min_focal_length_ratio +
                                      fscale * f * f);
     }
-  } else {
+  } else {*/
     focal_length_factors.reserve(1);
     focal_length_factors.push_back(1);
-  }
+  //}
 
   std::vector<std::future<void>> futures;
   futures.resize(focal_length_factors.size());
@@ -108,8 +108,8 @@ bool EstimateAbsolutePose(const AbsolutePoseEstimationOptions& options,
       reports;
   reports.resize(focal_length_factors.size());
 
-  ThreadPool thread_pool(std::min(
-      options.num_threads, static_cast<int>(focal_length_factors.size())));
+  //ThreadPool thread_pool(std::min(options.num_threads, static_cast<int>(focal_length_factors.size())));
+  ThreadPool thread_pool(ThreadPool::kMaxNumThreads);
 
   for (size_t i = 0; i < focal_length_factors.size(); ++i) {
     futures[i] = thread_pool.AddTask(
@@ -117,7 +117,7 @@ bool EstimateAbsolutePose(const AbsolutePoseEstimationOptions& options,
         points3D, options.ransac_options, &reports[i]);
   }
 
-  double focal_length_factor = 0;
+  //double focal_length_factor = 0;
   Eigen::Matrix3x4d proj_matrix;
   *num_inliers = 0;
   inlier_mask->clear();
@@ -130,7 +130,7 @@ bool EstimateAbsolutePose(const AbsolutePoseEstimationOptions& options,
       *num_inliers = report.support.num_inliers;
       proj_matrix = report.model;
       *inlier_mask = report.inlier_mask;
-      focal_length_factor = focal_length_factors[i];
+      //focal_length_factor = focal_length_factors[i];
     }
   }
 
@@ -139,12 +139,12 @@ bool EstimateAbsolutePose(const AbsolutePoseEstimationOptions& options,
   }
 
   // Scale output camera with best estimated focal length.
-  if (options.estimate_focal_length && *num_inliers > 0) {
+  /*if (options.estimate_focal_length && *num_inliers > 0) {
     const std::vector<size_t>& focal_length_idxs = camera->FocalLengthIdxs();
     for (const size_t idx : focal_length_idxs) {
       camera->Params(idx) *= focal_length_factor;
     }
-  }
+  }*/
 
   // Extract pose parameters.
   *qvec = RotationMatrixToQuaternion(proj_matrix.leftCols<3>());
@@ -201,9 +201,9 @@ bool RefineAbsolutePose(const AbsolutePoseRefinementOptions& options,
                         const std::vector<Eigen::Vector3d>& points3D,
                         Eigen::Vector4d* qvec, Eigen::Vector3d* tvec,
                         Camera* camera) {
-  CHECK_EQ(inlier_mask.size(), points2D.size());
-  CHECK_EQ(points2D.size(), points3D.size());
-  options.Check();
+  //CHECK_EQ(inlier_mask.size(), points2D.size());
+  //CHECK_EQ(points2D.size(), points3D.size());
+  //options.Check();
 
   ceres::LossFunction* loss_function =
       new ceres::CauchyLoss(options.loss_function_scale);
@@ -291,10 +291,10 @@ bool RefineAbsolutePose(const AbsolutePoseRefinementOptions& options,
   ceres::Solver::Options solver_options;
   solver_options.gradient_tolerance = options.gradient_tolerance;
   solver_options.max_num_iterations = options.max_num_iterations;
-  solver_options.linear_solver_type = ceres::DENSE_QR;
-
+  solver_options.linear_solver_type = ceres::SPARSE_SCHUR;
+  solver_options.logging_type = ceres::SILENT;
   // The overhead of creating threads is too large.
-  solver_options.num_threads = 1;
+  solver_options.num_threads = 10;
 #if CERES_VERSION_MAJOR < 2
   solver_options.num_linear_solver_threads = 1;
 #endif  // CERES_VERSION_MAJOR
@@ -318,7 +318,7 @@ bool RefineRelativePose(const ceres::Solver::Options& options,
                         const std::vector<Eigen::Vector2d>& points1,
                         const std::vector<Eigen::Vector2d>& points2,
                         Eigen::Vector4d* qvec, Eigen::Vector3d* tvec) {
-  CHECK_EQ(points1.size(), points2.size());
+  //CHECK_EQ(points1.size(), points2.size());
 
   // CostFunction assumes unit quaternions.
   *qvec = NormalizeQuaternion(*qvec);
