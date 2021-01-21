@@ -25,11 +25,8 @@ FIFO_Images = "/tmp/images.fifo"
 
 
 class Triangulation(Enum):
-    No_Triangulation = 0
+    Up_Down = 0
     Forward_Backward = 1
-    Right_Left = 2
-    Up_Down = 3
-    Circle = 4
 
 class Drone(object):
     def __init__(self):
@@ -59,28 +56,21 @@ class Drone(object):
         self.drone.send_rc_control(0, 0, 0, 0)
 
     def do_triangulation(self, triangulation_enum):
-        if triangulation_enum != Triangulation.No_Triangulation:
-            if triangulation_enum == Triangulation.Forward_Backward:
-                self.drone.move_forward(20)
-                sleep(1)
-                self.drone.move_back(20)
-                sleep(1)
+        if triangulation_enum == Triangulation.Forward_Backward:
+            self.drone.move_forward(20)
+            sleep(1)
+            self.drone.move_back(20)
 
-            if triangulation_enum == Triangulation.Right_Left:
-                self.drone.move_right(20)
-                sleep(1)
-                self.drone.move_left(20)
-                sleep(1)
+        if triangulation_enum == Triangulation.Up_Down:
+            self.drone.move_up(20)
+            sleep(1)
+            self.drone.move_down(20)
 
-            if triangulation_enum == Triangulation.Up_Down:
-                self.drone.move_up(20)
-                sleep(1)
-                self.drone.move_down(20)
-                sleep(1)
+        sleep(1)
 
     def stream_image_to_pipe(self):
         output_path = get_input_arguments()
-        out = cv2.VideoWriter(os.path.join(path, 'outpy.avi'), cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 20, (960, 720))
+        out = cv2.VideoWriter(os.path.join(output_path, 'outpy.avi'), cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 20, (960, 720))
         frame_read = self.drone.get_frame_read()
         try:
             os.mkfifo(FIFO_Images)
@@ -120,6 +110,7 @@ class Drone(object):
 
 if __name__ == '__main__':
     drone = Drone()
-    drone.scan(Triangulation.No_Triangulation)
+    drone.scan(Triangulation.Up_Down)
     drone.disconnect_drone()
     print("End scan script")
+
