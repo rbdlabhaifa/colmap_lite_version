@@ -47,9 +47,11 @@ class Drone(object):
         tello_conn.close()
 
     def begin_scan(self, triangulation_type):
-        i = 15
+        i = 20
+        self.drone.move_down(25)
+        sleep(1)
         while i != 0:
-            self.drone.rotate_clockwise(25)
+            self.drone.rotate_clockwise(18)
             self.do_triangulation(triangulation_type)
             i -= 1
             sleep(1)
@@ -64,7 +66,7 @@ class Drone(object):
         if triangulation_enum == Triangulation.Up_Down:
             self.drone.move_up(20)
             sleep(1)
-            self.drone.move_down(20)
+            self.drone.move_down(23)
 
         sleep(1)
 
