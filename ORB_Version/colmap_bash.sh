@@ -18,7 +18,7 @@ python3 /home/fares/colmap_orb/scan_script.py\
    --output "$DB_PATH"
 
 mkdir $DB_PATH/images
-ffmpeg -i "$DB_PATH/outpy.h264" -vf fps=0.4 "$DB_PATH/images/image%d.jpg"
+ffmpeg -i "$DB_PATH/outpy.h264" -r 0.4 -f image2 "$DB_PATH/images/image%d.jpg"
 
 
 /home/fares/colmap/build/src/exe/colmap feature_extractor \
