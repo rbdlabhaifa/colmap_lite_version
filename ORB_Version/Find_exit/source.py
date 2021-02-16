@@ -14,7 +14,7 @@ from min_bounding_rect import find_bounding_box
 from not_enough_information import check_if_there_is_entrance
 
 
-def build_first_rectangle(min_eps_magic, points,is_debug):
+def build_first_rectangle(min_eps_magic, points, is_debug):
     min_samples = get_best_rectangle_by_min_samples(points)
 
     points = create_labels(points, min_eps_magic, min_samples)
@@ -60,18 +60,19 @@ def find_best_filter(corner_points, points, lines, is_exit):
     return outside_points
 
 
-def find_clusters_and_exit(corner_points, outside_points, points, eps, lines, rect_lines, is_up_minus, is_exit,is_debug):
+def find_clusters_and_exit(corner_points, outside_points, points, eps, lines, rect_lines, is_up_minus, is_exit,
+                           is_debug):
     filter_eps = 1
     count_until_startover = 0
     not_enough_information = False
     check_otherwise = False
     while True:
         if count_until_startover >= 5:
-            return None, None,None,None,None
+            return None, None, None, None, None
         if is_exit:
             exit_points_index, num_of_clusters, clusters = find_filtered_clusters_exit(outside_points, points,
                                                                                        lines,
-                                                                                       is_up_minus,is_debug)
+                                                                                       is_up_minus, is_debug)
         else:
             exit_points_index, num_of_clusters, clusters, labels = find_filtered_clusters_entrance(outside_points,
                                                                                                    points, eps, lines)
@@ -94,7 +95,8 @@ def find_clusters_and_exit(corner_points, outside_points, points, eps, lines, re
     return exit_points_index, num_of_clusters, clusters, not_enough_information, outside_points
 
 
-def find_exit_points(points, outside_points, clusters, lines, is_exit, exit_points_index, not_enough_information,is_debug):
+def find_exit_points(points, outside_points, clusters, lines, is_exit, exit_points_index, not_enough_information,
+                     is_debug):
     if not_enough_information:
         max = - maxsize + 10
         for cluster_index in range(len(clusters)):
@@ -130,13 +132,13 @@ def find_exit_points(points, outside_points, clusters, lines, is_exit, exit_poin
     return points_with_best_segment
 
 
-def get_exit_point(points, is_up_minus=True, is_exit=True,output_path = "",is_debug = True, walk=0):
+def get_exit_point(points, is_up_minus=True, is_exit=True, output_path="", is_debug=False, walk=0):
     # Constants
     if len(points) > 1000:
         start = time()
 
         eps = 0.0125
-        points, clean_points, corner_points, eps, lines = build_first_rectangle(eps, points,is_debug)
+        points, clean_points, corner_points, eps, lines = build_first_rectangle(eps, points, is_debug)
         print("building first rectangle time: " + str(time() - start) + " seconds")
 
         time1 = time()
@@ -149,20 +151,22 @@ def get_exit_point(points, is_up_minus=True, is_exit=True,output_path = "",is_de
 
         time3 = time()
         exit_points_index, num_of_clusters, clusters, not_enough_information, outside_points = find_clusters_and_exit(
-            corner_points, outside_points, points, eps, lines, lines, is_up_minus, is_exit,is_debug)
+            corner_points, outside_points, points, eps, lines, lines, is_up_minus, is_exit, is_debug)
         print("find clusters and exit points time: ", str(time() - time3))
 
         time4 = time()
         points_with_best_segment = find_exit_points(points, outside_points, clusters, lines, is_exit, exit_points_index,
-                                                    not_enough_information,is_debug)
+                                                    not_enough_information, is_debug)
         print("find exit points time: " + str(time() - time4) + " seconds")
 
         print("Program Time: " + str(time() - start))
         if output_path != "":
             exit_point = points_with_best_segment[0][0]
             file_path = os.path.join(output_path, 'exit_point.csv')
-            print('save data to:',file_path)
-            with open(file_path,"w") as exitPointFile:
-                exitPointFile.write(str(exit_point.x) +"," + str(exit_point.y) +","+str(exit_point.z)+"\n")
+            print('save data to:', file_path)
+            with open(file_path, "w") as exitPointFile:
+                exitPointFile.write(str(exit_point.x) + "," + str(exit_point.y) + "," + str(exit_point.z) + "\n")
+                exitPointFile.write(
+                    str(exit_point.frame_id) + "," + str(exit_point.qw) + "," + str(exit_point.qx) + "," + str(
+                        exit_point.qy) + "," + str(exit_point.qz) + "\n")
         return points_with_best_segment, corner_points
-
