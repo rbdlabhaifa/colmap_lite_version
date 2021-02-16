@@ -129,13 +129,13 @@ if __name__ == "__main__":
     # Save according to RBD requirement:
     feature_desc = np.array(feature_desc)
 
-    np.savetxt(os.path.join(output_path, 'points.csv'),
+    np.savetxt(os.path.join(output_path, 'pointData.csv'),
                feature_desc[:, :3], delimiter=',')
 
     np.savetxt(os.path.join(output_path, 'sparse.xyz'),
                feature_desc[:, :3], delimiter=' ')
 
-    cv_file = cv2.FileStorage(os.path.join(output_path, 'descriptors.xml'),
+    cv_file = cv2.FileStorage(os.path.join(output_path, 'descriptorsData.xml'),
                               cv2.FILE_STORAGE_WRITE)
     
     plotTwoD(os.path.join(output_path, 'sparse.xyz'), output_path)
