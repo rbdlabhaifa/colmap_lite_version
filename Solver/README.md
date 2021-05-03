@@ -13,3 +13,16 @@ since 2010. Ceres Solver can solve two kinds of problems.
 
 Please see [ceres-solver.org](http://ceres-solver.org/) for more
 information.
+
+
+Install Ceres Solver:
+
+sudo apt-get install libatlas-base-dev libsuitesparse-dev
+git clone https://ceres-solver.googlesource.com/ceres-solver
+cd ceres-solver
+git checkout $(git describe --tags) # Checkout the latest release
+mkdir build
+cd build
+cmake .. -DBUILD_TESTING=OFF -DBUILD_EXAMPLES=OFF
+make
+sudo make install
