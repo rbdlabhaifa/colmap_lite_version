@@ -33,7 +33,7 @@ def build_first_rectangle(min_eps_magic, points, is_debug):
 
 def build_expanded_rectangle(points, corner_points, lines, start, is_debug):
     corner_points, lines = expend_rectangle(points, corner_points, lines)
-    print("expand rectangle time:", str(time() - start), "seconds")
+    #print("expand rectangle time:", str(time() - start), "seconds")
     rect_lines = turn_lines_to_rect_lines(lines)
     if is_debug:
         scatter(get_x_dimension(points), get_y_dimension(points), linewidth=0.1, s=2)
@@ -77,7 +77,7 @@ def find_clusters_and_exit(corner_points, outside_points, points, eps, lines, re
             exit_points_index, num_of_clusters, clusters, labels = find_filtered_clusters_entrance(outside_points,
                                                                                                    points, eps, lines)
         if exit_points_index[0] is None or check_otherwise:
-            print("couldn't find clusters. Try again")
+            #print("couldn't find clusters. Try again")
             not_enough_information = True
             filter_eps = filter_eps * 2 / 3
             outside_points, filter_percentage = filter_points_in_rectangle_new(corner_points, points, lines, is_exit,
@@ -91,7 +91,7 @@ def find_clusters_and_exit(corner_points, outside_points, points, eps, lines, re
             check_otherwise = True
         count_until_startover += 1
 
-    print("estimated exits: ", num_of_clusters)
+    #print("estimated exits: ", num_of_clusters)
     return exit_points_index, num_of_clusters, clusters, not_enough_information, outside_points
 
 
@@ -122,7 +122,7 @@ def find_exit_points(points, outside_points, clusters, lines, is_exit, exit_poin
             points_with_best_segment.append([point, find_best_segment(point, lines)[0]])
     if not is_exit:
         points_with_best_segment = exit_by_frame(points_with_best_segment)
-    print("exits after join:", len(points_with_best_segment))
+    #print("exits after join:", len(points_with_best_segment))
     if is_debug:
         scatter(get_x_dimension(points), get_y_dimension(points), linewidth=0.1, s=2)
         for point, seg in points_with_best_segment:

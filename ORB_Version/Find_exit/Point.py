@@ -60,7 +60,7 @@ def create_date_from_colmap(images_file_name, point3d_file_name, threshold=1000)
                                          frame.qz, frame.qw, frame.frame_id))
             row = point3d_file.readline()
 
-        print(len(room.points))
+        #print(len(room.points))
     return room.points
 
 

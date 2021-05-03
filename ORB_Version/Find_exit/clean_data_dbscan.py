@@ -24,8 +24,8 @@ def return_cluster_with_min_height(min_heights):
     min_height = None
     min_cluster = None
     for i in range(len(min_heights)):
-        print("min Height: " + str(min_heights[i]))
-        print("cluster : " + str(i))
+        #print("min Height: " + str(min_heights[i]))
+        #print("cluster : " + str(i))
         if not isnan(min_heights[i]):
             if min_cluster is not None:
                 if min_heights[i] < min_height:

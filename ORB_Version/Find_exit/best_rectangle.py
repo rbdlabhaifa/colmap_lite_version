@@ -87,7 +87,7 @@ def get_best_rectangle_by_min_samples(points):
         if x < min_cost:
             min_cost = x
             min_samples_of_min_cost = i
-    print("min samples: ", min_samples_of_min_cost)
+    #print("min samples: ", min_samples_of_min_cost)
     return min_samples_of_min_cost
 
 

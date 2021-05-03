@@ -47,8 +47,8 @@ def return_cluster_with_min_height(min_heights):
     min_height = None
     min_cluster = None
     for i in range(len(min_heights)):
-        print("min Height: " + str(min_heights[i]))
-        print("cluster : " + str(i))
+        #print("min Height: " + str(min_heights[i]))
+        #print("cluster : " + str(i))
         if not isnan(min_heights[i]):
             if min_cluster is not None:
                 if min_heights[i] < min_height:
@@ -167,7 +167,7 @@ def find_filtered_clusters_exit(points, original_points, lines, is_up_minus, is_
         # exit_point = [exit_point_index]
         exit_point = [exit_point_index_max]
 
-    print("DBscan takes: " + str(time() - start))
+    #print("DBscan takes: " + str(time() - start))
     for i in range(len(labels)):
         points[i].label = labels[i]
 

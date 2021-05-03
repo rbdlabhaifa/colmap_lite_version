@@ -22,9 +22,9 @@ def get_input_arguments(debug=False):
 
 if __name__ == '__main__':
     output_path, images_input_file, points_input_file = get_input_arguments()
-    print('read points from',points_input_file)
-    print('read images from',images_input_file)
-    print('save output to',output_path)
+    #print('read points from',points_input_file)
+    #print('read images from',images_input_file)
+    #print('save output to',output_path)
     data = create_date_from_colmap(images_input_file, points_input_file)
     get_exit_point(data, False, True, output_path)
     pass

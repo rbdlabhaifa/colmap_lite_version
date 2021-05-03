@@ -141,7 +141,7 @@ def get_angle(vector_1, vector_2):
     if angle > 90:
         angle = 180 - angle
         clockwise = not clockwise
-        print("angle is greater than 180")
+        ##print("angle is greater than 180")
     return angle, clockwise
 
 
@@ -473,7 +473,7 @@ def find_intersection(a, b, c, d):
     x = (d - c) / (a - b)
     y = a * x + c
 
-    print("(x,y) = ", x, y)
+    ##print("(x,y) = ", x, y)
     return x, y
 
 
@@ -536,7 +536,7 @@ def find_rectangle_points(l1, l3, new_rect_c):
 
 
 def check_results(data, lines):
-    print("number of data points:" + str(data.shape[0]))
+    #print("number of data points:" + str(data.shape[0]))
     sum = 0
     for i in range(data.shape[0]):
         minimum = maxsize
@@ -548,9 +548,9 @@ def check_results(data, lines):
                 minimum = d
         sum += square(minimum)
 
-    print("the squared sum is: " + str(sum))
+    #print("the squared sum is: " + str(sum))
     avr = sum / data.shape[0]
-    print("the averaged squared distance from the rectangle: " + str(avr))
+    #print("the averaged squared distance from the rectangle: " + str(avr))
     return sum
 
 
@@ -598,13 +598,13 @@ def plot_rectangle_points(corner_points):
 
 
 def plot_rectangle_lines(lines, bb_or_min):
-    print("these are the bounding box lines") if bb_or_min == "bb" else print("these are the min rectangle lines")
+    #print("these are the bounding box lines") if bb_or_min == "bb" else #print("these are the min rectangle lines")
     for i in range(4):
         plot(lines[i][0], lines[i][1], c='r')
 
 
 def plot_rectangle_lines_class(lines, bb_or_min):
-    print("these are the bounding box lines") if bb_or_min == "bb" else print("these are the min rectangle lines")
+    #print("these are the bounding box lines") if bb_or_min == "bb" else #print("these are the min rectangle lines")
     for line in lines:
         points_x = (line.point1.x, line.point2.x)
         points_y = (line.point1.y, line.point2.y)
@@ -675,7 +675,7 @@ def filter_points_in_rectangle(rectangle_corner, points, exit_mode, filter_eps=1
     else:
         atol = min_side * 2 / 3
 
-    print("Min side atol: " + str(atol))
+    #print("Min side atol: " + str(atol))
 
     for point in points:
         # Calculate area_triangle of triangle PAB
@@ -695,7 +695,7 @@ def filter_points_in_rectangle(rectangle_corner, points, exit_mode, filter_eps=1
     amount_filtered_points = len(filtered_points)
 
     filtered_percent = amount_filtered_points * 100 / len(points)
-    print("Percent of filtered points:" + str(filtered_percent))
+    #print("Percent of filtered points:" + str(filtered_percent))
     return filtered_points, filtered_percent
 
 
@@ -713,7 +713,7 @@ def filter_points_in_rectangle_new(rectangle_corner, points, lines, exit_mode, f
     else:
         atol = min_side * 2 / 3 * filter_eps
 
-    print("Min side atol: " + str(atol))
+    #print("Min side atol: " + str(atol))
 
     for point in points:
         if not check_if_point_in_rectangle(point, lines) and find_best_segment(point, lines)[1] > atol:
@@ -722,5 +722,5 @@ def filter_points_in_rectangle_new(rectangle_corner, points, lines, exit_mode, f
     amount_filtered_points = len(filtered_points)
 
     filtered_percent = amount_filtered_points * 100 / len(points)
-    print("Percent of filtered points:" + str(filtered_percent))
+    #print("Percent of filtered points:" + str(filtered_percent))
     return filtered_points, filtered_percent
