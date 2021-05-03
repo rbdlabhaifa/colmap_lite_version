@@ -100,13 +100,13 @@ TEST(InnerProductComputer, NormalOperation) {
         options.max_col_block_size = 10;
         options.block_density = std::max(0.1, RandDouble());
 
-        /*VLOG(2) << "num row blocks: " << options.num_row_blocks;
-        VLOG(2) << "num col blocks: " << options.num_col_blocks;
-        VLOG(2) << "min row block size: " << options.min_row_block_size;
-        VLOG(2) << "max row block size: " << options.max_row_block_size;
-        VLOG(2) << "min col block size: " << options.min_col_block_size;
-        VLOG(2) << "max col block size: " << options.max_col_block_size;
-        VLOG(2) << "block density: " << options.block_density;*/
+        //VLOG(2) << "num row blocks: " << options.num_row_blocks;
+        //VLOG(2) << "num col blocks: " << options.num_col_blocks;
+        //VLOG(2) << "min row block size: " << options.min_row_block_size;
+        //VLOG(2) << "max row block size: " << options.max_row_block_size;
+        //VLOG(2) << "min col block size: " << options.min_col_block_size;
+        //VLOG(2) << "max col block size: " << options.max_col_block_size;
+        //VLOG(2) << "block density: " << options.block_density;
 
         std::unique_ptr<BlockSparseMatrix> random_matrix(
             BlockSparseMatrix::CreateRandomMatrix(options));
@@ -159,13 +159,13 @@ TEST(InnerProductComputer, SubMatrix) {
     options.max_col_block_size = 10;
     options.block_density = std::max(0.1, RandDouble());
 
-    VLOG(2) << "num row blocks: " << options.num_row_blocks;
-    VLOG(2) << "num col blocks: " << options.num_col_blocks;
-    VLOG(2) << "min row block size: " << options.min_row_block_size;
-    VLOG(2) << "max row block size: " << options.max_row_block_size;
-    VLOG(2) << "min col block size: " << options.min_col_block_size;
-    VLOG(2) << "max col block size: " << options.max_col_block_size;
-    VLOG(2) << "block density: " << options.block_density;
+    //VLOG(2) << "num row blocks: " << options.num_row_blocks;
+    //VLOG(2) << "num col blocks: " << options.num_col_blocks;
+    //VLOG(2) << "min row block size: " << options.min_row_block_size;
+    //VLOG(2) << "max row block size: " << options.max_row_block_size;
+    //VLOG(2) << "min col block size: " << options.min_col_block_size;
+    //VLOG(2) << "max col block size: " << options.max_col_block_size;
+    //VLOG(2) << "block density: " << options.block_density;
 
     std::unique_ptr<BlockSparseMatrix> random_matrix(
         BlockSparseMatrix::CreateRandomMatrix(options));

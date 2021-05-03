@@ -140,10 +140,10 @@ void OrderingForSparseNormalCholeskyUsingSuiteSparse(
         block_jacobian_transpose, &constraints[0], ordering);
   }
 
-  /*VLOG(2) << "Block ordering stats: "
-          << " flops: " << ss.mutable_cc()->fl
-          << " lnz  : " << ss.mutable_cc()->lnz
-          << " anz  : " << ss.mutable_cc()->anz;*/
+  //VLOG(2) << "Block ordering stats: "
+  //        << " flops: " << ss.mutable_cc()->fl
+  //        << " lnz  : " << ss.mutable_cc()->lnz
+  //        << " anz  : " << ss.mutable_cc()->anz;
 
   ss.Free(block_jacobian_transpose);
 #endif  // CERES_NO_SUITESPARSE

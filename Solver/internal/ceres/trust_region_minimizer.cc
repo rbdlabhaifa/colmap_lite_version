@@ -439,10 +439,10 @@ bool TrustRegionMinimizer::ComputeTrustRegionStep() {
   }
 
   if (is_not_silent_ && !iteration_summary_.step_is_valid) {
-    /*VLOG(1) << "Invalid step: current_cost: " << x_cost_
+    VLOG(1) << "Invalid step: current_cost: " << x_cost_
             << " absolute model cost change: " << model_cost_change_
             << " relative model cost change: "
-            << (model_cost_change_ / x_cost_);*/
+            << (model_cost_change_ / x_cost_);
   }
   return true;
 }
@@ -512,15 +512,15 @@ void TrustRegionMinimizer::DoInnerIterationsIfNeeded() {
                             nullptr,
                             nullptr)) {
     if (is_not_silent_) {
-      //VLOG(2) << "Inner iteration failed.";
+      VLOG(2) << "Inner iteration failed.";
     }
     return;
   }
 
   if (is_not_silent_) {
-    /*VLOG(2) << "Inner iteration succeeded; Current cost: " << x_cost_
+    VLOG(2) << "Inner iteration succeeded; Current cost: " << x_cost_
             << " Trust region step cost: " << candidate_cost_
-            << " Inner iteration cost: " << inner_iteration_cost;*/
+            << " Inner iteration cost: " << inner_iteration_cost;
   }
   candidate_x_ = inner_iteration_x_;
 
@@ -557,8 +557,8 @@ void TrustRegionMinimizer::DoInnerIterationsIfNeeded() {
   inner_iterations_are_enabled_ =
       (inner_iteration_relative_progress > options_.inner_iteration_tolerance);
   if (is_not_silent_ && !inner_iterations_are_enabled_) {
-    /*VLOG(2) << "Disabling inner iterations. Progress : "
-            << inner_iteration_relative_progress;*/
+    VLOG(2) << "Disabling inner iterations. Progress : "
+            << inner_iteration_relative_progress;
   }
   candidate_cost_ = inner_iteration_cost;
 
@@ -638,7 +638,7 @@ bool TrustRegionMinimizer::MaxSolverTimeReached() {
       options_.max_solver_time_in_seconds);
   solver_summary_->termination_type = NO_CONVERGENCE;
   if (is_not_silent_) {
-    //VLOG(1) << "Terminating: " << solver_summary_->message;
+    VLOG(1) << "Terminating: " << solver_summary_->message;
   }
   return true;
 }
@@ -658,7 +658,7 @@ bool TrustRegionMinimizer::MaxSolverIterationsReached() {
 
   solver_summary_->termination_type = NO_CONVERGENCE;
   if (is_not_silent_) {
-    //VLOG(1) << "Terminating: " << solver_summary_->message;
+    VLOG(1) << "Terminating: " << solver_summary_->message;
   }
   return true;
 }
@@ -678,7 +678,7 @@ bool TrustRegionMinimizer::GradientToleranceReached() {
       options_.gradient_tolerance);
   solver_summary_->termination_type = CONVERGENCE;
   if (is_not_silent_) {
-    //VLOG(1) << "Terminating: " << solver_summary_->message;
+    VLOG(1) << "Terminating: " << solver_summary_->message;
   }
   return true;
 }
@@ -697,7 +697,7 @@ bool TrustRegionMinimizer::MinTrustRegionRadiusReached() {
       options_.min_trust_region_radius);
   solver_summary_->termination_type = CONVERGENCE;
   if (is_not_silent_) {
-    //VLOG(1) << "Terminating: " << solver_summary_->message;
+    VLOG(1) << "Terminating: " << solver_summary_->message;
   }
   return true;
 }
@@ -720,7 +720,7 @@ bool TrustRegionMinimizer::ParameterToleranceReached() {
       options_.parameter_tolerance);
   solver_summary_->termination_type = CONVERGENCE;
   if (is_not_silent_) {
-    //VLOG(1) << "Terminating: " << solver_summary_->message;
+    VLOG(1) << "Terminating: " << solver_summary_->message;
   }
   return true;
 }
@@ -742,7 +742,7 @@ bool TrustRegionMinimizer::FunctionToleranceReached() {
       options_.function_tolerance);
   solver_summary_->termination_type = CONVERGENCE;
   if (is_not_silent_) {
-    //VLOG(1) << "Terminating: " << solver_summary_->message;
+    VLOG(1) << "Terminating: " << solver_summary_->message;
   }
   return true;
 }

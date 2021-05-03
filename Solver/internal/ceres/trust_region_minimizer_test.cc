@@ -98,22 +98,22 @@ class PowellEvaluator2 : public Evaluator {
     const double x3 = state[2];
     const double x4 = state[3];
 
-    /*VLOG(1) << "State: "
-            << "x1=" << x1 << ", "
-            << "x2=" << x2 << ", "
-            << "x3=" << x3 << ", "
-            << "x4=" << x4 << ".";*/
+    //VLOG(1) << "State: "
+    //        << "x1=" << x1 << ", "
+    //        << "x2=" << x2 << ", "
+    //        << "x3=" << x3 << ", "
+    //        << "x4=" << x4 << ".";
 
     const double f1 = x1 + 10.0 * x2;
     const double f2 = sqrt(5.0) * (x3 - x4);
     const double f3 = pow(x2 - 2.0 * x3, 2.0);
     const double f4 = sqrt(10.0) * pow(x1 - x4, 2.0);
 
-    /*VLOG(1) << "Function: "
-            << "f1=" << f1 << ", "
-            << "f2=" << f2 << ", "
-            << "f3=" << f3 << ", "
-            << "f4=" << f4 << ".";*/
+    //VLOG(1) << "Function: "
+    //        << "f1=" << f1 << ", "
+    //        << "f2=" << f2 << ", "
+    //        << "f3=" << f3 << ", "
+    //        << "f4=" << f4 << ".";
 
     *cost = (f1 * f1 + f2 * f2 + f3 * f3 + f4 * f4) / 2.0;
 

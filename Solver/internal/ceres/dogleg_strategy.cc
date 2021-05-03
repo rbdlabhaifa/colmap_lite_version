@@ -207,8 +207,8 @@ void DoglegStrategy::ComputeTraditionalDoglegStep(double* dogleg) {
     dogleg_step = gauss_newton_step_;
     dogleg_step_norm_ = gauss_newton_norm;
     dogleg_step.array() /= diagonal_.array();
-    /*VLOG(3) << "GaussNewton step size: " << dogleg_step_norm_
-            << " radius: " << radius_;*/
+    //VLOG(3) << "GaussNewton step size: " << dogleg_step_norm_
+    //        << " radius: " << radius_;
     return;
   }
 
@@ -219,8 +219,8 @@ void DoglegStrategy::ComputeTraditionalDoglegStep(double* dogleg) {
     dogleg_step = -(radius_ / gradient_norm) * gradient_;
     dogleg_step_norm_ = radius_;
     dogleg_step.array() /= diagonal_.array();
-    /*VLOG(3) << "Cauchy step size: " << dogleg_step_norm_
-            << " radius: " << radius_;*/
+    //VLOG(3) << "Cauchy step size: " << dogleg_step_norm_
+    //        << " radius: " << radius_;
     return;
   }
 
@@ -248,8 +248,8 @@ void DoglegStrategy::ComputeTraditionalDoglegStep(double* dogleg) {
       (-alpha_ * (1.0 - beta)) * gradient_ + beta * gauss_newton_step_;
   dogleg_step_norm_ = dogleg_step.norm();
   dogleg_step.array() /= diagonal_.array();
-  /*VLOG(3) << "Dogleg step size: " << dogleg_step_norm_
-          << " radius: " << radius_;*/
+  //VLOG(3) << "Dogleg step size: " << dogleg_step_norm_
+  //        << " radius: " << radius_;
 }
 
 // The subspace method finds the minimum of the two-dimensional problem
@@ -279,8 +279,8 @@ void DoglegStrategy::ComputeSubspaceDoglegStep(double* dogleg) {
     dogleg_step = gauss_newton_step_;
     dogleg_step_norm_ = gauss_newton_norm;
     dogleg_step.array() /= diagonal_.array();
-    /*VLOG(3) << "GaussNewton step size: " << dogleg_step_norm_
-            << " radius: " << radius_;*/
+    //VLOG(3) << "GaussNewton step size: " << dogleg_step_norm_
+    //        << " radius: " << radius_;
     return;
   }
 
@@ -309,8 +309,8 @@ void DoglegStrategy::ComputeSubspaceDoglegStep(double* dogleg) {
     dogleg_step = -(radius_ / gradient_.norm()) * gradient_;
     dogleg_step_norm_ = radius_;
     dogleg_step.array() /= diagonal_.array();
-    /*VLOG(3) << "Dogleg subspace step size (1D): " << dogleg_step_norm_
-            << " radius: " << radius_;*/
+    //VLOG(3) << "Dogleg subspace step size (1D): " << dogleg_step_norm_
+    //        << " radius: " << radius_;
     return;
   }
 
@@ -359,8 +359,8 @@ void DoglegStrategy::ComputeSubspaceDoglegStep(double* dogleg) {
   dogleg_step = subspace_basis_ * minimum;
   dogleg_step_norm_ = radius_;
   dogleg_step.array() /= diagonal_.array();
-  /*VLOG(3) << "Dogleg subspace step size: " << dogleg_step_norm_
-          << " radius: " << radius_;*/
+  //VLOG(3) << "Dogleg subspace step size: " << dogleg_step_norm_
+  //        << " radius: " << radius_;
 }
 
 // Build the polynomial that defines the optimal Lagrange multipliers.

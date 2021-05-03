@@ -4375,7 +4375,7 @@ static std::string PrintTestPartResultToString(
 static void PrintTestPartResult(const TestPartResult& test_part_result) {
   const std::string& result =
       PrintTestPartResultToString(test_part_result);
-  printf("%s\n", result.c_str());
+  //printf("%s\n", result.c_str());
   fflush(stdout);
   // If the test program runs in Visual Studio or a debugger, the
   // following statements add the test part result message to the Output
@@ -4533,9 +4533,9 @@ void ColoredPrintf(GTestColor color, const char* fmt, ...) {
   // Restores the text color.
   SetConsoleTextAttribute(stdout_handle, old_color_attrs);
 #else
-  printf("\033[0;3%sm", GetAnsiColorCode(color));
+  //printf("\033[0;3%sm", GetAnsiColorCode(color));
   vprintf(fmt, args);
-  printf("\033[m");  // Resets the terminal to default.
+  //printf("\033[m");  // Resets the terminal to default.
 #endif  // GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE
   va_end(args);
 }
@@ -4550,13 +4550,13 @@ static void PrintFullTestCommentIfPresent(const TestInfo& test_info) {
   const char* const value_param = test_info.value_param();
 
   if (type_param != nullptr || value_param != nullptr) {
-    printf(", where ");
+    //printf(", where ");
     if (type_param != nullptr) {
-      printf("%s = %s", kTypeParamLabel, type_param);
+      //printf("%s = %s", kTypeParamLabel, type_param);
       if (value_param != nullptr) printf(" and ");
     }
     if (value_param != nullptr) {
-      printf("%s = %s", kValueParamLabel, value_param);
+      //printf("%s = %s", kValueParamLabel, value_param);
     }
   }
 }
@@ -4568,7 +4568,7 @@ class PrettyUnitTestResultPrinter : public TestEventListener {
  public:
   PrettyUnitTestResultPrinter() {}
   static void PrintTestName(const char* test_suite, const char* test) {
-    printf("%s.%s", test_suite, test);
+    //printf("%s.%s", test_suite, test);
   }
 
   // The following methods override what's in the TestEventListener class.
@@ -4595,7 +4595,7 @@ class PrettyUnitTestResultPrinter : public TestEventListener {
 void PrettyUnitTestResultPrinter::OnTestIterationStart(
     const UnitTest& unit_test, int iteration) {
   if (GTEST_FLAG(repeat) != 1)
-    printf("\nRepeating all tests (iteration %d) . . .\n\n", iteration + 1);
+    //printf("\nRepeating all tests (iteration %d) . . .\n\n", iteration + 1);
 
   const char* const filter = GTEST_FLAG(filter).c_str();
 
@@ -4621,16 +4621,16 @@ void PrettyUnitTestResultPrinter::OnTestIterationStart(
   }
 
   ColoredPrintf(COLOR_GREEN,  "[==========] ");
-  printf("Running %s from %s.\n",
-         FormatTestCount(unit_test.test_to_run_count()).c_str(),
-         FormatTestSuiteCount(unit_test.test_suite_to_run_count()).c_str());
+  //printf("Running %s from %s.\n",
+  //       FormatTestCount(unit_test.test_to_run_count()).c_str(),
+  //       FormatTestSuiteCount(unit_test.test_suite_to_run_count()).c_str());
   fflush(stdout);
 }
 
 void PrettyUnitTestResultPrinter::OnEnvironmentsSetUpStart(
     const UnitTest& /*unit_test*/) {
   ColoredPrintf(COLOR_GREEN,  "[----------] ");
-  printf("Global test environment set-up.\n");
+  //printf("Global test environment set-up.\n");
   fflush(stdout);
 }
 
@@ -4638,11 +4638,11 @@ void PrettyUnitTestResultPrinter::OnTestCaseStart(const TestSuite& test_suite) {
   const std::string counts =
       FormatCountableNoun(test_suite.test_to_run_count(), "test", "tests");
   ColoredPrintf(COLOR_GREEN, "[----------] ");
-  printf("%s from %s", counts.c_str(), test_suite.name());
+  //printf("%s from %s", counts.c_str(), test_suite.name());
   if (test_suite.type_param() == nullptr) {
-    printf("\n");
+    //printf("\n");
   } else {
-    printf(", where %s = %s\n", kTypeParamLabel, test_suite.type_param());
+    //printf(", where %s = %s\n", kTypeParamLabel, test_suite.type_param());
   }
   fflush(stdout);
 }
@@ -4684,10 +4684,10 @@ void PrettyUnitTestResultPrinter::OnTestEnd(const TestInfo& test_info) {
     PrintFullTestCommentIfPresent(test_info);
 
   if (GTEST_FLAG(print_time)) {
-    printf(" (%s ms)\n", internal::StreamableToString(
+    //printf(" (%s ms)\n", internal::StreamableToString(
            test_info.result()->elapsed_time()).c_str());
   } else {
-    printf("\n");
+    //printf("\n");
   }
   fflush(stdout);
 }
@@ -4698,7 +4698,7 @@ void PrettyUnitTestResultPrinter::OnTestCaseEnd(const TestSuite& test_suite) {
   const std::string counts =
       FormatCountableNoun(test_suite.test_to_run_count(), "test", "tests");
   ColoredPrintf(COLOR_GREEN, "[----------] ");
-  printf("%s from %s (%s ms total)\n\n", counts.c_str(), test_suite.name(),
+  //printf("%s from %s (%s ms total)\n\n", counts.c_str(), test_suite.name(),
          internal::StreamableToString(test_suite.elapsed_time()).c_str());
   fflush(stdout);
 }
@@ -4706,7 +4706,7 @@ void PrettyUnitTestResultPrinter::OnTestCaseEnd(const TestSuite& test_suite) {
 void PrettyUnitTestResultPrinter::OnEnvironmentsTearDownStart(
     const UnitTest& /*unit_test*/) {
   ColoredPrintf(COLOR_GREEN,  "[----------] ");
-  printf("Global test environment tear-down\n");
+  //printf("Global test environment tear-down\n");
   fflush(stdout);
 }
 
@@ -4728,9 +4728,9 @@ void PrettyUnitTestResultPrinter::PrintFailedTests(const UnitTest& unit_test) {
         continue;
       }
       ColoredPrintf(COLOR_RED, "[  FAILED  ] ");
-      printf("%s.%s", test_suite.name(), test_info.name());
+      //printf("%s.%s", test_suite.name(), test_info.name());
       PrintFullTestCommentIfPresent(test_info);
-      printf("\n");
+      //printf("\n");
     }
   }
 }
@@ -4753,8 +4753,8 @@ void PrettyUnitTestResultPrinter::PrintSkippedTests(const UnitTest& unit_test) {
         continue;
       }
       ColoredPrintf(COLOR_GREEN, "[  SKIPPED ] ");
-      printf("%s.%s", test_suite.name(), test_info.name());
-      printf("\n");
+      //printf("%s.%s", test_suite.name(), test_info.name());
+      //printf("\n");
     }
   }
 }
@@ -4762,21 +4762,21 @@ void PrettyUnitTestResultPrinter::PrintSkippedTests(const UnitTest& unit_test) {
 void PrettyUnitTestResultPrinter::OnTestIterationEnd(const UnitTest& unit_test,
                                                      int /*iteration*/) {
   ColoredPrintf(COLOR_GREEN,  "[==========] ");
-  printf("%s from %s ran.",
-         FormatTestCount(unit_test.test_to_run_count()).c_str(),
-         FormatTestSuiteCount(unit_test.test_suite_to_run_count()).c_str());
+  //printf("%s from %s ran.",
+  //       FormatTestCount(unit_test.test_to_run_count()).c_str(),
+  //       FormatTestSuiteCount(unit_test.test_suite_to_run_count()).c_str());
   if (GTEST_FLAG(print_time)) {
-    printf(" (%s ms total)",
-           internal::StreamableToString(unit_test.elapsed_time()).c_str());
+    //printf(" (%s ms total)",
+    //       internal::StreamableToString(unit_test.elapsed_time()).c_str());
   }
-  printf("\n");
+  //printf("\n");
   ColoredPrintf(COLOR_GREEN,  "[  PASSED  ] ");
-  printf("%s.\n", FormatTestCount(unit_test.successful_test_count()).c_str());
+  //printf("%s.\n", FormatTestCount(unit_test.successful_test_count()).c_str());
 
   const int skipped_test_count = unit_test.skipped_test_count();
   if (skipped_test_count > 0) {
     ColoredPrintf(COLOR_GREEN, "[  SKIPPED ] ");
-    printf("%s, listed below:\n", FormatTestCount(skipped_test_count).c_str());
+    //printf("%s, listed below:\n", FormatTestCount(skipped_test_count).c_str());
     PrintSkippedTests(unit_test);
   }
 
@@ -4784,16 +4784,16 @@ void PrettyUnitTestResultPrinter::OnTestIterationEnd(const UnitTest& unit_test,
   if (!unit_test.Passed()) {
     const int failed_test_count = unit_test.failed_test_count();
     ColoredPrintf(COLOR_RED,  "[  FAILED  ] ");
-    printf("%s, listed below:\n", FormatTestCount(failed_test_count).c_str());
-    PrintFailedTests(unit_test);
-    printf("\n%2d FAILED %s\n", num_failures,
+    //printf("%s, listed below:\n", FormatTestCount(failed_test_count).c_str());
+    //PrintFailedTests(unit_test);
+    //printf("\n%2d FAILED %s\n", num_failures,
                         num_failures == 1 ? "TEST" : "TESTS");
   }
 
   int num_disabled = unit_test.reportable_disabled_test_count();
   if (num_disabled && !GTEST_FLAG(also_run_disabled_tests)) {
     if (!num_failures) {
-      printf("\n");  // Add a spacer if no FAILURE banner is displayed.
+      //printf("\n");  // Add a spacer if no FAILURE banner is displayed.
     }
     ColoredPrintf(COLOR_YELLOW,
                   "  YOU HAVE %d DISABLED %s\n\n",
@@ -6929,14 +6929,14 @@ static void PrintOnOneLine(const char* str, int max_length) {
   if (str != nullptr) {
     for (int i = 0; *str != '\0'; ++str) {
       if (i >= max_length) {
-        printf("...");
+        //printf("...");
         break;
       }
       if (*str == '\n') {
-        printf("\\n");
+        //printf("\\n");
         i += 2;
       } else {
-        printf("%c", *str);
+        //printf("%c", *str);
         ++i;
       }
     }
@@ -6956,23 +6956,23 @@ void UnitTestImpl::ListTestsMatchingFilter() {
       if (test_info->matches_filter_) {
         if (!printed_test_suite_name) {
           printed_test_suite_name = true;
-          printf("%s.", test_suite->name());
+          //printf("%s.", test_suite->name());
           if (test_suite->type_param() != nullptr) {
-            printf("  # %s = ", kTypeParamLabel);
+            //printf("  # %s = ", kTypeParamLabel);
             // We print the type parameter on a single line to make
             // the output easy to parse by a program.
             PrintOnOneLine(test_suite->type_param(), kMaxParamLength);
           }
-          printf("\n");
+          //printf("\n");
         }
-        printf("  %s", test_info->name());
+        //printf("  %s", test_info->name());
         if (test_info->value_param() != nullptr) {
-          printf("  # %s = ", kValueParamLabel);
+          //printf("  # %s = ", kValueParamLabel);
           // We print the value parameter on a single line to make the
           // output easy to parse by a program.
           PrintOnOneLine(test_info->value_param(), kMaxParamLength);
         }
-        printf("\n");
+        //printf("\n");
       }
     }
   }
@@ -11001,7 +11001,7 @@ bool ParseInt32(const Message& src_text, const char* str, Int32* value) {
     msg << "WARNING: " << src_text
         << " is expected to be a 32-bit integer, but actually"
         << " has value \"" << str << "\".\n";
-    printf("%s", msg.GetString().c_str());
+    //printf("%s", msg.GetString().c_str());
     fflush(stdout);
     return false;
   }
@@ -11018,7 +11018,7 @@ bool ParseInt32(const Message& src_text, const char* str, Int32* value) {
     msg << "WARNING: " << src_text
         << " is expected to be a 32-bit integer, but actually"
         << " has value " << str << ", which overflows.\n";
-    printf("%s", msg.GetString().c_str());
+    //printf("%s", msg.GetString().c_str());
     fflush(stdout);
     return false;
   }
@@ -11059,8 +11059,8 @@ Int32 Int32FromGTestEnv(const char* flag, Int32 default_value) {
   Int32 result = default_value;
   if (!ParseInt32(Message() << "Environment variable " << env_var,
                   string_value, &result)) {
-    printf("The default value %s is used.\n",
-           (Message() << default_value).GetString().c_str());
+    //printf("The default value %s is used.\n",
+    //       (Message() << default_value).GetString().c_str());
     fflush(stdout);
     return default_value;
   }
@@ -11619,7 +11619,7 @@ void TestPartResultArray::Append(const TestPartResult& result) {
 // Returns the TestPartResult at the given index (0-based).
 const TestPartResult& TestPartResultArray::GetTestPartResult(int index) const {
   if (index < 0 || index >= size()) {
-    printf("\nInvalid index (%d) into TestPartResultArray.\n", index);
+    //printf("\nInvalid index (%d) into TestPartResultArray.\n", index);
     internal::posix::Abort();
   }
 
@@ -12118,13 +12118,13 @@ GTEST_API_ void Log(LogSeverity severity, const std::string& message,
 
   if (severity == kWarning) {
     // Prints a GMOCK WARNING marker to make the warnings easily searchable.
-    std::cout << "\nGMOCK WARNING:";
+    //std::cout << "\nGMOCK WARNING:";
   }
   // Pre-pends a new-line to message if it doesn't start with one.
   if (message.empty() || message[0] != '\n') {
-    std::cout << "\n";
+    //std::cout << "\n";
   }
-  std::cout << message;
+  //std::cout << message;
   if (stack_frames_to_skip >= 0) {
 #ifdef NDEBUG
     // In opt mode, we have to be conservative and skip no stack frame.
@@ -12137,13 +12137,13 @@ GTEST_API_ void Log(LogSeverity severity, const std::string& message,
 
     // Appends a new-line to message if it doesn't end with one.
     if (!message.empty() && *message.rbegin() != '\n') {
-      std::cout << "\n";
+      //std::cout << "\n";
     }
-    std::cout << "Stack trace:\n"
-         << ::testing::internal::GetCurrentOsStackTraceExceptTop(
-             ::testing::UnitTest::GetInstance(), actual_to_skip);
+    //std::cout << "Stack trace:\n"
+    //     << ::testing::internal::GetCurrentOsStackTraceExceptTop(
+    //         ::testing::UnitTest::GetInstance(), actual_to_skip);
   }
-  std::cout << ::std::flush;
+  //std::cout << ::std::flush;
 }
 
 GTEST_API_ WithoutMatchers GetWithoutMatchers() { return WithoutMatchers(); }
@@ -13222,30 +13222,30 @@ class MockObjectRegistry {
 
       // FIXME: Print the type of the leaked object.
       // This can help the user identify the leaked object.
-      std::cout << "\n";
+      //std::cout << "\n";
       const MockObjectState& state = it->second;
-      std::cout << internal::FormatFileLocation(state.first_used_file,
+      //std::cout << internal::FormatFileLocation(state.first_used_file,
                                                 state.first_used_line);
-      std::cout << " ERROR: this mock object";
+      //std::cout << " ERROR: this mock object";
       if (state.first_used_test != "") {
-        std::cout << " (used in test " << state.first_used_test_suite << "."
-                  << state.first_used_test << ")";
+        //std::cout << " (used in test " << state.first_used_test_suite << "."
+        //          << state.first_used_test << ")";
       }
-      std::cout << " should be deleted but never is. Its address is @"
-           << it->first << ".";
+      //std::cout << " should be deleted but never is. Its address is @"
+      //     << it->first << ".";
       leaked_count++;
     }
     if (leaked_count > 0) {
-      std::cout << "\nERROR: " << leaked_count << " leaked mock "
-                << (leaked_count == 1 ? "object" : "objects")
-                << " found at program exit. Expectations on a mock object is "
-                   "verified when the object is destructed. Leaking a mock "
-                   "means that its expectations aren't verified, which is "
-                   "usually a test bug. If you really intend to leak a mock, "
-                   "you can suppress this error using "
-                   "testing::Mock::AllowLeak(mock_object), or you may use a "
-                   "fake or stub instead of a mock.\n";
-      std::cout.flush();
+      //std::cout << "\nERROR: " << leaked_count << " leaked mock "
+      //          << (leaked_count == 1 ? "object" : "objects")
+      //          << " found at program exit. Expectations on a mock object is "
+      //             "verified when the object is destructed. Leaking a mock "
+      //             "means that its expectations aren't verified, which is "
+      //             "usually a test bug. If you really intend to leak a mock, "
+      //             "you can suppress this error using "
+      //             "testing::Mock::AllowLeak(mock_object), or you may use a "
+      //             "fake or stub instead of a mock.\n";
+      //std::cout.flush();
       ::std::cerr.flush();
       // RUN_ALL_TESTS() has already returned when this destructor is
       // called.  Therefore we cannot use the normal Google Test

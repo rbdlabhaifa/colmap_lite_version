@@ -448,7 +448,7 @@ bool CovarianceImpl::ComputeCovarianceSparsity(
   }
 
   if (covariance_blocks.size() == 0) {
-    //VLOG(2) << "No non-zero covariance blocks found";
+    //(2) << "No non-zero covariance blocks found";
     covariance_matrix_.reset(NULL);
     return true;
   }
@@ -648,9 +648,9 @@ bool CovarianceImpl::ComputeCovarianceValuesUsingSuiteSparseQR() {
   }
 
   if (rank < cholmod_jacobian.ncol) {
-    LOG(ERROR) << "Jacobian matrix is rank deficient. "
-               << "Number of columns: " << cholmod_jacobian.ncol
-               << " rank: " << rank;
+    LOG(WARNING) << "Jacobian matrix is rank deficient. "
+                 << "Number of columns: " << cholmod_jacobian.ncol
+                 << " rank: " << rank;
     free(permutation);
     cholmod_l_free_sparse(&R, &cc);
     cholmod_l_finish(&cc);

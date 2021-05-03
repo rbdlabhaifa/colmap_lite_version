@@ -151,9 +151,9 @@ void LineSearchMinimizer::Minimize(const Minimizer::Options& options,
                      iteration_summary.gradient_max_norm,
                      options.gradient_tolerance);
     summary->termination_type = CONVERGENCE;
-    if (is_not_silent) {
-      //VLOG(1) << "Terminating: " << summary->message;
-    }
+    /*if (is_not_silent) {
+      VLOG(1) << "Terminating: " << summary->message;
+    }*/
     return;
   }
 
@@ -217,9 +217,9 @@ void LineSearchMinimizer::Minimize(const Minimizer::Options& options,
     if (iteration_summary.iteration >= options.max_num_iterations) {
       summary->message = "Maximum number of iterations reached.";
       summary->termination_type = NO_CONVERGENCE;
-      if (is_not_silent) {
-        //VLOG(1) << "Terminating: " << summary->message;
-      }
+      /*if (is_not_silent) {
+        VLOG(1) << "Terminating: " << summary->message;
+      }*/
       break;
     }
 
@@ -228,9 +228,9 @@ void LineSearchMinimizer::Minimize(const Minimizer::Options& options,
     if (total_solver_time >= options.max_solver_time_in_seconds) {
       summary->message = "Maximum solver time reached.";
       summary->termination_type = NO_CONVERGENCE;
-      if (is_not_silent) {
-        //VLOG(1) << "Terminating: " << summary->message;
-      }
+      /*if (is_not_silent) {
+        VLOG(1) << "Terminating: " << summary->message;
+      }*/
       break;
     }
 
@@ -436,9 +436,9 @@ void LineSearchMinimizer::Minimize(const Minimizer::Options& options,
            (x_norm + options.parameter_tolerance)),
           options.parameter_tolerance);
       summary->termination_type = CONVERGENCE;
-      if (is_not_silent) {
-        //VLOG(1) << "Terminating: " << summary->message;
-      }
+      /*if (is_not_silent) {
+        VLOG(1) << "Terminating: " << summary->message;
+      }*/
       return;
     }
 
@@ -449,9 +449,9 @@ void LineSearchMinimizer::Minimize(const Minimizer::Options& options,
           iteration_summary.gradient_max_norm,
           options.gradient_tolerance);
       summary->termination_type = CONVERGENCE;
-      if (is_not_silent) {
-        //VLOG(1) << "Terminating: " << summary->message;
-      }
+      /*if (is_not_silent) {
+        VLOG(1) << "Terminating: " << summary->message;
+      }*/
       break;
     }
 
@@ -465,9 +465,9 @@ void LineSearchMinimizer::Minimize(const Minimizer::Options& options,
           std::abs(iteration_summary.cost_change) / previous_state.cost,
           options.function_tolerance);
       summary->termination_type = CONVERGENCE;
-      if (is_not_silent) {
-        //VLOG(1) << "Terminating: " << summary->message;
-      }
+      /*if (is_not_silent) {
+        VLOG(1) << "Terminating: " << summary->message;
+      }*/
       break;
     }
   }

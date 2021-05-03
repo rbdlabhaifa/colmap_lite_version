@@ -71,13 +71,13 @@ bool ExpectClose(double x, double y, double max_abs_relative_difference) {
     // meaning. Take the absolute difference instead.
     relative_difference = absolute_difference;
   }
-  /*if (relative_difference > max_abs_relative_difference) {
-    VLOG(1) << StringPrintf("x=%17g y=%17g abs=%17g rel=%17g",
-                            x,
-                            y,
-                            absolute_difference,
-                            relative_difference);
-  }*/
+  if (relative_difference > max_abs_relative_difference) {
+    //VLOG(1) << StringPrintf("x=%17g y=%17g abs=%17g rel=%17g",
+    //                        x,
+    //                        y,
+    //                        absolute_difference,
+    //                        relative_difference);
+  }
 
   EXPECT_NEAR(relative_difference, 0.0, max_abs_relative_difference);
   return relative_difference <= max_abs_relative_difference;
@@ -134,7 +134,8 @@ void ExpectArraysClose(int n, const double* p, const double* q, double tol) {
 }
 
 std::string TestFileAbsolutePath(const std::string& filename) {
-  return JoinPath(FLAGS_test_srcdir + CERES_TEST_SRCDIR_SUFFIX, filename);
+  return JoinPath(CERES_GET_FLAG(FLAGS_test_srcdir) + CERES_TEST_SRCDIR_SUFFIX,
+                  filename);
 }
 
 std::string ToString(const Solver::Options& options) {

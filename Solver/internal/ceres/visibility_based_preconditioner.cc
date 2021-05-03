@@ -119,10 +119,10 @@ VisibilityBasedPreconditioner::VisibilityBasedPreconditioner(
   sparse_cholesky_ = SparseCholesky::Create(sparse_cholesky_options);
 
   const time_t init_time = time(NULL);
-  /*VLOG(2) << "init time: " << init_time - start_time
+  VLOG(2) << "init time: " << init_time - start_time
           << " structure time: " << structure_time - start_time
           << " storage time:" << storage_time - structure_time
-          << " eliminator time: " << eliminator_time - storage_time;*/
+          << " eliminator time: " << eliminator_time - storage_time;
 }
 
 VisibilityBasedPreconditioner::~VisibilityBasedPreconditioner() {}
@@ -211,7 +211,7 @@ void VisibilityBasedPreconditioner::ClusterCameras(
   }
 
   CHECK_GT(num_clusters_, 0);
-  //VLOG(2) << "num_clusters: " << num_clusters_;
+  VLOG(2) << "num_clusters: " << num_clusters_;
   FlattenMembershipMap(membership, &cluster_membership_);
 }
 
@@ -315,7 +315,7 @@ void VisibilityBasedPreconditioner::ComputeBlockPairsInPreconditioner(
     }
   }
 
-  //VLOG(1) << "Block pair stats: " << block_pairs_.size();
+  VLOG(1) << "Block pair stats: " << block_pairs_.size();
 }
 
 // Initialize the SchurEliminator.
@@ -369,13 +369,13 @@ bool VisibilityBasedPreconditioner::UpdateImpl(const BlockSparseMatrix& A,
   // case, the preconditioner is guaranteed to be positive
   // semidefinite.
   if (status == LINEAR_SOLVER_FAILURE && options_.type == CLUSTER_TRIDIAGONAL) {
-    /*VLOG(1) << "Unscaled factorization failed. Retrying with off-diagonal "
-            << "scaling";*/
+    VLOG(1) << "Unscaled factorization failed. Retrying with off-diagonal "
+            << "scaling";
     ScaleOffDiagonalCells();
     status = Factorize();
   }
 
-  //VLOG(2) << "Compute time: " << time(NULL) - start_time;
+  VLOG(2) << "Compute time: " << time(NULL) - start_time;
   return (status == LINEAR_SOLVER_SUCCESS);
 }
 

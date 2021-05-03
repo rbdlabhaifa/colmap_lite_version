@@ -211,10 +211,10 @@ class BFGS : public LineSearchDirection {
     const double kBFGSSecantConditionHessianUpdateTolerance = 1e-14;
     if (delta_x_dot_delta_gradient <=
         kBFGSSecantConditionHessianUpdateTolerance) {
-      /*VLOG(2) << "Skipping BFGS Update, delta_x_dot_delta_gradient too "
-              << "small: " << delta_x_dot_delta_gradient
-              << ", tolerance: " << kBFGSSecantConditionHessianUpdateTolerance
-              << " (Secant condition).";*/
+      //VLOG(2) << "Skipping BFGS Update, delta_x_dot_delta_gradient too "
+      //        << "small: " << delta_x_dot_delta_gradient
+      //        << ", tolerance: " << kBFGSSecantConditionHessianUpdateTolerance
+      //        << " (Secant condition).";
     } else {
       // Update dense inverse Hessian approximation.
 
@@ -254,9 +254,9 @@ class BFGS : public LineSearchDirection {
             delta_x_dot_delta_gradient / delta_gradient.dot(delta_gradient);
         inverse_hessian_ *= approximate_eigenvalue_scale;
 
-        VLOG(4) << "Applying approximate_eigenvalue_scale: "
-                << approximate_eigenvalue_scale << " to initial inverse "
-                << "Hessian approximation.";
+        //VLOG(4) << "Applying approximate_eigenvalue_scale: "
+        //        << approximate_eigenvalue_scale << " to initial inverse "
+        //        << "Hessian approximation.";
       }
       initialized_ = true;
 

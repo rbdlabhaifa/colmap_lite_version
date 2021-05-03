@@ -221,13 +221,13 @@ class CERES_EXPORT GradientProblemSolver {
 
     // Logging options ---------------------------------------------------------
 
-    LoggingType logging_type = PER_MINIMIZER_ITERATION;
+    LoggingType logging_type = SILENT;
 
     // By default the Minimizer progress is logged to VLOG(1), which
     // is sent to STDERR depending on the vlog level. If this flag is
     // set to true, and logging_type is not SILENT, the logging output
     // is sent to STDOUT.
-    bool minimizer_progress_to_stdout = false;
+    bool minimizer_progress_to_stdout = true;
 
     // If true, the user's parameter blocks are updated at the end of
     // every Minimizer iteration, otherwise they are updated when the

@@ -181,5 +181,5 @@ void ceres_solve(ceres_problem_t* c_problem) {
 
   ceres::Solver::Summary summary;
   ceres::Solve(options, problem, &summary);
-  std::cout << summary.FullReport() << "\n";
+  //std::cout << summary.FullReport() << "\n";
 }

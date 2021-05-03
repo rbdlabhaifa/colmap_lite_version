@@ -427,9 +427,9 @@ void Minimize(internal::PreprocessedProblem* pp, Solver::Summary* summary) {
         "Function tolerance reached. "
         "No non-constant parameter blocks found.";
     summary->termination_type = CONVERGENCE;
-    if (pp->options.logging_type != SILENT) {
-      //VLOG(1) << summary->message;
-    }
+    /*if (pp->options.logging_type != SILENT) {
+      VLOG(1) << summary->message;
+    }*/
     summary->initial_cost = summary->fixed_cost;
     summary->final_cost = summary->fixed_cost;
     return;

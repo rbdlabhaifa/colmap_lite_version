@@ -73,8 +73,8 @@ BlockRandomAccessSparseMatrix::BlockRandomAccessSparseMatrix(
     num_nonzeros += row_block_size * col_block_size;
   }
 
-  /*VLOG(1) << "Matrix Size [" << num_cols << "," << num_cols << "] "
-          << num_nonzeros;*/
+  //VLOG(1) << "Matrix Size [" << num_cols << "," << num_cols << "] "
+  //        << num_nonzeros;
 
   tsm_.reset(new TripletSparseMatrix(num_cols, num_cols, num_nonzeros));
   tsm_->set_num_nonzeros(num_nonzeros);

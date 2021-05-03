@@ -95,8 +95,8 @@ LinearSolver::Summary DenseQRSolver::SolveUsingLAPACK(
   if (work_.rows() == 1) {
     const int work_size =
         LAPACK::EstimateWorkSizeForQR(lhs_.rows(), lhs_.cols());
-    /*VLOG(3) << "Working memory for Dense QR factorization: "
-            << work_size * sizeof(double);*/
+    //VLOG(3) << "Working memory for Dense QR factorization: "
+    //        << work_size * sizeof(double);
     work_.resize(work_size);
   }
 

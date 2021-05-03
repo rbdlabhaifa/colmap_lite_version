@@ -167,11 +167,11 @@ CompressedRowSparseMatrix::CompressedRowSparseMatrix(int num_rows,
   cols_.resize(max_num_nonzeros, 0);
   values_.resize(max_num_nonzeros, 0.0);
 
-  /*VLOG(1) << "# of rows: " << num_rows_ << " # of columns: " << num_cols_
-          << " max_num_nonzeros: " << cols_.size() << ". Allocating "
-          << (num_rows_ + 1) * sizeof(int) +     // NOLINT
-                 cols_.size() * sizeof(int) +    // NOLINT
-                 cols_.size() * sizeof(double);  // NOLINT*/
+  //VLOG(1) << "# of rows: " << num_rows_ << " # of columns: " << num_cols_
+  //        << " max_num_nonzeros: " << cols_.size() << ". Allocating "
+  //        << (num_rows_ + 1) * sizeof(int) +     // NOLINT
+  //               cols_.size() * sizeof(int) +    // NOLINT
+  //               cols_.size() * sizeof(double);  // NOLINT
 }
 
 CompressedRowSparseMatrix* CompressedRowSparseMatrix::FromTripletSparseMatrix(
@@ -208,11 +208,11 @@ CompressedRowSparseMatrix* CompressedRowSparseMatrix::FromTripletSparseMatrix(
   // are broken by column.
   std::sort(index.begin(), index.end(), RowColLessThan(rows, cols));
 
-  /*VLOG(1) << "# of rows: " << num_rows << " # of columns: " << num_cols
-          << " num_nonzeros: " << input.num_nonzeros() << ". Allocating "
-          << ((num_rows + 1) * sizeof(int) +           // NOLINT
-              input.num_nonzeros() * sizeof(int) +     // NOLINT
-              input.num_nonzeros() * sizeof(double));  // NOLINT*/
+  //VLOG(1) << "# of rows: " << num_rows << " # of columns: " << num_cols
+  //        << " num_nonzeros: " << input.num_nonzeros() << ". Allocating "
+  //        << ((num_rows + 1) * sizeof(int) +           // NOLINT
+  //            input.num_nonzeros() * sizeof(int) +     // NOLINT
+  //            input.num_nonzeros() * sizeof(double));  // NOLINT
 
   CompressedRowSparseMatrix* output =
       new CompressedRowSparseMatrix(num_rows, num_cols, input.num_nonzeros());

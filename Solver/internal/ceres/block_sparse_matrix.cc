@@ -78,8 +78,8 @@ BlockSparseMatrix::BlockSparseMatrix(
   CHECK_GE(num_rows_, 0);
   CHECK_GE(num_cols_, 0);
   CHECK_GE(num_nonzeros_, 0);
-  /*VLOG(2) << "Allocating values array with " << num_nonzeros_ * sizeof(double)
-          << " bytes.";  // NOLINT*/
+  //VLOG(2) << "Allocating values array with " << num_nonzeros_ * sizeof(double)
+  //        << " bytes.";  // NOLINT
   values_.reset(new double[num_nonzeros_]);
   max_num_nonzeros_ = num_nonzeros_;
   CHECK(values_ != nullptr);

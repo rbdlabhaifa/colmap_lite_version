@@ -81,7 +81,7 @@ EventLogger::~EventLogger() {
     return;
   }
   AddEvent("Total");
-  VLOG(3) << "\n" << events_ << "\n";
+  //VLOG(3) << "\n" << events_ << "\n";
 }
 
 void EventLogger::AddEvent(const std::string& event_name) {

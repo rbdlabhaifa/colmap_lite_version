@@ -107,8 +107,8 @@ class BundleAdjustmentProblem {
     FscanfOrDie(fptr, "%d", &num_points_);
     FscanfOrDie(fptr, "%d", &num_observations_);
 
-    /*VLOG(1) << "Header: " << num_cameras_ << " " << num_points_ << " "
-            << num_observations_;*/
+    //VLOG(1) << "Header: " << num_cameras_ << " " << num_points_ << " "
+    //        << num_observations_;
 
     point_index_ = new int[num_observations_];
     camera_index_ = new int[num_observations_];

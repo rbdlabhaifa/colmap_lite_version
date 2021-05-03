@@ -88,8 +88,8 @@ void ComputeCanonicalViewsClustering(
   time_t start_time = time(NULL);
   CanonicalViewsClustering cv;
   cv.ComputeClustering(options, graph, centers, membership);
-  /*VLOG(2) << "Canonical views clustering time (secs): "
-          << time(NULL) - start_time;*/
+  //VLOG(2) << "Canonical views clustering time (secs): "
+  //        << time(NULL) - start_time;
 }
 
 // Implementation of CanonicalViewsClustering

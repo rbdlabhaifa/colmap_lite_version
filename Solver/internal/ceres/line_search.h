@@ -133,7 +133,7 @@ class LineSearch {
     // By definition for expansion, max_step_expansion > 1.0.
     double max_step_expansion = 10;
 
-    bool is_silent = false;
+    bool is_silent = true;
 
     // The one dimensional function that the line search algorithm
     // minimizes.

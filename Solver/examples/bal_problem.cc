@@ -83,8 +83,8 @@ BALProblem::BALProblem(const std::string& filename, bool use_quaternions) {
   FscanfOrDie(fptr, "%d", &num_points_);
   FscanfOrDie(fptr, "%d", &num_observations_);
 
-  /*VLOG(1) << "Header: " << num_cameras_ << " " << num_points_ << " "
-          << num_observations_;*/
+  //VLOG(1) << "Header: " << num_cameras_ << " " << num_points_ << " "
+  //        << num_observations_;
 
   point_index_ = new int[num_observations_];
   camera_index_ = new int[num_observations_];
@@ -269,9 +269,9 @@ void BALProblem::Normalize() {
   // reconstruction is 100.
   const double scale = 100.0 / median_absolute_deviation;
 
-  /*VLOG(2) << "median: " << median.transpose();
-  VLOG(2) << "median absolute deviation: " << median_absolute_deviation;
-  VLOG(2) << "scale: " << scale;*/
+  //VLOG(2) << "median: " << median.transpose();
+  //VLOG(2) << "median absolute deviation: " << median_absolute_deviation;
+  //VLOG(2) << "scale: " << scale;
 
   // X = scale * (X - median)
   for (int i = 0; i < num_points_; ++i) {

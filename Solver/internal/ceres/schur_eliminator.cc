@@ -149,9 +149,9 @@ SchurEliminatorBase* SchurEliminatorBase::Create(
   }
 
 #endif
-  /*VLOG(1) << "Template specializations not found for <"
-          << options.row_block_size << "," << options.e_block_size << ","
-          << options.f_block_size << ">";*/
+  //VLOG(1) << "Template specializations not found for <"
+  //        << options.row_block_size << "," << options.e_block_size << ","
+  //        << options.f_block_size << ">";
   return new SchurEliminator<Eigen::Dynamic, Eigen::Dynamic, Eigen::Dynamic>(
       options);
 }
