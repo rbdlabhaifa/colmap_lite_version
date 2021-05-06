@@ -1,0 +1,9 @@
+Workplace preparation (images and camera pose)  [sec]: 17
+feature extraction [sec]: 4.63
+feature matching   [sec]: 19.35
+database preparation   [sec]: 0.55
+Two View Geometry  [sec]: 22
+Run sparse reconstruction  [sec]: 4
+output format prep [sec]: 2
+exit room algorithm [sec]: 0
+total time [sec]: 71
