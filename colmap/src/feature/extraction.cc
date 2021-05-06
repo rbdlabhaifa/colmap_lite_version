@@ -190,9 +190,8 @@ void SiftFeatureExtractor::Run() {
     }
   }
 
-  int counter = 0;
   while (image_reader_.NextIndex() < image_reader_.NumImages()) {
-    if (IsStopped() || counter == 1) {
+    if (IsStopped()) {
       resizer_queue_->Stop();
       extractor_queue_->Stop();
       resizer_queue_->Clear();
@@ -214,9 +213,6 @@ void SiftFeatureExtractor::Run() {
     } else {
       CHECK(extractor_queue_->Push(image_data));
     }
-
-    // debug flag for ORB version
-    //counter++;
   }
 
   resizer_queue_->Wait();
@@ -447,54 +443,53 @@ void FeatureWriterThread::Run() {
 
       image_index += 1;
 
-      std::cout << StringPrintf("Processed file [%d/%d]", image_index,
-                                num_images_)
-                << std::endl;
+      //std::cout << StringPrintf("Processed file [%d/%d]", image_index,
+      //                          num_images_)
+      //          << std::endl;
 
-      std::cout << StringPrintf("  Name:            %s",
-                                image_data.image.Name().c_str())
-                << std::endl;
+      //std::cout << StringPrintf("  Name:            %s",
+      //                          image_data.image.Name().c_str())
+      //          << std::endl;
 
-      if (image_data.status == ImageReader::Status::IMAGE_EXISTS) {
-        std::cout << "  SKIP: Features for image already extracted."
-                  << std::endl;
-      } else if (image_data.status == ImageReader::Status::BITMAP_ERROR) {
-        std::cout << "  ERROR: Failed to read image file format." << std::endl;
-      } else if (image_data.status ==
-                 ImageReader::Status::CAMERA_SINGLE_DIM_ERROR) {
-        std::cout << "  ERROR: Single camera specified, "
-                     "but images have different dimensions."
-                  << std::endl;
-      } else if (image_data.status ==
-                 ImageReader::Status::CAMERA_EXIST_DIM_ERROR) {
-        std::cout << "  ERROR: Image previously processed, but current image "
-                     "has different dimensions."
-                  << std::endl;
-      } else if (image_data.status == ImageReader::Status::CAMERA_PARAM_ERROR) {
-        std::cout << "  ERROR: Camera has invalid parameters." << std::endl;
-      } else if (image_data.status == ImageReader::Status::FAILURE) {
-        std::cout << "  ERROR: Failed to extract features." << std::endl;
-      }
+      //if (image_data.status == ImageReader::Status::IMAGE_EXISTS) {
+      //  std::cout << "  SKIP: Features for image already extracted."
+      //            << std::endl;
+      //} else if (image_data.status == ImageReader::Status::BITMAP_ERROR) {
+      //  std::cout << "  ERROR: Failed to read image file format." << std::endl;
+      //} else if (image_data.status ==
+      //           ImageReader::Status::CAMERA_SINGLE_DIM_ERROR) {
+      //  std::cout << "  ERROR: Single camera specified, "
+      //               "but images have different dimensions."
+      //            << std::endl;
+      //} else if (image_data.status ==
+      //           ImageReader::Status::CAMERA_EXIST_DIM_ERROR) {
+      //  std::cout << "  ERROR: Image previously processed, but current image "
+      //               "has different dimensions."
+      //            << std::endl;
+      //} else if (image_data.status == ImageReader::Status::CAMERA_PARAM_ERROR) {
+      //  std::cout << "  ERROR: Camera has invalid parameters." << std::endl;
+      //} else if (image_data.status == ImageReader::Status::FAILURE) {
+      //  std::cout << "  ERROR: Failed to extract features." << std::endl;
+      //}
 
       if (image_data.status != ImageReader::Status::SUCCESS) {
         continue;
       }
 
-      std::cout << StringPrintf("  Dimensions:      %d x %d",
-                                image_data.camera.Width(),
-                                image_data.camera.Height())
-                << std::endl;
-      std::cout << StringPrintf("  Camera:          #%d - %s",
-                                image_data.camera.CameraId(),
-                                image_data.camera.ModelName().c_str())
-                << std::endl;
-      std::cout << StringPrintf("  Focal Length:    %.2fpx",
-                                image_data.camera.MeanFocalLength());
+      //std::cout << StringPrintf("  Dimensions:      %d x %d",
+      //                          image_data.camera.Width(),
+      //                          image_data.camera.Height())
+      //          << std::endl;
+      //std::cout << StringPrintf("  Camera:          #%d - %s",
+      //                          image_data.camera.CameraId(),
+      //                          image_data.camera.ModelName().c_str())
+      //          << std::endl;
+      //std::cout << StringPrintf("  Focal Length:    %.2fpx",
+      //                          image_data.camera.MeanFocalLength());
+
       if (image_data.camera.HasPriorFocalLength()) {
         std::cout << " (Prior)" << std::endl;
-      } else {
-        std::cout << std::endl;
-      }
+      } 
       if (image_data.image.HasTvecPrior()) {
         std::cout << StringPrintf(
                          "  GPS:             LAT=%.3f, LON=%.3f, ALT=%.3f",
@@ -503,9 +498,9 @@ void FeatureWriterThread::Run() {
                          image_data.image.TvecPrior(2))
                   << std::endl;
       }
-      std::cout << StringPrintf("  Features:        %d",
-                                image_data.keypoints.size())
-                << std::endl;
+      //std::cout << StringPrintf("  Features:        %d",
+      //                          image_data.keypoints.size())
+      //          << std::endl;
 
       DatabaseTransaction database_transaction(database_);
 
