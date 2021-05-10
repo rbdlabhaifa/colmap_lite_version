@@ -1,5 +1,4 @@
 import math
-
 import deepdish as dd
 import shutil
 import subprocess
@@ -322,10 +321,10 @@ def write_camera_pose_to_file(camera_pose_abs_dict: dict, pose_dir_path: str) ->
             file.write(' '.join(image_pose_data) + '\n\n')
 
 
-def main():
-    # Parse input arguments:
-    workspace_path = parse_args()
-
+def clear_workspace(workspace_path: str) -> None:
+    """
+    The function delete all the files in workspace folder except the input video
+    """
     # make sure the workspace in empty
     for filename in listdir(workspace_path):
         if filename.endswith('.h264'):
@@ -335,6 +334,13 @@ def main():
             shutil.rmtree(path_to_node)
         else:
             remove(path_to_node)
+
+
+def main():
+    # Parse input arguments:
+    workspace_path = parse_args()
+
+    clear_workspace(workspace_path)
 
     # prepare video and create the images for our model
     video_thread = Thread(target=prepare_video, args=(workspace_path, 87))
@@ -367,7 +373,7 @@ def main():
     # reading the reference pose model from file
     camera_pose_rel_dict = dd.io.load('ref_camera_pose.h5')
     camera_pose_abs_dict = compute_absolut_camera_pose(camera_pose_rel_dict, first_image_pose, workspace_path,
-                                                       do_plot=True)
+                                                       do_plot=False)
 
     # create the image file according to COLMAP documentation
     write_camera_pose_to_file(camera_pose_abs_dict, pose_output_path)

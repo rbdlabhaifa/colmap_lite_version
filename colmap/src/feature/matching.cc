@@ -956,7 +956,7 @@ void ExhaustiveFeatureMatcher::Run() {
     }
   }
 
-  GetTimer().PrintMinutes();
+  //GetTimer().PrintMinutes();
 }
 
 SequentialFeatureMatcher::SequentialFeatureMatcher(
@@ -989,7 +989,7 @@ void SequentialFeatureMatcher::Run() {
     RunLoopDetection(ordered_image_ids);
   }
 
-  GetTimer().PrintMinutes();
+  //GetTimer().PrintMinutes();
 }
 
 std::vector<image_t> SequentialFeatureMatcher::GetOrderedImageIds() const {

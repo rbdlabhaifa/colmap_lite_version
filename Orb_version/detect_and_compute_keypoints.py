@@ -235,7 +235,7 @@ def main():
     start = time.time()
 
     # get matches with multiprocessing
-    matches, pair_ids = get_matches_sequential(descriptors)
+    matches, pair_ids = get_matches_sequential(descriptors, 10, True)
 
     end = time.time()
     fm_time = (end - start)
