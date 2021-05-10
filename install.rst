@@ -71,3 +71,14 @@ Alternatively, you can build the documentation as PDF, EPUB, etc.::
 
     make latexpdf
     open _build/pdf/COLMAP.pdf
+
+
+------------------
+Create ORB model
+------------------
+
+From the /Orb_version folder, open terminal:
+
+./colmap_bash.sh -p PATH_TO_VIDEO_FOLDER
+
+the workspace folder should contains an .h264 video file
