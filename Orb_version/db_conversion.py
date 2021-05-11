@@ -39,7 +39,7 @@ def get_descriptors(cursor, img_list: list) -> list:
 
 def get_3d_points(input_path: str) -> list:
     """
-    get list of 3d points form points.txt file
+    get a list of 3d points from the points.txt file
     :param input_path: path to points.txt file
     :return points: list of points
     """
@@ -61,7 +61,7 @@ def get_3d_points(input_path: str) -> list:
 
 def plot_2d(file_name: str, output_path: str, threshold=500) -> None:
     """
-    get list of 3d points form points.txt file
+    Create a 2d plot of the reconstructed model
     :param file_name: path to points.txt file
     :param output_path: path to save the plot
     :param threshold: threshold for filter outlier points

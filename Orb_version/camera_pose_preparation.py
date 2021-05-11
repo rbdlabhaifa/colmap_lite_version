@@ -12,12 +12,13 @@ import deepdish as dd
 
 def plot_model_2d(sparse_folder: str, output_path: str, threshold=500) -> None:
     """
-    get list of 3d points form points.txt file
+    get a list of 3d points from the points.txt file
     :param sparse_folder: path to points.txt file
     :param output_path: path to save the plot
     :param threshold: threshold for filter outlier points
     :return points: list of points
     """
+
     x = []
     y = []
     z = []
@@ -44,7 +45,7 @@ def plot_model_2d(sparse_folder: str, output_path: str, threshold=500) -> None:
 
 def run_colmap(input_path: str) -> str:
     """
-    Create new sparse model using COLMAP
+    Create a new sparse model using COLMAP
     """
     path_to_images = path.join(input_path, 'images')
 
@@ -107,9 +108,9 @@ def get_pose_from_file(path_to_folder: str) -> dict:
 
 def get_rel_pose(path_to_sparse_model: str, path_to_workspace: str) -> None:
     """
-    The function convert absolute camera pose data to relative
+    The function converts absolute camera pose data to relative
     :param path_to_sparse_model: path to sparse model directory
-    :param path_to_workspace: path to main workspace directory
+    :param path_to_workspace: path to the main workspace directory
     """
     camera_pose_dict = get_pose_from_file(path_to_sparse_model)
     ordered_ref_data = {}

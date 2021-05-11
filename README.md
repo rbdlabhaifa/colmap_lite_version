@@ -4,9 +4,9 @@ COLMAP
 About
 -----
 
-This project is the first Structure-from-Motion (SfM) tool for ORB reconstruction on weak microprossesors (RP0)
+This project is the first Structure-from-Motion (SfM) tool for ORB reconstruction on weak microprocessors (RP0)
 
-The project based on COLMAP which is a general-purpose Structure-from-Motion (SfM) and Multi-View Stereo
+The project-based on COLMAP, which is a general-purpose Structure-from-Motion (SfM) and Multi-View Stereo
 (MVS) pipeline.
 
 The software is licensed under the new BSD license. If you use this project for
@@ -30,15 +30,15 @@ your research, please cite:
 The latest source code of COLMAP is available at https://github.com/colmap/colmap. 
 
 
-Instalation
+Installation
 --------
 
-You can find diteils about the instolation of this project in the install.rst file in this repository
+You can find details about the installation of this project in the install.rst file in this repository
 
 Getting Started
 ---------------
 
-1. First install and build Ceres-Solver and Colmap using the instaction above.
+1. First, install and build Ceres-Solver and Colmap using the instruction above.
 
 2. Run the "camera_pose_preparation.py" script from the Orb_version folder using the command  
 /camera_pose_preparation.py -p /path_to_workspace
@@ -53,25 +53,25 @@ the "path_to_workspace" folder should be empty except the .h264 video file
 License
 -------
 
-The COLMAP library is licensed under the new BSD license. Note that this text
+The COLMAP library is licensed under the new BSD license. This text
 refers only to the license for COLMAP itself, independent of its dependencies,
 which are separately licensed. Building COLMAP with these dependencies may
 affect the resulting COLMAP license.
 
-    Copyright (c) 2018, ETH Zurich and UNC Chapel Hill.
+    Copyright (c) 2018, ETH Zurich and UNC-Chapel Hill.
     All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions are met:
 
         * Redistributions of source code must retain the above copyright
-          notice, this list of conditions and the following disclaimer.
+          notice, this list of conditions, and the following disclaimer.
 
         * Redistributions in binary form must reproduce the above copyright
           notice, this list of conditions and the following disclaimer in the
           documentation and/or other materials provided with the distribution.
 
-        * Neither the name of ETH Zurich and UNC Chapel Hill nor the names of
+        * Neither the name of ETH Zurich and UNC-Chapel Hill nor the names of
           its contributors may be used to endorse or promote products derived
           from this software without specific prior written permission.
 

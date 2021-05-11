@@ -2,8 +2,8 @@
 
 # use ORB
 use_orb_version=true
-
 USER_NAME="rbdstudent"
+
 # Get path to image and database folders:
 while getopts p: flag
 do

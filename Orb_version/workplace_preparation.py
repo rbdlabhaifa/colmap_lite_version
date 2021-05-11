@@ -24,9 +24,9 @@ def parse_args() -> str:
 
 def remove_extra_images(path_to_images: str, number_of_images: int) -> None:
     """
-    The function remove all the extra images created in images folder
-    :param path_to_images: path to model images folder
-    :param number_of_images: the number of image to reconstruct our model (87 by default)
+    The function removes all the extra images created in the images folder
+    :param path_to_images: path to the model images folder
+    :param number_of_images: the number of images to reconstruct our model
     """
     last_image = 'image' + str(number_of_images) + '.jpg'
     while last_image in listdir(path_to_images):
@@ -37,11 +37,11 @@ def remove_extra_images(path_to_images: str, number_of_images: int) -> None:
         last_image = 'image' + str(number_of_images) + '.jpg'
 
 
-def prepare_video(path_to_video: str, number_of_images=110) -> None:
+def prepare_video(path_to_video: str, number_of_images=87) -> None:
     """
-    The function prepare the images for our model based on given video
+    The function prepares the images for our model based on a given video
     :param path_to_video: video in h264 format
-    :param number_of_images: the number of image to reconstruct our model (110 by default)
+    :param number_of_images: the number of images to reconstruct our model (87 by default)
     """
 
     temp_video = path.join(path_to_video, 'temp_outpy.mp4')
@@ -73,7 +73,7 @@ def prepare_video(path_to_video: str, number_of_images=110) -> None:
 
 def create_temp_model(temp_dir_path: str) -> str:
     """
-    The function prepare the images for our model based on given video
+    The function prepares the images for our model based on a given video
     :param temp_dir_path: video in h264 format
     :return number_of_images: path to temporary model folder
     """
@@ -109,13 +109,13 @@ def create_temp_model(temp_dir_path: str) -> str:
 
 def quaternion_to_rotation_matrix(q0, q1, q2, q3) -> np:
     """
-    The function convert quaternion vector to rotation matrix
+    The function converts the quaternion vector to a rotation matrix
     https://automaticaddison.com/how-to-convert-a-quaternion-to-a-rotation-matrix/
     :param q0: the value of qw
     :param q1: the value of qx
     :param q2: the value of qy
     :param q3: the value of qz
-    :return rot_matrix: rotation matrix 3x3 as numpy array
+    :return rot_matrix: rotation matrix 3x3 as NumPy array
     """
 
     # First row of the rotation matrix
@@ -143,10 +143,10 @@ def quaternion_to_rotation_matrix(q0, q1, q2, q3) -> np:
 
 def rotation_matrix_to_quaternion(rotation_matrix: np) -> object:
     """
-    The function convert rotation matrix to quaternion vector
+    The function converts rotation matrix to quaternion vector
     https://learnopencv.com/rotation-matrix-to-euler-angles/
-    :param rotation_matrix: rotation matrix 3x3 represented by numpy array
-    :return quaternion vector: represented by (qx, qy, qz, qw)
+    :param rotation_matrix: rotation matrix 3x3 represented by NumPy array
+    :return quaternion vector: defined by (qx, qy, qz, qw)
     """
 
     cosine_for_pitch = math.sqrt(rotation_matrix[0][0] ** 2 + rotation_matrix[1][0] ** 2)
@@ -167,10 +167,11 @@ def rotation_matrix_to_quaternion(rotation_matrix: np) -> object:
 
 def euler_to_quaternion(euler: tuple) -> object:
     """
-    The function convert euler angle to quaternion object
-    :param euler: angle represented by yaw, pitch, roll
-    :return quaternion vector: represented by (qx, qy, qz, qw)
+    The function convert Euler angle to quaternion object
+    :param Euler: angle represented by yaw, pitch, roll
+    :return quaternion vector: defined by (qx, qy, qz, qw)
     """
+
     (yaw, pitch, roll) = (euler[0], euler[1], euler[2])
     qy = np.sin(roll / 2) * np.cos(pitch / 2) * np.cos(yaw / 2) - np.cos(roll / 2) * np.sin(pitch / 2) * np.sin(yaw / 2)
     qx = np.cos(roll / 2) * np.sin(pitch / 2) * np.cos(yaw / 2) + np.sin(roll / 2) * np.cos(pitch / 2) * np.sin(yaw / 2)
@@ -295,7 +296,7 @@ def compute_absolut_camera_pose(camera_pose_rel_dict: dict, first_image_pose: li
 def write_camera_pose_to_file(camera_pose_abs_dict: dict, pose_dir_path: str) -> None:
     """
     The function write the recovered camera poses according to COLMAP documentation
-    :param camera_pose_abs_dict: dictionary of recovered camera poses for each image
+    :param camera_pose_abs_dict: A dictionary of recovered camera poses for each image
     :param pose_dir_path: path to image file
     """
     image_dst = path.join(pose_dir_path, 'images.txt')
@@ -323,7 +324,7 @@ def write_camera_pose_to_file(camera_pose_abs_dict: dict, pose_dir_path: str) ->
 
 def clear_workspace(workspace_path: str) -> None:
     """
-    The function delete all the files in workspace folder except the input video
+    The function deletes all the files in the workspace folder except the input video
     """
     # make sure the workspace in empty
     for filename in listdir(workspace_path):
