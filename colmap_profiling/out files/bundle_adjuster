@@ -1,0 +1,12 @@
+==8628== Callgrind, a call-graph generating cache profiler
+==8628== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==8628== Using Valgrind-3.16.1 and LibVEX; rerun with -h for copyright info
+==8628== Command: /home/fares/colmap/build/src/exe/colmap bundle_adjuster --input_path /home/fares/Rp_modal/Try2//0/ --output_path /home/fares/Rp_modal/Try2//0/
+==8628== Parent PID: 16400
+==8628== 
+==8628== For interactive control, run 'callgrind_control -h'.
+==8628== 
+==8628== Events    : Ir
+==8628== Collected : 51909263828
+==8628== 
+==8628== I   refs:      51,909,263,828
