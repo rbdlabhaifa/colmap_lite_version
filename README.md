@@ -29,6 +29,8 @@ your research, please cite:
 
 The latest source code of COLMAP is available at https://github.com/colmap/colmap. 
 
+The latest source code of Ceres-Solver is available at  https://ceres-solver.googlesource.com/ceres-solver. 
+
 
 Installation
 --------
