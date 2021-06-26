@@ -44,12 +44,12 @@ Getting Started
 
 2. Run the "camera_pose_preparation.py" script from the Orb_version folder using the command:
 ```
-	/camera_pose_preparation.py -p /path_to_workspace
+	python3 camera_pose_preparation.py -p /path_to_workspace
 ```
 
 3. Run the ORB version bash file for the Orb_version folder using the command:
 ```
-	/colmap_bash.sh -p /path_to_workspace
+	./colmap_bash.sh -p /path_to_workspace
 ```
 * The "path_to_workspace" folder should be empty except the .h264 video file
 
