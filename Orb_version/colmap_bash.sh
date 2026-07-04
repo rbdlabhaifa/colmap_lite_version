@@ -2,9 +2,11 @@
 
 # use ORB
 use_orb_version=true
-USER_NAME="rbdstudent"
 
-# Get path to image and database folders:
+# Resolve Orb_version directory from this script's location
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Get path to workspace folder:
 while getopts p: flag
 do
     case "${flag}" in
@@ -12,20 +14,25 @@ do
     esac
 done
 
+if [ -z "$DB_PATH" ]; then
+  echo "Usage: $0 -p /path/to/workspace"
+  exit 1
+fi
+
 start_program_time="$(date -u +%s)"
 
 # Start room scan:
-#python3 "/home/$USER_NAME/colmap/Orb_version/scan_script.py" \
+#python3 "$SCRIPT_DIR/scan_script.py" \
 #  --output "$DB_PATH"
 
 # Workplace preparation (images and camera pose)
 start="$(date -u +%s)"
 
 if [ "$use_orb_version" = true ] ; then
-  python3 "/home/$USER_NAME/colmap/Orb_version/workplace_preparation.py"  \
+  python3 "$SCRIPT_DIR/workplace_preparation.py"  \
   	  --workspace_path "$DB_PATH"
 else
-  mkdir $DB_PATH/images
+  mkdir -p "$DB_PATH/images"
   ffmpeg -i "$DB_PATH/outpy.h264" -r 0.5 -f image2 "$DB_PATH/images/image%d.jpg"
 fi
 
@@ -35,7 +42,7 @@ echo "Workplace preparation (images and camera pose)  [sec]: $elapsed" >> "$DB_P
 
 if [ "$use_orb_version" = true ] ; then
   # Extract and match ORB features
-  python3 "/home/$USER_NAME/colmap/Orb_version/detect_and_compute_keypoints.py" \
+  python3 "$SCRIPT_DIR/detect_and_compute_keypoints.py" \
      --path "$DB_PATH/images/" \
      --db_path "$DB_PATH"
 
@@ -74,7 +81,7 @@ fi
 # Run the conversion to RBD data format:
 start="$(date -u +%s)"
 
-python3 "/home/$USER_NAME/colmap/Orb_version/db_conversion.py" \
+python3 "$SCRIPT_DIR/db_conversion.py" \
     --input_path  "$DB_PATH"
 
 end="$(date -u +%s)"
@@ -83,7 +90,7 @@ echo "output format prep [sec]: $elapsed" >> "$DB_PATH/sfm_log.txt"
 
 # Run exit room algorithm:
 start="$(date -u +%s)"
-python3 "/home/$USER_NAME/colmap/Orb_version/Find_exit/find_room_exit.py" \
+python3 "$SCRIPT_DIR/Find_exit/find_room_exit.py" \
     --path "$DB_PATH"
 
 end="$(date -u +%s)"

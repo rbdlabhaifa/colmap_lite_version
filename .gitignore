@@ -1,0 +1,12 @@
+build/
+.cache/
+*.pyc
+__pycache__/
+.venv/
+venv/
+config.yaml
+.vscode/
+
+# Runtime workspace outputs (keep Models/ examples tracked)
+**/database.db
+**/sfm_log.txt

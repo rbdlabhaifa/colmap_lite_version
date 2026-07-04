@@ -1,0 +1,19 @@
+# Copy to config.yaml and edit:
+#   cp config.yaml.example config.yaml
+
+# Absolute path to an empty workspace folder containing outpy.h264
+# (or use Models/video1, video2, video3 for bundled sample inputs)
+workspace_path: "/ABSOLUTE/PATH/TO/your-workspace"
+
+# Absolute path to this repository clone
+repo_root: "/ABSOLUTE/PATH/TO/colmap_lite_version"
+
+# Use Python ORB extraction + point_triangulator (true) vs full automatic_reconstructor (false)
+use_orb_version: true
+
+# Camera intrinsics are hardcoded for 640x480 Tello/Pi capture in detect_and_compute_keypoints.py
+# See Orb_version/Results640x480.txt for documented values
+
+# Frame extraction counts (defaults used by workplace_preparation.py)
+num_frames: 87
+temp_model_frames: 10
